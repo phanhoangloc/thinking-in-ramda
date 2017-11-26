@@ -1,5 +1,5 @@
 # Summary
 
-* [Giới thiệu](README.md)
-* [Bắt đầu](chapter1.md)
+* [Thinking in Ramda: Giới thiệu](README.md)
+* [Thinking in Ramda: Bắt đầu](chapter1.md)
 
