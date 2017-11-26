@@ -19,7 +19,7 @@ Nếu bạn muốn thử nghiệm với Ramda trong khi đọc qua loạt bài n
 
 ## Hàm
 
-Như tên có thể gợi ý, lập trình hàm có rất nhiều việc để làm với các hàm. Chúng ta sẽ định nghĩa một hàm như một đoạn code có thể tái sử dụng, được gọi với không hoặc nhiều đối số và trả về một kết quả.
+Như tên gọi có thể gợi ý, lập trình hàm có rất nhiều việc để làm với các hàm. Chúng ta sẽ định nghĩa một hàm như một đoạn code có thể tái sử dụng, được gọi với không hoặc nhiều đối số và trả về một kết quả.
 
 Đây là một hàm đơn giản trong JavaScript:
 
@@ -29,7 +29,7 @@ function double(x) {
 }
 ```
 
-Với các hàm mũi tên \(=&gt;\) của ES6, bạn có thể viết cùng một hàm dễ dàng hơn nhiều. Tôi đề cập đến điều này ngay bây giờ, bởi vì chúng tôi ta sẽ sử dụng rất nhiều hàm mũi tên sau này.
+Với các hàm mũi tên \(=&gt;\) của ES6, bạn có thể viết cùng một hàm theo cú pháp dễ dàng hơn nhiều. Tôi đề cập đến điều này ngay bây giờ, bởi vì chúng ta sẽ sử dụng rất nhiều các hàm mũi tên sau này.
 
 ```js
 const double = x => x * 2
