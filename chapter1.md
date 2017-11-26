@@ -1,6 +1,6 @@
 # Thinking in Ramda: Bắt đầu
 
-Bài viết này là sự khởi đầu của một series mới về lập trình hàm được gọi là Thinking in Ramda.
+Bài viết này là sự khởi đầu của một series mới về lập trình hàm được gọi là Thinking in Ramda.
 
 Tôi sẽ sử dụng thư viện [Ramda](http://ramdajs.com/) cho loạt bài này, mặc dù nhiều ý tưởng có thể được áp dụng cho các thư viện JavaScript khác như [Underscore](http://underscorejs.org/) và [Lodash](https://lodash.com/), cũng như cho các ngôn ngữ khác.
 
@@ -13,13 +13,13 @@ Tôi đã nói về thư viện [Ramda](http://ramdajs.com/) áp dụng cho Java
 * Trong [Using Ramda With Redux](http://randycoulman.com/blog/2016/02/16/using-ramda-with-redux/), tôi đã đưa ra một số ví dụ về cách Ramda có thể được sử dụng trong các ngữ cảnh khác nhau khi viết các ứng dụng [Redux](http://redux.js.org/).
 * Trong [Using Redux-api-middleware With Rails](http://randycoulman.com/blog/2016/04/19/using-redux-api-middleware-with-rails/), tôi đã sử dụng Ramda để giúp chuyển đổi request và response payloads.
 
-Tôi thấy Ramda là một thư viện được thiết kế độc đáo, cung cấp rất nhiều công cụ để lập trình hàm trong JavaScript một cách gọn gàng, thanh lịch.
+Tôi thấy Ramda là một thư viện được thiết kế độc đáo, cung cấp rất nhiều công cụ để lập trình hàm trong JavaScript một cách gọn gàng, thanh lịch.
 
 Nếu bạn muốn thử nghiệm với Ramda trong khi đọc qua loạt bài này, có một [môi trường thử nghiệm](http://ramdajs.com/repl/) trên trang web Ramda.
 
-## Hàm
+## Hàm
 
-Như tên gọi có thể gợi ý, lập trình hàm có rất nhiều việc để làm với các hàm. Chúng ta sẽ định nghĩa một hàm như một đoạn code có thể tái sử dụng, được gọi với không hoặc nhiều đối số và trả về một kết quả.
+Như tên gọi có thể gợi ý, lập trình hàm có rất nhiều việc để làm với các hàm. Chúng ta sẽ định nghĩa một hàm như một đoạn code có thể tái sử dụng, được gọi với không hoặc nhiều đối số và trả về một kết quả.
 
 Đây là một hàm đơn giản trong JavaScript:
 
@@ -29,7 +29,7 @@ function double(x) {
 }
 ```
 
-Với các hàm mũi tên \(=&gt;\) của ES6, bạn có thể viết cùng một hàm theo cú pháp dễ dàng hơn nhiều. Tôi đề cập đến điều này ngay bây giờ, bởi vì chúng ta sẽ sử dụng rất nhiều các hàm mũi tên sau này.
+Với các hàm mũi tên \(=&gt;\) của ES6, bạn có thể viết cùng một hàm theo cú pháp dễ dàng hơn nhiều. Tôi đề cập đến điều này ngay bây giờ, bởi vì chúng ta sẽ sử dụng rất nhiều các hàm mũi tên sau này.
 
 ```js
 const double = x => x * 2
@@ -37,7 +37,7 @@ const double = x => x * 2
 
 Hầu như mọi ngôn ngữ đều có một số hỗ trợ cho các hàm.
 
-Một số ngôn ngữ đi xa hơn và cung cấp hỗ trợ cho các hàm như cấu trúc first-class. Nói về "first-class", ý của tôi là các hàm có thể được sử dụng trong cùng một cách như các kiểu giá trị khác. Bạn có thể:
+Một số ngôn ngữ đi xa hơn và cung cấp hỗ trợ cho các hàm như cấu trúc first-class. Nói về "first-class", ý của tôi là các hàm có thể được sử dụng trong cùng một cách như các kiểu giá trị khác. Bạn có thể:
 
 * Tham khảo chúng từ hằng số và biến
 * Truyền chúng như các tham số cho các hàm khác
@@ -47,35 +47,35 @@ JavaScript là một ngôn ngữ như vậy, và chúng tôi sẽ tận dụng �
 
 ## Hàm thuần khiết
 
-Khi viết các chương trình theo hướng lập trình hàm, điều quan trọng là chúng ta làm việc chủ yếu với các hàm "thuần khiết" \(pure functions\).
+Khi viết các chương trình theo hướng lập trình hàm, điều quan trọng là chúng ta làm việc chủ yếu với các hàm "thuần khiết" \(pure functions\).
 
-Các hàm thuần khiết là những hàm không có hiệu ứng phụ \(side effects\). Chúng không gán giá trị cho bất kỳ các biến bên ngoài, chúng không tiêu thụ đầu vào, chúng không sản xuất đầu ra, chúng không đọc hoặc ghi vào cơ sở dữ liệu, chúng không sửa đổi các tham số chúng được truyền, vv
+Các hàm thuần khiết là những hàm không có hiệu ứng phụ \(side effects\). Chúng không gán giá trị cho bất kỳ các biến bên ngoài, chúng không tiêu thụ đầu vào, chúng không sản xuất đầu ra, chúng không đọc hoặc ghi vào cơ sở dữ liệu, chúng không sửa đổi các tham số chúng được truyền, vv
 
 Ý tưởng cơ bản là, nếu bạn gọi một hàm với các đầu vào giống nhau nhiều lần, bạn luôn nhận được kết quả giống nhau.
 
-Bạn chắc chắn có thể làm một số thứ với các hàm không thuần khiết \(và bạn phải, nếu chương trình của bạn muốn làm bất cứ điều gì thú vị\), nhưng phần lớn bạn sẽ muốn giữ cho hầu hết các hàm của bạn trở nên thuần khiết.
+Bạn chắc chắn có thể làm một số thứ với các hàm không thuần khiết \(và bạn phải, nếu chương trình của bạn muốn làm bất cứ điều gì thú vị\), nhưng phần lớn bạn sẽ muốn giữ cho hầu hết các hàm của bạn trở nên thuần khiết.
 
 ## Tính bất biến
 
 Một khái niệm quan trọng khác trong lập trình hàm là "tính bất biến" \(immutability\). Điều đó có nghĩa là gì? "Không thay đổi" \(immutable\) có nghĩa là "không thể thay đổi được".
 
-Khi tôi làm việc theo mô hình bất biến, một khi tôi khởi tạo một giá trị hoặc một đối tượng tôi không bao giờ có thể thay đổi nó một lần nữa. Điều đó có nghĩa là sẽ không có sự thay đổi các phần tử của một mảng hoặc các thuộc tính của một đối tượng.
+Khi tôi làm việc theo mô hình bất biến, một khi tôi khởi tạo một giá trị hoặc một đối tượng tôi không bao giờ có thể thay đổi nó một lần nữa. Điều đó có nghĩa là sẽ không có sự thay đổi các phần tử của một mảng hoặc các thuộc tính của một đối tượng.
 
-Thay vào đó, nếu tôi cần phải thay đổi một cái gì đó trong một mảng hoặc đối tượng, tôi sẽ trả lại một bản sao mới của nó với giá trị đã được thay đổi. Các bài viết sau sẽ nói về điều này một cách chi tiết.
+Thay vào đó, nếu tôi cần phải thay đổi một cái gì đó trong một mảng hoặc đối tượng, tôi sẽ trả lại một bản sao mới của nó với giá trị đã được thay đổi. Các bài viết sau sẽ nói về điều này một cách chi tiết.
 
-Tính bất biến luôn đi cùng với các hàm thuần khiết. Vì các hàm thuần khiết không được phép có các hiệu ứng phụ, chúng không được phép thay đổi cấu trúc dữ liệu bên ngoài. Chúng buộc phải làm việc với dữ liệu theo cách không thể thay đổi.
+Tính bất biến luôn đi cùng với các hàm thuần khiết. Vì các hàm thuần khiết không được phép có các hiệu ứng phụ, chúng không được phép thay đổi cấu trúc dữ liệu bên ngoài. Chúng buộc phải làm việc với dữ liệu theo cách không thể thay đổi.
 
 ## Bắt đầu từ đâu?
 
-Cách dễ nhất để bắt đầu suy nghĩ theo hướng lập trình hàm là bắt đầu thay thế các vòng lặp bằng tập hợp các hàm lặp.
+Cách dễ nhất để bắt đầu suy nghĩ theo hướng lập trình hàm là bắt đầu thay thế các vòng lặp bằng tập hợp các hàm lặp.
 
 Nếu bạn đến từ một ngôn ngữ khác mà có các hàm này \(Ruby và Smalltalk là hai ví dụ\), bạn có thể đã quen thuộc với chúng.
 
-Martin Fowler có một vài bài viết tuyệt vời về "Tập hợp đường ống" về [cách sử dụng các hàm này](http://martinfowler.com/articles/collection-pipeline/) và [cách tái cấu trúc code hiện có vào các tập hợp đường ống](http://martinfowler.com/articles/refactoring-pipelines.html).
+Martin Fowler có một vài bài viết tuyệt vời về "Tập hợp đường ống" về [cách sử dụng các hàm này](http://martinfowler.com/articles/collection-pipeline/) và [cách tái cấu trúc code hiện có vào các tập hợp đường ống](http://martinfowler.com/articles/refactoring-pipelines.html).
 
 Lưu ý rằng tất cả các hàm này \(ngoại trừ `reject`\) đều có sẵn trên `Array.prototype`, vì vậy bạn không cần Ramda để bắt đầu sử dụng chúng. Tuy nhiên, tôi sẽ sử dụng phiên bản của Ramda cho nhất quán với phần còn lại của loạt bài này.
 
-### forEach
+### forEach
 
 Thay vì viết một vòng lặp rõ ràng, hãy thử sử dụng hàm `forEach` thay thế. Đó là:
 
