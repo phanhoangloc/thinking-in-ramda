@@ -79,15 +79,27 @@ Nếu bạn đến từ một ngôn ngữ khác mà có các hàm này \(Ruby v�
 
 Martin Fowler có một vài bài viết tuyệt vời về "Tập hợp đường ống" về [cách sử dụng các hàm này](http://martinfowler.com/articles/collection-pipeline/) và [cách tái cấu trúc code hiện có vào các tập hợp đường ống](http://martinfowler.com/articles/refactoring-pipelines.html).
 
-Lưu ý rằng tất cả các hàm này \(ngoại trừ _reject_\) đều có sẵn trên _Array.prototype_, vì vậy bạn không cần Ramda để bắt đầu sử dụng chúng. Tuy nhiên, tôi sẽ sử dụng phiên bản của Ramda cho phù hợp với phần còn lại của loạt bài này.
+Lưu ý rằng tất cả các hàm này \(ngoại trừ `reject`\) đều có sẵn trên `Array.prototype`, vì vậy bạn không cần Ramda để bắt đầu sử dụng chúng. Tuy nhiên, tôi sẽ sử dụng phiên bản của Ramda cho phù hợp với phần còn lại của loạt bài này.
 
+### forEach
 
+Thay vì viết một vòng lặp rõ ràng, hãy thử sử dụng chức năng `forEach` thay thế. Đó là:
 
+```js
+// Replace this:
+for (const value of myArray) {
+  console.log(value)
+}
+ 
+// with:
+forEach(value => console.log(value), myArray)
+```
 
+`forEach` nhận vào một hàm và một mảng, và gọi hàm trên mỗi phần tử của mảng.
 
+Trong khi forEach là cách dễ tiếp cận nhất của các hàm này, nó lại ít được sử dụng nhất khi thực hiện trong lập trình hàm. Nó không trả về một giá trị, vì vậy thực sự nó chỉ được sử dụng cho việc gọi các hàm có hiệu ứng phụ.
 
-
-
+Còn tiếp...
 
 Nguồn: [Thinking in Ramda: Getting started](http://randycoulman.com/blog/2016/05/24/thinking-in-ramda-getting-started/)
 
