@@ -41,15 +41,15 @@ Một số ngôn ngữ đi xa hơn và cung cấp hỗ trợ cho các hàm như 
 
 * Tham khảo chúng từ hằng số và biến
 * Truyền chúng như các tham số cho các hàm khác
-* Trả lại chúng như kết quả từ các chức năng khác
+* Trả lại chúng như kết quả từ các hàm khác
 
 JavaScript là một ngôn ngữ như vậy, và chúng tôi sẽ tận dụng điều đó.
 
 ## Hàm thuần khiết
 
-Khi viết các chương trình chức năng, điều quan trọng là nó làm việc chủ yếu với cái gọi là các hàm "thuần khiết" \(pure functions\).
+Khi viết các chương trình theo hướng lập trình hàm, điều quan trọng là chúng ta làm việc chủ yếu với các hàm "thuần khiết" \(pure functions\).
 
-Các hàm thuần khiết là những hàm không có hiệu ứng phụ \(side effects\). Họ không gán cho bất kỳ các biến bên ngoài, chúng không tiêu thụ đầu vào, chúng không sản xuất đầu ra, chúng không đọc hoặc ghi vào cơ sở dữ liệu, chúng không sửa đổi các tham số chúng được truyền, vv
+Các hàm thuần khiết là những hàm không có hiệu ứng phụ \(side effects\). Chúng không gán giá trị cho bất kỳ các biến bên ngoài, chúng không tiêu thụ đầu vào, chúng không sản xuất đầu ra, chúng không đọc hoặc ghi vào cơ sở dữ liệu, chúng không sửa đổi các tham số chúng được truyền, vv
 
 Ý tưởng cơ bản là, nếu bạn gọi một hàm với các đầu vào giống nhau nhiều lần, bạn luôn nhận được kết quả giống nhau.
 
@@ -57,13 +57,13 @@ Bạn chắc chắn có thể làm một số thứ với các hàm không thu�
 
 ## Tính bất biến
 
-Một khái niệm quan trọng khác trong lập trình chức năng là "tính bất biến" \(Immutability\). Điều đó có nghĩa là gì? "Không thay đổi" có nghĩa là "không thể thay đổi được".
+Một khái niệm quan trọng khác trong lập trình hàm là "tính bất biến" \(immutability\). Điều đó có nghĩa là gì? "Không thay đổi" \(immutable\) có nghĩa là "không thể thay đổi được".
 
-Khi tôi làm việc trong một kiểu không thay đổi, một khi tôi khởi tạo một giá trị hoặc một đối tượng tôi không bao giờ có thể thay đổi nó một lần nữa. Điều đó có nghĩa là sẽ không có sự thay đổi các phần tử của một mảng hoặc các thuộc tính của một đối tượng.
+Khi tôi làm việc theo mô hình bất biến, một khi tôi khởi tạo một giá trị hoặc một đối tượng tôi không bao giờ có thể thay đổi nó một lần nữa. Điều đó có nghĩa là sẽ không có sự thay đổi các phần tử của một mảng hoặc các thuộc tính của một đối tượng.
 
-Thay vào đó, nếu tôi cần phải thay đổi một cái gì đó trong một mảng hoặc đối tượng, tôi sẽ trả lại một bản sao mới của nó với giá trị thay đổi. Các bài viết sau sẽ nói về điều này một cách chi tiết.
+Thay vào đó, nếu tôi cần phải thay đổi một cái gì đó trong một mảng hoặc đối tượng, tôi sẽ trả lại một bản sao mới của nó với giá trị đã được thay đổi. Các bài viết sau sẽ nói về điều này một cách chi tiết.
 
-Tính không thay đổi luôn đi cùng với các hàm thuần khiết. Vì các hàm thuần khiết không được phép có các hiệu ứng phụ, chúng không được phép thay đổi cấu trúc dữ liệu bên ngoài. Chúng buộc phải làm việc với dữ liệu theo cách không thể thay đổi.
+Tính bất biến luôn đi cùng với các hàm thuần khiết. Vì các hàm thuần khiết không được phép có các hiệu ứng phụ, chúng không được phép thay đổi cấu trúc dữ liệu bên ngoài. Chúng buộc phải làm việc với dữ liệu theo cách không thể thay đổi.
 
 ## Bắt đầu từ đâu?
 
@@ -73,11 +73,11 @@ Nếu bạn đến từ một ngôn ngữ khác mà có các hàm này \(Ruby v�
 
 Martin Fowler có một vài bài viết tuyệt vời về "Tập hợp đường ống" về [cách sử dụng các hàm này](http://martinfowler.com/articles/collection-pipeline/) và [cách tái cấu trúc code hiện có vào các tập hợp đường ống](http://martinfowler.com/articles/refactoring-pipelines.html).
 
-Lưu ý rằng tất cả các hàm này \(ngoại trừ `reject`\) đều có sẵn trên `Array.prototype`, vì vậy bạn không cần Ramda để bắt đầu sử dụng chúng. Tuy nhiên, tôi sẽ sử dụng phiên bản của Ramda cho phù hợp với phần còn lại của loạt bài này.
+Lưu ý rằng tất cả các hàm này \(ngoại trừ `reject`\) đều có sẵn trên `Array.prototype`, vì vậy bạn không cần Ramda để bắt đầu sử dụng chúng. Tuy nhiên, tôi sẽ sử dụng phiên bản của Ramda cho nhất quán với phần còn lại của loạt bài này.
 
 ### forEach
 
-Thay vì viết một vòng lặp rõ ràng, hãy thử sử dụng chức năng `forEach` thay thế. Đó là:
+Thay vì viết một vòng lặp rõ ràng, hãy thử sử dụng hàm `forEach` thay thế. Đó là:
 
 ```js
 // Replace this:
@@ -89,9 +89,9 @@ for (const value of myArray) {
 forEach(value => console.log(value), myArray)
 ```
 
-`forEach` nhận vào một hàm và một mảng, và gọi hàm trên mỗi phần tử của mảng.
+`forEach` nhận vào một hàm và một mảng, gọi hàm trên mỗi phần tử của mảng.
 
-Trong khi forEach là cách dễ tiếp cận nhất của các hàm này, nó lại ít được sử dụng nhất khi thực hiện trong lập trình hàm. Nó không trả về một giá trị, vì vậy thực sự nó chỉ được sử dụng cho việc gọi các hàm có hiệu ứng phụ.
+Trong khi forEach là cách dễ tiếp cận nhất của các hàm lặp này, nó lại ít được sử dụng nhất trong lập trình hàm. Nó không trả về một giá trị, vì vậy thực sự nó chỉ được sử dụng cho việc gọi các hàm có hiệu ứng phụ.
 
 Còn tiếp...
 
