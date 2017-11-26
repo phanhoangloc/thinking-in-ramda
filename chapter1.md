@@ -71,7 +71,7 @@ Cách dễ nhất để bắt đầu suy nghĩ theo hướng lập trình hàm l
 
 Nếu bạn đến từ một ngôn ngữ khác mà có các hàm này \(Ruby và Smalltalk là hai ví dụ\), bạn có thể đã quen thuộc với chúng.
 
-Martin Fowler có một vài bài viết tuyệt vời về "Tập hợp đường ống" về [cách sử dụng các hàm này](http://martinfowler.com/articles/collection-pipeline/) và [cách tái cấu trúc code hiện có vào các tập hợp đường ống](http://martinfowler.com/articles/refactoring-pipelines.html).
+Martin Fowler có một vài bài viết tuyệt vời về "Tập hợp đường ống" và [cách sử dụng các hàm này](http://martinfowler.com/articles/collection-pipeline/) và [cách tái cấu trúc code hiện có vào các tập hợp đường ống](http://martinfowler.com/articles/refactoring-pipelines.html).
 
 Lưu ý rằng tất cả các hàm này \(ngoại trừ `reject`\) đều có sẵn trên `Array.prototype`, vì vậy bạn không cần Ramda để bắt đầu sử dụng chúng. Tuy nhiên, tôi sẽ sử dụng phiên bản của Ramda cho nhất quán với phần còn lại của loạt bài này.
 
