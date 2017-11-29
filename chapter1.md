@@ -107,7 +107,7 @@ map(x => x * 2, [1, 2, 3])  // --> [2, 4, 6]
 
 ```js
 const double = x => x * 2
- 
+
 map(double, [1, 2, 3])
 ```
 
@@ -117,15 +117,71 @@ Tiếp theo, chúng ta hãy nhìn vào bộ lọc và từ chối. Như tên c�
 
 ```
 const isEven = x => x % 2 === 0
- 
+
 filter(isEven, [1, 2, 3, 4])  // --> [2, 4]
 ```
 
 lọc áp dụng các chức năng của nó \(isEven trong trường hợp này\) cho mỗi phần tử của mảng. Bất cứ khi nào hàm trả về một giá trị "truey", phần tử tương ứng được bao gồm trong kết quả. Bất cứ khi nào hàm trả về giá trị "giả tạo", phần tử tương ứng sẽ bị loại trừ \(bị lọc ra\) khỏi mảng.
 
-
-
 từ chối thực hiện chính xác cùng một điều, nhưng ngược lại. Nó giữ các phần tử mà hàm trả về một giá trị giả và loại trừ các giá trị mà nó trả về một giá trị đúng.
+
+```
+reject(isEven, [1, 2, 3, 4]) // --> [1, 3]
+```
+
+### Find
+
+find áp dụng một hàm cho mỗi phần của mảng và trả về phần tử đầu tiên mà hàm trả về một giá trị đúng.
+
+```
+find(isEven, [1, 2, 3, 4]) // --> 2
+```
+
+### Reduce
+
+
+
+
+
+563/5000
+
+giảm là một chút phức tạp hơn các chức năng khác mà chúng ta đã thấy cho đến nay.
+
+Bạn nên biết, nhưng nếu bạn gặp rắc rối trong việc hiểu nó lúc đầu, đừng để điều đó ngăn bạn.
+
+Bạn có thể có được một chặng đường dài mà không hiểu nó.
+
+giảm có hai đối số chức năng, và giá trị ban đầu, và mảng để hoạt động trên.
+
+Đối số đầu tiên của hàm mà chúng ta truyền vào được gọi là "accumulator" và đối số thứ hai là giá trị từ mảng.
+
+Hàm cần phải trả về một giá trị accumulator mới.
+
+Hãy xem xét một ví dụ và sau đó đi qua những gì đang xảy ra.
+
+```
+const add = (accum, value) => accum + value
+ 
+reduce(add, 5, [1, 2, 3, 4]) // --> 15
+```
+
+giảm các cuộc gọi đầu tiên chức năng \(thêm\) với giá trị ban đầu \(5\) và phần tử đầu tiên của mảng \(1\). add trả lại một giá trị accumulator mới \(5 + 1 = 6\).
+
+giảm các cuộc gọi thêm lần nữa, lần này với giá trị accumulator mới \(6\) và giá trị tiếp theo từ mảng \(2\). thêm kết quả 8.
+
+giảm các cuộc gọi thêm một lần nữa với 8 và giá trị tiếp theo \(3\), kết quả là 11.
+
+giảm các cuộc gọi thêm lần cuối với 11 và giá trị cuối cùng của mảng \(4\), kết quả là 15.
+
+làm giảm lợi nhuận thu được giá trị tích lũy cuối cùng như là kết quả của nó \(15\).
+
+## Conclusion
+
+Bằng cách bắt đầu với các hàm thu-lặp này, bạn có thể quen với ý tưởng truyền các hàm tới các hàm khác. Bạn có thể đã sử dụng những ngôn ngữ khác mà không nhận ra bạn đã làm một số chương trình chức năng.
+
+## Next
+
+Bài đăng kế tiếp trong loạt bài này, Kết hợp các chức năng, cho thấy chúng ta có thể thực hiện bước tiếp theo và bắt đầu kết hợp các chức năng theo những cách mới và thú vị.
 
 Còn tiếp...
 
