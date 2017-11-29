@@ -93,6 +93,40 @@ forEach(value => console.log(value), myArray)
 
 Trong khi forEach là cách dễ tiếp cận nhất của các hàm lặp này, nó lại ít được sử dụng nhất trong lập trình hàm. Nó không trả về một giá trị, vì vậy thực sự nó chỉ được sử dụng cho việc gọi các hàm có hiệu ứng phụ.
 
+### Map
+
+Chức năng quan trọng nhất tiếp theo để học là bản đồ. Giống như forEach, bản đồ áp dụng một hàm cho mỗi phần của một mảng. Tuy nhiên, không giống như forEach, bản đồ thu thập các kết quả của việc áp dụng các chức năng vào một mảng mới và trả về nó.
+
+Đây là một ví dụ:
+
+```js
+map(x => x * 2, [1, 2, 3])  // --> [2, 4, 6]
+```
+
+Điều này đang sử dụng một hàm ẩn danh, nhưng chúng ta có thể dễ dàng sử dụng một hàm được đặt tên ở đây:
+
+```js
+const double = x => x * 2
+ 
+map(double, [1, 2, 3])
+```
+
+### Filter/Reject
+
+Tiếp theo, chúng ta hãy nhìn vào bộ lọc và từ chối. Như tên của nó có thể gợi ý, lọc lựa chọn các phần tử từ một mảng dựa trên một số chức năng. Ví dụ:
+
+```
+const isEven = x => x % 2 === 0
+ 
+filter(isEven, [1, 2, 3, 4])  // --> [2, 4]
+```
+
+lọc áp dụng các chức năng của nó \(isEven trong trường hợp này\) cho mỗi phần tử của mảng. Bất cứ khi nào hàm trả về một giá trị "truey", phần tử tương ứng được bao gồm trong kết quả. Bất cứ khi nào hàm trả về giá trị "giả tạo", phần tử tương ứng sẽ bị loại trừ \(bị lọc ra\) khỏi mảng.
+
+
+
+từ chối thực hiện chính xác cùng một điều, nhưng ngược lại. Nó giữ các phần tử mà hàm trả về một giá trị giả và loại trừ các giá trị mà nó trả về một giá trị đúng.
+
 Còn tiếp...
 
 Nguồn: [Thinking in Ramda: Getting started](http://randycoulman.com/blog/2016/05/24/thinking-in-ramda-getting-started/)
