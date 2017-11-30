@@ -43,7 +43,7 @@ Lưu ý rằng `complement` thực hiện cùng một ý tưởng cho các hàm 
 
 ### both/either
 
-Hãy nói rằng chúng tôi đang làm việc trên một hệ thống bỏ phiếu. Với một người, chúng tôi muốn để có thể xác định xem người đó có đủ điều kiện bỏ phiếu. Dựa trên kiến thức hiện tại của chúng tôi, một người phải từ 18 tuổi trở lên và trở thành công dân để có thể bỏ phiếu. Một người nào đó là công dân nếu họ sinh ra ở trong nước hoặc nếu sau đó họ trở thành công dân thông qua việc nhập quốc tịch
+Giả sử rằng chúng ta đang làm việc trên một hệ thống bỏ phiếu. Với một người, chúng tôi muốn có thể xác định xem người đó có đủ điều kiện bỏ phiếu hay không. Dựa trên kiến thức hiện tại của chúng ta, một người cần phải từ 18 tuổi trở lên và là một công dân mới có thể bỏ phiếu. Một người nào đó là công dân nếu họ sinh ra ở trong nước hoặc nếu sau đó họ trở thành công dân thông qua việc nhập quốc tịch.
 
 ```
 const wasBornInCountry = person => person.birthCountry === OUR_COUNTRY
@@ -55,22 +55,22 @@ const isCitizen = person => wasBornInCountry(person) || wasNaturalized(person)
 const isEligibleToVote = person => isOver18(person) && isCitizen(person)
 ```
 
-Những gì chúng tôi đã viết ở trên các công trình, nhưng Ramda cung cấp một vài chức năng hữu ích để giúp chúng tôi làm sạch nó lên một chút.
+Những gì chúng ta đã viết ở trên chạy tốt, nhưng Ramda cung cấp một vài hàm hữu ích để giúp chúng ta viết nó gọn gàng hơn một chút.
 
-cả hai mất hai chức năng khác và trả về một hàm mới trả về true nếu cả hai hàm trả về một giá trị truey khi áp dụng cho các đối số và sai nếu không.
+`both` nhận hai hàm và trả về một hàm mới, trả về `true` nếu cả hai hàm trả về một giá trị đúng khi áp dụng trên các tham số và `false` theo chiều ngược lại.
 
-hoặc lấy hai hàm khác và trả về một hàm mới trả về true nếu một trong hai hàm trả về giá trị truey khi áp dụng cho các đối số và sai nếu không.
+`either` nhận hai hàm và trả về một hàm mới, trả về `true` nếu một trong hai hàm trả về giá trị đúng khi áp dụng trên các tham số và `false` theo chiều ngược lại.
 
-Sử dụng hai chức năng này, chúng ta có thể đơn giản hóa làCitizen và isEligibleToVote:
+Sử dụng hai hàm này, chúng ta có thể đơn giản hóa `isCitizen` và `isEligibleToVote`:
 
 ```
 const isCitizen = either(wasBornInCountry, wasNaturalized)
 const isEligibleToVote = both(isOver18, isCitizen)
 ```
 
-Lưu ý rằng cả hai đều thực hiện cùng một ý tưởng cho các hàm như toán tử && \(và\) đối với các giá trị và thực hiện cùng một ý tưởng cho các hàm như \|\| \(hoặc\) cho các giá trị.
+Lưu ý rằng `both`  thực hiện cùng một ý tưởng cho các hàm như toán tử && \(và\) đối với các giá trị và `either` thực hiện cùng một ý tưởng cho các hàm như \|\| \(hoặc\) cho các giá trị.
 
-Ramda cũng cung cấp allPass và anyPass có một mảng của bất kỳ số lượng các chức năng. Như tên của họ cho thấy, allPass hoạt động như cả hai, và anyPass hoạt động như là một trong hai.
+Ramda cũng cung cấp `allPass` và `anyPass`, nhận một mảng bất kỳ số lượng các hàm. Như tên của chúng cho thấy, `allPass` hoạt động như `both`, và `anyPass` hoạt động như `either`.
 
 ## Pipelines
 
