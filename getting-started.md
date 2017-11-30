@@ -1,4 +1,4 @@
-# Thinking in Ramda: Bắt đầu
+# Bắt đầu
 
 Bài viết này là sự khởi đầu của một series mới về lập trình hàm được gọi là Thinking in Ramda.
 
@@ -171,7 +171,7 @@ Bằng cách bắt đầu với các hàm lặp này, bạn có thể quen với
 
 ## Tiếp theo
 
-Bài viết kế tiếp trong loạt bài này, Kết hợp hàm, chỉ ra làm thể nào có thể thực hiện bước tiếp theo và bắt đầu kết hợp các hàm theo những cách mới mẻ và thú vị.
+Bài viết kế tiếp trong loạt bài này, [Kết hợp hàm](/combining-functions.md), chỉ ra làm thể nào có thể thực hiện bước tiếp theo và bắt đầu kết hợp các hàm theo những cách mới mẻ và thú vị.
 
 Nguồn: [Thinking in Ramda: Getting started](http://randycoulman.com/blog/2016/05/24/thinking-in-ramda-getting-started/)
 

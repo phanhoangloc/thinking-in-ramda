@@ -1,5 +1,8 @@
 # Summary
 
-* [Thinking in Ramda: Giới thiệu](README.md)
-* [Thinking in Ramda: Bắt đầu](chapter1.md)
+* [Giới thiệu](README.md)
+* [Bắt đầu](/getting-started.md)
+* [Kết hợp hàm](combining-functions.md)
+
+
 
