@@ -95,7 +95,7 @@ Trong khi forEach là cách dễ tiếp cận nhất của các hàm lặp này,
 
 ### Map
 
-Chức năng quan trọng nhất tiếp theo để học là `map`. Giống như `forEach`, `map` áp dụng một hàm cho mỗi phần của một mảng. Tuy nhiên, không giống như `forEach`, `map` thu thập các kết quả của việc áp dụng hàm vào một mảng mới và trả về nó.
+Chức năng quan trọng nhất tiếp theo để học là `map`. Giống như `forEach`, `map` áp dụng một hàm cho mỗi phần tử của mảng. Tuy nhiên, không giống như `forEach`, `map` thu thập các kết quả của việc áp dụng hàm vào một mảng mới và trả về nó.
 
 Đây là một ví dụ:
 
@@ -103,7 +103,7 @@ Chức năng quan trọng nhất tiếp theo để học là `map`. Giống như
 map(x => x * 2, [1, 2, 3])  // --> [2, 4, 6]
 ```
 
-Ví dụ trên sử dụng một hàm ẩn danh, nhưng chúng ta có thể dễ dàng sử dụng một hàm được đặt tên ở đây:
+Ví dụ trên sử dụng một hàm ẩn danh, nhưng chúng ta có thể dễ dàng sử dụng một hàm được đặt tên:
 
 ```js
 const double = x => x * 2
@@ -121,9 +121,9 @@ const isEven = x => x % 2 === 0
 filter(isEven, [1, 2, 3, 4])  // --> [2, 4]
 ```
 
-`filter` áp dụng hàm của nó \(isEven trong trường hợp này\) cho mỗi phần tử của mảng. Bất cứ khi nào hàm trả về một giá trị "đúng" \(truthy\), phần tử tương ứng sẽ được bao gồm trong kết quả. Bất cứ khi nào hàm trả về giá trị "sai" \(falsy\), phần tử tương ứng sẽ bị loại trừ \(bị lọc ra\) khỏi mảng.
+`filter` áp dụng hàm của nó \(`isEven` trong trường hợp này\) cho mỗi phần tử của mảng. Bất cứ khi nào hàm trả về một giá trị "đúng" \(truthy\), phần tử tương ứng sẽ được bao gồm trong kết quả. Bất cứ khi nào hàm trả về giá trị "sai" \(falsy\), phần tử tương ứng sẽ bị loại trừ \(bị lọc ra\) khỏi mảng.
 
-`reject` thực hiện chính xác như vậy, nhưng ngược lại. Nó giữ các phần tử mà hàm trả về một giá trị sai và loại trừ các giá trị mà hàm trả về một giá trị đúng.
+`reject` thực hiện chính xác như vậy, nhưng theo cách ngược lại. Nó giữ các phần tử mà hàm trả về một giá trị sai và loại trừ các giá trị mà hàm trả về một giá trị đúng.
 
 ```
 reject(isEven, [1, 2, 3, 4]) // --> [1, 3]
@@ -141,17 +141,17 @@ find(isEven, [1, 2, 3, 4]) // --> 2
 
 `reduce` thì phức tạp hơn các hàm khác mà chúng ta đã thấy cho đến giờ.
 
-Bạn nên biết, nhưng nếu bạn gặp rắc rối trong việc hiểu nó lúc đầu, đừng để điều đó ngăn cản bạn.
+Bạn nên biết về nó, nhưng nếu bạn gặp rắc rối trong việc hiểu nó lúc đầu, đừng để điều đó ngăn cản bạn.
 
 Bạn có thể có thể đi được một chặng đường dài mà không nhất thiết phải hiểu nó.
 
 `reduce` nhận vào một hàm hai đối số, một giá trị ban đầu, và mảng để vận hành.
 
-Đối số đầu tiên của hàm mà chúng ta truyền vào được gọi là "accumulator" và đối số thứ hai là giá trị từ mảng.
+Đối số đầu tiên của hàm mà chúng ta truyền vào được gọi là "giá trị tích lũy" (accumulator) và đối số thứ hai là giá trị từ mảng.
 
-Hàm cần phải trả về một giá trị accumulator mới.
+Hàm cần phải trả về một giá trị tích lũy mới.
 
-Hãy cùng xem xét một ví dụ và sau đó giải thích chi tiết những gì đã xảy ra.
+Hãy xem xét một ví dụ và sau đó giải thích những gì đã xảy ra.
 
 ```
 const add = (accum, value) => accum + value
@@ -159,8 +159,8 @@ const add = (accum, value) => accum + value
 reduce(add, 5, [1, 2, 3, 4]) // --> 15
 ```
 
-1. `reduce` đầu tiên gọi hàm `add` với giá trị ban đầu \(`5`\) và phần tử đầu tiên của mảng \(`1`\). `add` trả lại một giá trị accumulator mới \(`5 + 1 = 6`\).
-2. `reduce` gọi `add` lần nữa, lần này với giá trị accumulator mới \(`6`\) và giá trị tiếp theo từ mảng \(`2`\). `add` trả về `8`.
+1. `reduce` đầu tiên gọi hàm `add` với giá trị ban đầu \(`5`\) và phần tử đầu tiên của mảng \(`1`\). `add` trả lại một giá trị tích lũy mới \(`5 + 1 = 6`\).
+2. `reduce` gọi `add` lần nữa, lần này với giá trị tích lũy mới \(`6`\) và giá trị tiếp theo từ mảng \(`2`\). `add` trả về `8`.
 3. `reduce` gọi `add` một lần nữa với `8` và giá trị tiếp theo \(`3`\), kết quả là `11`.
 4. `reduce` gọi `add` lần cuối với `11` và giá trị cuối cùng của mảng \(`4`\), kết quả là `15`.
 5. `reduce` trả về giá trị tích lũy cuối cùng như là kết quả của nó \(`15`\).
