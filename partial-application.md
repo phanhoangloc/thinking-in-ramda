@@ -94,7 +94,7 @@ First argument to _arity must be a non-negative integer no greater than ten
 
 Phải sử dụng phần và từng phần ở mọi nơi đều bị tiết đoạn và tẻ nhạt. Tuy nhiên, việc phải gọi hàm số nhiều tham số như một chuỗi các hàm đơn lẻ là không tốt.
 
-May mắn thay, Ramda cung cấp cho chúng tôi một giải pháp: cà ri.
+May mắn thay, Ramda cung cấp cho chúng tôi một giải pháp: curry.
 
 Currying là một khái niệm cốt lõi trong lập trình chức năng. Về mặt kỹ thuật, một hàm curried luôn là một chuỗi các hàm đơn lẻ, đó là điều tôi vừa phàn nàn. Trong ngôn ngữ chức năng thuần túy, cú pháp nói chung làm cho trông không khác gì gọi một hàm với nhiều đối số.
 
@@ -106,7 +106,7 @@ Bạn có thể nghĩ đến một chức năng tiên tiến như là tốt nh�
 
 Lưu ý rằng sự linh hoạt này giới thiệu một hit hiệu suất nhỏ, bởi vì cà ri cần phải tìm ra chức năng được gọi như thế nào và sau đó xác định phải làm gì. Nói chung, tôi chỉ curry chức năng khi tôi thấy tôi cần phải sử dụng một phần ở nhiều nơi.
 
-Chúng ta hãy tận dụng cà ri với chức năngInYear đã được xuất bản của chúng tôi. Lưu ý rằng cà ri luôn hoạt động như thể bạn đã từng sử dụng một phần; không có phiên bản partialRight. Chúng ta sẽ nói về điều đó ở bên dưới, nhưng bây giờ, chúng ta sẽ đảo ngược các lập luận để xuất bảnNgày Năm để năm đầu tiên đến.
+Chúng ta hãy tận dụng cà ri với chức năngInYear đã được xuất bản của chúng tôi. Lưu ý rằng cà ri luôn hoạt động như thể bạn đã từng sử dụng một phần; không có phiên bản partialRight. Chúng ta sẽ nói về điều đó ở bên dưới, nhưng bây giờ, chúng ta sẽ đảo ngược các lập luận để xuất bản Ngày Năm để năm đầu tiên đến.
 
 ```
 const publishedInYear = curry((year, book) => book.year === year)
@@ -120,7 +120,7 @@ const titlesForYear = (books, year) => {
 
 Chúng ta có thể một lần nữa gọi xuất bản năm nay với chỉ một năm và lấy lại một chức năng mà sau đó lấy một cuốn sách và thực hiện chức năng ban đầu của chúng tôi. Tuy nhiên, chúng tôi vẫn có thể gọi nó là bình thường như được xuất bản trong năm \(2012, sách\) mà không gây phiền nhiễu\) \(cú pháp. Tốt nhất của cả hai thế giới!
 
-## Lệnh tranh luận
+## THỨ TỰ THAM SỐ
 
 Lưu ý rằng để làm cho cà ri làm việc cho chúng tôi, chúng tôi đã phải đảo ngược thứ tự tranh luận. Điều này là rất phổ biến với chức năng lập trình, do đó, hầu như mỗi chức năng Ramda được viết để các dữ liệu được vận hành trên đi đến cuối.
 
@@ -128,7 +128,7 @@ Bạn có thể nghĩ ra các tham số trước đó như cấu hình cho thao 
 
 Chúng ta đã thấy các ví dụ này với các chức năng lặp lại bộ sưu tập. Tất cả họ lấy bộ sưu tập như là đối số cuối cùng vì nó làm cho phong cách lập trình này dễ dàng hơn.
 
-## Đối số trong Đơn đặt hàng sai
+## CÁC THAM SỐ SAI THỨ TỰ
 
 Điều gì sẽ xảy ra nếu chúng ta đã bỏ trật tự tranh luận xuất bản một năm? Làm sao chúng ta vẫn có thể tận dụng được bản chất của nó?
 
@@ -188,7 +188,7 @@ Tôi tìm thấy phiên bản này dễ đọc hơn, nhưng nếu tôi cần s�
 
 Lưu ý rằng \_\_ chỉ hoạt động cho các chức năng chèn, trong khi phần, partialRight, và lật tất cả các công việc trên bất kỳ chức năng. Nếu bạn cần sử dụng \_\_ với một chức năng bình thường, bạn luôn có thể quấn nó với một cuộc gọi để cà ri đầu tiên.
 
-## Hãy làm một đường ống
+## HÃY LÀM MỘT ĐƯỜNG ỐNG
 
 Hãy xem liệu chúng ta có thể di chuyển các bộ lọc và các cuộc gọi bản đồ vào đường ống. Đây là trạng thái hiện tại của mã, với trật tự thuận tiện cho publishInYear:
 
@@ -231,13 +231,15 @@ const titlesForYear = curry((year, books) =>
 )
 ```
 
-## Phần kết luận
+## KẾT LUẬN
 
 Bài đăng này có lẽ là bài sâu nhất trong loạt bài này. Một phần ứng dụng và currying có thể mất một thời gian và nỗ lực để quấn quanh đầu của bạn. Nhưng một khi bạn "nhận được" chúng, họ sẽ giới thiệu cho bạn một cách rất mạnh mẽ để chuyển đổi dữ liệu của bạn một cách có chức năng.
 
 Họ dẫn bạn bắt đầu xây dựng các phép biến đổi bằng cách tạo ra những đường ống nhỏ, các khối xây dựng đơn giản.
 
-## Kế tiếp
+## TIẾP THEO
 
 Để viết mã theo kiểu chức năng, chúng ta cần bắt đầu suy nghĩ "declaratively" thay vì "imperatively". Để làm được điều đó, chúng ta sẽ cần phải tìm ra những cách thể hiện các cấu trúc bắt buộc chúng ta đã quen với cách thức chức năng. Lập trình tuyên bố thảo luận về những ý tưởng này.
+
+Nguồn: [Thinking in Ramda: Partial application](http://randycoulman.com/blog/2016/06/07/thinking-in-ramda-partial-application/)
 
