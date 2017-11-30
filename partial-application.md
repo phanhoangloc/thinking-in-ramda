@@ -122,23 +122,23 @@ Chúng ta có thể một lần nữa gọi `publishedInYear` với số năm v�
 
 ## THỨ TỰ THAM SỐ
 
-Lưu ý rằng để curry làm việc cho chúng ta, chúng ta đã phải đảo ngược thứ tự tham số. Điều này là rất phổ biến với lập trình hàm, do đó, hầu như mỗi hàm của Ramda được viết để cho các dữ liệu được vận hành đi đến như là tham số cuối cùng.
+Lưu ý rằng để `curry` làm việc cho chúng ta, chúng ta đã phải đảo ngược thứ tự tham số. Điều này là rất phổ biến với lập trình hàm, do đó, hầu như mỗi hàm của Ramda được viết để cho các dữ liệu được vận hành đi đến như là tham số cuối cùng.
 
-Bạn có thể nghĩ về các tham số trước đó như là cấu hình cho tác vụ. Vì vậy, đối với publishedInYear, tham số year là cấu hình \(chúng ta đang tìm kiếm cái gì?\) Và tham số book là dữ liệu \(chúng ta đang tìm kiếm nó ở đâu?\).
+Bạn có thể nghĩ về các tham số trước đó như là cấu hình cho tác vụ. Vì vậy, đối với `publishedInYear`, tham số `year` là cấu hình \(chúng ta đang tìm kiếm cái gì?\) Và tham số `book` là dữ liệu \(chúng ta đang tìm kiếm nó ở đâu?\).
 
-Chúng ta đã thấy các ví dụ này với các hàm lặp trên tập hợp. Tất cả chúng nhận vào tập hợp như là tham số cuối cùng vì nó làm cho phong cách lập trình này dễ dàng hơn.
+Chúng ta đã thấy các ví dụ này với các hàm lặp trên tập hợp. Tất cả chúng đều nhận vào tập hợp như là tham số cuối cùng vì nó làm cho phong cách lập trình này dễ dàng hơn.
 
 ## CÁC THAM SỐ SAI THỨ TỰ
 
-Điều gì sẽ xảy ra nếu chúng ta đã bỏ trật tự tranh luận xuất bản một năm? Làm sao chúng ta vẫn có thể tận dụng được bản chất của nó?
+Điều gì sẽ xảy ra nếu chúng ta đã bỏ qua thứ tự tham số của `publishedInYear`? Làm sao chúng ta vẫn có thể tận dụng được bản chất của curry?
 
 Ramda cung cấp một vài lựa chọn.
 
 ### flip
 
-Tùy chọn đầu tiên làflip.fliptakes một hàm của 2 hoặc nhiều đối số và trả về một hàm mới có các đối số tương tự, nhưng sẽ chuyển đổi thứ tự của hai đối số đầu tiên. Nó chủ yếu được sử dụng với hai hàm đối số, nhưng chung chung hơn.
+Tùy chọn đầu tiên là `flip`. `flip` nhận một hàm của 2 hoặc nhiều tham số và trả về một hàm mới có các tham số tương tự, nhưng sẽ chuyển đổi thứ tự của hai tham số đầu tiên. Nó chủ yếu được sử dụng với hàm hai đối số.
 
-Sử dụng tính năng này, chúng ta có thể quay trở lại nguyên tắc đối số gốc forpublishedInYear:
+Sử dụng `flip`, chúng ta có thể quay trở lại thứ tự tham số ban đầu của `publishedInYear`:
 
 ```
 const publishedInYear = curry((book, year) => book.year === year)
@@ -150,7 +150,7 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Trong hầu hết các trường hợp, tôi muốn sử dụng trật tự lập luận thuận tiện hơn, nhưng nếu bạn cần sử dụng một chức năng mà bạn không kiểm soát, flip là một lựa chọn hữu ích.
+Trong hầu hết các trường hợp, tôi muốn ưu tiên sử dụng thứ tự tham số thuận tiện hơn, nhưng nếu bạn cần sử dụng một hàm mà bạn không kiểm soát, `flip` là một lựa chọn hữu ích.
 
 ### placeholder
 
