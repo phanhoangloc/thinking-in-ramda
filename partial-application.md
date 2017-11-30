@@ -122,11 +122,11 @@ Chúng ta có thể một lần nữa gọi `publishedInYear` với số năm v�
 
 ## THỨ TỰ THAM SỐ
 
-Lưu ý rằng để làm cho cà ri làm việc cho chúng tôi, chúng tôi đã phải đảo ngược thứ tự tranh luận. Điều này là rất phổ biến với chức năng lập trình, do đó, hầu như mỗi chức năng Ramda được viết để các dữ liệu được vận hành trên đi đến cuối.
+Lưu ý rằng để curry làm việc cho chúng ta, chúng ta đã phải đảo ngược thứ tự tham số. Điều này là rất phổ biến với lập trình hàm, do đó, hầu như mỗi hàm của Ramda được viết để cho các dữ liệu được vận hành đi đến như là tham số cuối cùng.
 
-Bạn có thể nghĩ ra các tham số trước đó như cấu hình cho thao tác. Vì vậy, đối với publishedInYear, tham số year là cấu hình \(chúng ta đang tìm kiếm cái gì?\) Và tham số book là dữ liệu \(chúng ta đang tìm kiếm nó ở đâu?\).
+Bạn có thể nghĩ về các tham số trước đó như là cấu hình cho tác vụ. Vì vậy, đối với publishedInYear, tham số year là cấu hình \(chúng ta đang tìm kiếm cái gì?\) Và tham số book là dữ liệu \(chúng ta đang tìm kiếm nó ở đâu?\).
 
-Chúng ta đã thấy các ví dụ này với các chức năng lặp lại bộ sưu tập. Tất cả họ lấy bộ sưu tập như là đối số cuối cùng vì nó làm cho phong cách lập trình này dễ dàng hơn.
+Chúng ta đã thấy các ví dụ này với các hàm lặp trên tập hợp. Tất cả chúng nhận vào tập hợp như là tham số cuối cùng vì nó làm cho phong cách lập trình này dễ dàng hơn.
 
 ## CÁC THAM SỐ SAI THỨ TỰ
 
