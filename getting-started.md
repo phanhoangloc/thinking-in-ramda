@@ -1,6 +1,6 @@
 # BẮT ĐẦU
 
-Bài viết này là sự khởi đầu của một series mới về lập trình hàm được gọi là Thinking in Ramda.
+Bài viết này là sự khởi đầu của một series mới về lập trình hàm được gọi là [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/).
 
 Tôi sẽ sử dụng thư viện [Ramda](http://ramdajs.com/) cho loạt bài này, mặc dù nhiều ý tưởng có thể được áp dụng cho các thư viện JavaScript khác như [Underscore](http://underscorejs.org/) và [Lodash](https://lodash.com/), cũng như cho các ngôn ngữ khác.
 

@@ -1,18 +1,18 @@
 # KẾT HỢP HÀM
 
-Bài đăng này là Phần 2 của loạt bài về lập trình chức năng được gọi là Tư duy trong Ramda.
+Bài đăng này là Phần 2 của loạt bài về lập trình hàm được gọi là [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/).
 
-Trong Phần 1, tôi giới thiệu Ramda và một số ý tưởng cơ bản về lập trình chức năng, chẳng hạn như các chức năng, chức năng thuần túy và tính không thay đổi. Sau đó tôi đề xuất rằng một nơi tốt để bắt đầu là với các chức năng thu thập-lặp lại như forEach, bản đồ, lựa chọn, và bạn bè.
+Trong [Phần 1](//getting-started.md), tôi giới thiệu Ramda và một số ý tưởng cơ bản về lập trình hàm, chẳng hạn như hàm, hàm thuần khiết và tính bất biến. Sau đó tôi đề xuất rằng cách tốt để bắt đầu là với các hàm lặp trên tập hợp như `forEach`, `map`, `find`,...
 
-## Simple combinations
+## CÁC KẾT HỢP ĐƠN GIẢN
 
-Một khi bạn đã quen với ý tưởng truyền chức năng sang các chức năng khác, bạn có thể bắt đầu tìm ra các tình huống mà bạn muốn kết hợp nhiều chức năng với nhau.
+Một khi bạn đã quen với ý tưởng truyền hàm đến các hàm khác, bạn có thể bắt đầu tìm ra các tình huống mà bạn muốn kết hợp nhiều hàm với nhau.
 
-Ramda cung cấp một số chức năng để làm các kết hợp đơn giản. Hãy nhìn vào một vài.
+Ramda cung cấp một số chức năng để tạo các kết hợp đơn giản. Hãy nhìn vào một vài ví dụ.
 
-### Complement
+### complement
 
-Trong bài đăng cuối cùng, chúng tôi đã sử dụng tìm thấy số thứ tự đầu tiên trong danh sách:
+Trong bài viết gần nhất, chúng ta đã sử dụng `find` để tìm số chẵn đầu tiên trong danh sách:
 
 ```
 const isEven = x => x % 2 === 0
@@ -20,9 +20,9 @@ const isEven = x => x % 2 === 0
 find(isEven, [1, 2, 3, 4]) // --> 2
 ```
 
-Điều gì sẽ xảy ra nếu chúng ta muốn tìm số lẻ đầu tiên thay thế. Chúng ta luôn có thể viết một hàm isOdd và sử dụng nó, nhưng chúng ta biết rằng bất kỳ số nào thậm chí không phải là lẻ. Chúng ta hãy sử dụng lại chức năng của chúng ta.
+Điều gì sẽ xảy ra nếu chúng ta muốn tìm số lẻ đầu tiên. Chúng ta luôn có thể viết một hàm `isOdd` và sử dụng nó, nhưng chúng ta biết rằng bất kỳ số nào nếu không phải là chẵn thỉ là số lẻ. Chúng ta hãy sử dụng lại hàm `isEven`.
 
-Ramda cung cấp một hàm bậc cao, bổ sung, lấy một hàm khác và trả về một hàm mới trả về true khi hàm gốc trả về một giá trị sai và sai khi hàm gốc trả về một giá trị đúng.
+Ramda cung cấp một hàm bậc cao \(higher order function\), `complement`, lấy nhận một hàm và trả về một hàm mới, trả về `true` khi hàm gốc trả về một giá trị `false` và `false` khi hàm gốc trả về một giá trị `true`.
 
 ```
 const isEven = x => x % 2 === 0
@@ -30,7 +30,7 @@ const isEven = x => x % 2 === 0
 find(complement(isEven), [1, 2, 3, 4]) // --> 1
 ```
 
-Thậm chí tốt hơn là cung cấp cho các chức năng bổ sung tên riêng của mình để nó có thể được sử dụng lại:
+Thậm chí tốt hơn là cung cấp cho hàm bổ sung tên riêng để nó có thể được sử dụng lại:
 
 ```
 const isEven = x => x % 2 === 0
@@ -39,11 +39,11 @@ const isOdd = complement(isEven)
 find(isOdd, [1, 2, 3, 4]) // --> 1
 ```
 
-Lưu ý rằng bổ sung thực hiện cùng một ý tưởng cho các chức năng như! \(không\) điều hành không cho các giá trị.
+Lưu ý rằng `complement` thực hiện cùng một ý tưởng cho các hàm giống như là `!` \(phủ định\) áp dụng cho các giá trị.
 
-### Both/Either
+### both/either
 
-Let’s say we’re working on a voting system. Given a person, we’d like to be able to determine if that person is eligible to vote. Based on our current knowledge, a person must be at least 18 years old and be a citizen in order to be able to vote. Someone is a citizen if they were born in the country or if they later became a citizen through naturalization
+Hãy nói rằng chúng tôi đang làm việc trên một hệ thống bỏ phiếu. Với một người, chúng tôi muốn để có thể xác định xem người đó có đủ điều kiện bỏ phiếu. Dựa trên kiến thức hiện tại của chúng tôi, một người phải từ 18 tuổi trở lên và trở thành công dân để có thể bỏ phiếu. Một người nào đó là công dân nếu họ sinh ra ở trong nước hoặc nếu sau đó họ trở thành công dân thông qua việc nhập quốc tịch
 
 ```
 const wasBornInCountry = person => person.birthCountry === OUR_COUNTRY
