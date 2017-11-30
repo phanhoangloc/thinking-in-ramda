@@ -118,7 +118,7 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Chúng ta có thể một lần nữa gọi xuất bản năm nay với chỉ một năm và lấy lại một chức năng mà sau đó lấy một cuốn sách và thực hiện chức năng ban đầu của chúng tôi. Tuy nhiên, chúng tôi vẫn có thể gọi nó là bình thường như được xuất bản trong năm \(2012, sách\) mà không gây phiền nhiễu\) \(cú pháp. Tốt nhất của cả hai thế giới!
+Chúng ta có thể một lần nữa gọi `publishedInYear` với số năm và trả lại một hàm, nhận vào một cuốn sách và thực hiện hàm ban đầu. Tuy nhiên, chúng ta vẫn có thể gọi nó theo cách thông thường `publishedInYear(2012, book)` mà không gây phiền toái với cú pháp `)(`.
 
 ## THỨ TỰ THAM SỐ
 
