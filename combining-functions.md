@@ -55,7 +55,7 @@ const isCitizen = person => wasBornInCountry(person) || wasNaturalized(person)
 const isEligibleToVote = person => isOver18(person) && isCitizen(person)
 ```
 
-Những gì chúng ta đã viết ở trên chạy tốt, nhưng Ramda cung cấp một vài hàm hữu ích để giúp chúng ta viết nó gọn gàng hơn một chút.
+Những gì chúng ta đã viết ở trên chạy tốt, nhưng Ramda cung cấp một vài hàm hữu ích để giúp chúng ta viết nó gọn gàng hơn.
 
 `both` nhận hai hàm và trả về một hàm mới, trả về `true` nếu cả hai hàm trả về một giá trị đúng khi áp dụng trên các tham số và `false` theo chiều ngược lại.
 
@@ -154,7 +154,7 @@ Bằng cách kết hợp các hàm theo những cách cụ thể, chúng ta có 
 
 Bạn có thể đã nhận thấy rằng chúng ta chủ yếu bỏ qua các tham số khi chúng ta kết hợp các hàm. Chúng ta chỉ cung cấp các tham số khi chúng ta gọi hàm kết hợp.
 
-Điều này là phổ biến trong lập trình hàm, và chúng ta nói về điều đó nhiều hơn nữa trong bài tiếp theo, [Áp dụng từng phần](/partial-application.md). Chúng ta cũng sẽ nói về việc làm thế nào để kết hợp các hàm có nhiều hơn một tham số.
+Điều này là phổ biến trong lập trình hàm, và chúng ta sẽ nói về nó nhiều hơn nữa trong bài tiếp theo, [Áp dụng từng phần](/partial-application.md). Chúng ta cũng sẽ nói về việc làm thế nào để kết hợp các hàm có nhiều hơn một tham số.
 
 Nguồn: [Thinking in Ramda: Combining functions](http://randycoulman.com/blog/2016/05/31/thinking-in-ramda-combining-functions/)
 
