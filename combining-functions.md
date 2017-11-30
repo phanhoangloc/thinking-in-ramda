@@ -154,5 +154,5 @@ Bằng cách kết hợp các hàm theo những cách cụ thể, chúng ta có 
 
 Bạn có thể đã nhận thấy rằng chúng ta chủ yếu bỏ qua các tham số khi chúng ta kết hợp các hàm. Chúng ta chỉ cung cấp các tham số khi chúng ta gọi hàm kết hợp.
 
-Điều này là phổ biến trong lập trình hàm, và chúng ta nói về điều đó nhiều hơn nữa trong bài tiếp theo, [Áp dụng từng phần](/partial-application.md). Chúng ta cũng nói về làm thế nào để kết hợp các chức năng mà có nhiều hơn một đối số.
+Điều này là phổ biến trong lập trình hàm, và chúng ta nói về điều đó nhiều hơn nữa trong bài tiếp theo, [Áp dụng từng phần](/partial-application.md). Chúng ta cũng sẽ nói về việc làm thế nào để kết hợp các hàm có nhiều hơn một tham số.
 
