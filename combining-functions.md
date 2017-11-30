@@ -116,15 +116,15 @@ Khi chúng ta gọi `operate(3, 4)`, `pipe` truyền `3` và `4` đến hàm `mu
 
 ### compose
 
-Một cách khác chúng ta có thể đã viết chức năng hoạt động ban đầu của chúng tôi là nội tuyến tất cả các biến tạm thời:
+Một cách khác chúng ta có thể viết hàm `operate` ban đầu của chúng ta là nội tuyến \(inline\) tất cả các biến tạm thời:
 
 ```
 const operate = (x, y) => square(addOne(multiply(x, y)))
 ```
 
-Điều đó còn nhỏ gọn hơn, nhưng hơi khó đọc hơn. Tuy nhiên, trong hình thức đó, nó tự cho mình viết lại bằng cách sử dụng chức năng soạn thảo của Ramda.
+Nhìn nó còn nhỏ gọn hơn, nhưng lại hơi khó đọc hơn. Tuy nhiên, trong hình thức đó, nó dẫn đến việc có thể viết lại bằng cách sử dụng hàm `compose` của Ramda.
 
-soạn thảo chính xác theo cùng cách với đường ống, ngoại trừ việc áp dụng các chức năng theo thứ tự từ phải sang trái thay vì từ trái sang phải. Hãy viết hoạt động với soạn:
+`compose` chính xác theo cùng cách với `pipe`, ngoại trừ việc áp dụng các hàm theo thứ tự từ phải sang trái \(right to left\) thay vì từ trái sang phải \(left to right\). Hãy viết lại `operate` với `compose`:
 
 ```
 const operate = compose(
@@ -134,17 +134,17 @@ const operate = compose(
 )
 ```
 
-Điều này hoàn toàn giống như ống ở trên, nhưng với các chức năng theo thứ tự ngược lại. Trên thực tế, chức năng sáng tác của Ramda được viết dưới dạng đường ống.
+Điều này hoàn toàn giống như `pipe` ở trên, nhưng với các hàm theo thứ tự ngược lại. Trên thực tế, hàm `compose` của Ramda được viết theo `pipe`.
 
-Tôi luôn luôn nghĩ đến soạn theo cách này: compose \(f, g\) \(value\) tương đương với f \(g \(value\)\).
+Tôi luôn luôn nghĩ đến `compose` theo cách này: `compose(f, g)(value)` tương đương với `f(g(value))`.
 
-Như với đường ống, lưu ý rằng tất cả các chức năng ngoại trừ cuối cùng chỉ phải mất một đối số duy nhất.
+Như với `pipe`, lưu ý rằng tất cả các hàm ngoại trừ hàm cuối cùng chỉ phải có một tham số duy nhất.
 
-### Compose or Pipe?
+### compose hay pipe?
 
-Tôi nghĩ rằng đường ống có lẽ là dễ hiểu nhất khi đến từ một nền tảng bắt buộc hơn kể từ khi bạn đọc các chức năng từ trái sang phải. Tuy nhiên, soạn thảo là một chút dễ dàng hơn để dịch cho các mẫu chức năng lồng nhau như tôi đã chỉ ra ở trên.
+Tôi nghĩ rằng `pipe` có lẽ là dễ hiểu nhất khi đến từ một nền tảng bắt buộc \(imperative\) hơn kể từ khi bạn đọc các hàm từ trái sang phải. Tuy nhiên, `compose` thì dễ dàng hơn để dịch cho các kiểu hàm lồng nhau như tôi đã chỉ ra ở trên.
 
-Tôi vẫn chưa phát triển một quy tắc tốt cho khi nào tôi thích sáng tác và khi tôi thích ống dẫn. Vì chúng tương đương nhau trong Ramda, có thể không quan trọng bạn chọn loại nào. Chỉ cần đi với bất cứ ai đọc tốt nhất trong tình huống của bạn.
+Tôi vẫn chưa phát triển một quy tắc tốt để nhận biết khi nào tôi chọn `compose` và khi tôi chọn `pipe`. Vì chúng tương đương nhau trong Ramda, có thể không quan trọng bạn chọn hàm nào. Hãy chọn bất kỳ cái nào tốt nhất trong tình huống của bạn.
 
 ## Phần kết luận
 
