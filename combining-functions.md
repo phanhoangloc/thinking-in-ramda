@@ -146,13 +146,13 @@ Tôi nghĩ rằng `pipe` có lẽ là dễ hiểu nhất khi đến từ một n
 
 Tôi vẫn chưa phát triển một quy tắc tốt để nhận biết khi nào tôi chọn `compose` và khi tôi chọn `pipe`. Vì chúng tương đương nhau trong Ramda, có thể không quan trọng bạn chọn hàm nào. Hãy chọn bất kỳ cái nào tốt nhất trong tình huống của bạn.
 
-## Phần kết luận
+## KẾT LUẬN
 
-Bằng cách kết hợp một số chức năng theo những cách cụ thể, chúng ta có thể bắt đầu viết các chức năng mạnh hơn.
+Bằng cách kết hợp các hàm theo những cách cụ thể, chúng ta có thể bắt đầu viết các hàm nhiều chức năng hơn.
 
-## Kế tiếp
+## KẾ TIẾP
 
-Bạn có thể đã nhận thấy rằng chúng tôi chủ yếu bỏ qua các đối số chức năng khi chúng tôi đang kết hợp các chức năng. Chúng ta chỉ cung cấp các đối số khi chúng ta gọi hàm kết hợp.
+Bạn có thể đã nhận thấy rằng chúng ta chủ yếu bỏ qua các tham số khi chúng ta kết hợp các hàm. Chúng ta chỉ cung cấp các tham số khi chúng ta gọi hàm kết hợp.
 
-Điều này là phổ biến trong lập trình chức năng, và chúng tôi nói về điều đó nhiều hơn nữa trong bài tiếp theo trong loạt bài này, một phần ứng dụng. Chúng ta cũng nói về làm thế nào để kết hợp các chức năng mà có nhiều hơn một đối số.
+Điều này là phổ biến trong lập trình hàm, và chúng ta nói về điều đó nhiều hơn nữa trong bài tiếp theo, [Áp dụng từng phần](/partial-application.md). Chúng ta cũng nói về làm thế nào để kết hợp các chức năng mà có nhiều hơn một đối số.
 
