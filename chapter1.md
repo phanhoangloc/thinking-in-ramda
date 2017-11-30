@@ -95,7 +95,7 @@ Trong khi forEach là cách dễ tiếp cận nhất của các hàm lặp này,
 
 ### Map
 
-Chức năng quan trọng nhất tiếp theo để học là bản đồ. Giống như forEach, bản đồ áp dụng một hàm cho mỗi phần của một mảng. Tuy nhiên, không giống như forEach, bản đồ thu thập các kết quả của việc áp dụng các chức năng vào một mảng mới và trả về nó.
+Chức năng quan trọng nhất tiếp theo để học là `map`. Giống như `forEach`, `map` áp dụng một hàm cho mỗi phần của một mảng. Tuy nhiên, không giống như `forEach`, `map` thu thập các kết quả của việc áp dụng hàm vào một mảng mới và trả về nó.
 
 Đây là một ví dụ:
 
@@ -103,7 +103,7 @@ Chức năng quan trọng nhất tiếp theo để học là bản đồ. Giốn
 map(x => x * 2, [1, 2, 3])  // --> [2, 4, 6]
 ```
 
-Điều này đang sử dụng một hàm ẩn danh, nhưng chúng ta có thể dễ dàng sử dụng một hàm được đặt tên ở đây:
+Ví dụ trên sử dụng một hàm ẩn danh, nhưng chúng ta có thể dễ dàng sử dụng một hàm được đặt tên ở đây:
 
 ```js
 const double = x => x * 2
@@ -139,10 +139,6 @@ find(isEven, [1, 2, 3, 4]) // --> 2
 
 ### Reduce
 
-
-
-
-
 563/5000
 
 giảm là một chút phức tạp hơn các chức năng khác mà chúng ta đã thấy cho đến nay.
@@ -161,7 +157,7 @@ Hãy xem xét một ví dụ và sau đó đi qua những gì đang xảy ra.
 
 ```
 const add = (accum, value) => accum + value
- 
+
 reduce(add, 5, [1, 2, 3, 4]) // --> 15
 ```
 
