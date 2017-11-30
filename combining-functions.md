@@ -72,9 +72,9 @@ Lưu ý rằng `both`  thực hiện cùng một ý tưởng cho các hàm như 
 
 Ramda cũng cung cấp `allPass` và `anyPass`, nhận một mảng bất kỳ số lượng các hàm. Như tên của chúng cho thấy, `allPass` hoạt động như `both`, và `anyPass` hoạt động như `either`.
 
-## Pipelines
+## ĐƯỜNG ỐNG
 
-Đôi khi chúng tôi muốn áp dụng một số chức năng cho một số dữ liệu trong một đường ống thời trang. Ví dụ, chúng ta có thể muốn lấy hai con số, nhân chúng với nhau, thêm một, và sắp xếp kết quả. Chúng ta có thể viết nó như sau:
+Đôi khi chúng tôi muốn áp dụng một số hàm cho một số dữ liệu theo kiểu đường ống. Ví dụ, chúng ta có thể muốn lấy hai con số, nhân chúng với nhau, cộng thêm một, và lấy bình phương của kết quả. Chúng ta có thể viết nó như sau:
 
 ```
 const multiply = (a, b) => a * b
@@ -92,17 +92,17 @@ const operate = (x, y) => {
 operate(3, 4) // => ((3 * 4) + 1)^2 => (12 + 1)^2 => 13^2 => 169
 ```
 
-Chú ý mỗi thao tác được áp dụng như thế nào với kết quả trước.
+Chú ý mỗi thao tác được áp dụng dựa trên kết quả của phép tính trước.
 
-### Pipe
+### pipe
 
-Ramda cung cấp các chức năng ống, trong đó có một danh sách của một hoặc nhiều chức năng và trả về một chức năng mới.
+Ramda cung cấp hàm `pipe`, nhận vào danh sách của một hoặc nhiều hàm và trả về một hàm mới.
 
-Hàm mới có cùng số đối số như là hàm đầu tiên được đưa ra. Nó sau đó "ống" những đối số thông qua mỗi chức năng trong danh sách. Nó áp dụng các chức năng đầu tiên cho các đối số, vượt qua kết quả của nó đến chức năng thứ hai và vv. Kết quả của chức năng cuối cùng là kết quả của cuộc gọi đường ống.
+Hàm mới có cùng số đối số như là hàm đầu tiên được đưa vào. Sau đó nó sẽ "truyền" \(pipe\) những đối số thông qua mỗi hàm trong danh sách. Nó áp dụng hàm đầu tiên cho các tham số, truyền kết quả của nó đến hàm thứ hai và vv. Kết quả của hàm cuối cùng là kết quả của lệnh gọi `pipe`.
 
-Lưu ý rằng tất cả các chức năng sau khi người đầu tiên phải chỉ mất một đối số duy nhất.
+Lưu ý rằng tất cả các hàm sau hàm đầu tiên phải chỉ có một đối số duy nhất.
 
-Biết được điều này, chúng ta có thể sử dụng ống để đơn giản hóa chức năng vận hành của chúng tôi:
+Biết được điều này, chúng ta có thể sử dụng `pipe` để đơn giản hóa hàm operate của chúng ta:
 
 ```
 const operate = pipe(
@@ -112,9 +112,9 @@ const operate = pipe(
 )
 ```
 
-Khi chúng ta gọi hoạt động \(3, 4\), đường ống đi qua 3 và 4 đến hàm nhân, kết quả là 12. Nó truyền 12 đến addOne, trả về 13. Sau đó nó đi qua 13 đến hình vuông, quay lại 169, và rằng trở thành kết quả cuối cùng của hoạt động.
+Khi chúng ta gọi `operate(3, 4)`, `pipe` truyền `3` và `4` đến hàm `multiply`, kết quả là `12`. Nó truyền `12` đến `addOne`, trả về `13`. Sau đó nó gửi `13` đến `square`, trả lại `169`, và trở thành kết quả cuối cùng của `operate`.
 
-### Compose
+### compose
 
 Một cách khác chúng ta có thể đã viết chức năng hoạt động ban đầu của chúng tôi là nội tuyến tất cả các biến tạm thời:
 
