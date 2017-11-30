@@ -56,21 +56,21 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Bây giờ, khi chúng ta gọi `filter`, `publishedInYear(year)` được đánh giá ngay lập tức, trả về một nhận vào `book`, đó chính là những gì `filter` cần.
+Bây giờ, khi chúng ta gọi `filter`, `publishedInYear(year)` được đánh giá ngay lập tức, trả về một hàm nhận vào `book`, đó chính là những gì `filter` cần.
 
-## Các chức năng ứng dụng một phần
+## CÁC HÀM ỨNG DỤNG MỘT PHẦN
 
-Chúng ta có thể viết lại bất kỳ hàm số nhiều tham số theo cách này nếu chúng ta muốn, nhưng chúng ta không sở hữu tất cả các chức năng mà chúng ta có thể muốn sử dụng. Ngoài ra, chúng ta có thể muốn sử dụng một số chức năng đa đối số theo cách thông thường.
+Chúng ta có thể viết lại bất kỳ hàm nhiều tham số theo cách này nếu chúng ta muốn, nhưng chúng ta không sở hữu tất cả các hàm mà chúng ta có thể muốn sử dụng. Ngoài ra, chúng ta có thể muốn sử dụng một số hàm đa đối số theo cách thông thường.
 
-Ví dụ: nếu chúng tôi có một số mã khác chỉ muốn kiểm tra xem một cuốn sách đã được xuất bản trong một năm nhất định hay không, chúng tôi muốn nói đã phát hànhNăm học \(sách, 2012\) nhưng chúng tôi không thể làm được điều đó nữa. Thay vào đó, chúng ta phải công bố tạp chí InYear \(2012\) \(book\). Đó là ít có thể đọc được và gây phiền nhiễu hơn.
+Ví dụ: nếu chúng ta có một số code khác chỉ muốn kiểm tra xem một cuốn sách đã được xuất bản trong một năm nhất định hay không, chúng ta muốn gọi `publishedInYear(book, 2012)` nhưng chúng ta không thể làm được điều đó được nữa. Thay vào đó, chúng ta phải gọi `publishedInYear(2012)(book)`. Nó khó đọc và gây phiền toái hơn.
 
-May mắn thay, Ramda cung cấp hai chức năng để giúp chúng tôi: một phần và một phần Right.
+May mắn thay, Ramda cung cấp hai chức năng để giúp chúng ta: `partial` và một `partialRight`.
 
-Hai chức năng này cho phép chúng ta gọi bất kỳ hàm nào với ít đối số hơn nó cần. Cả hai đều trả lại một chức năng mới có mất các đối số và sau đó gọi các chức năng ban đầu một khi tất cả các đối số đã được cung cấp.
+Hai chức năng này cho phép chúng ta gọi bất kỳ hàm nào với ít tham số hơn nó cần. Cả hai đều trả lại một hàm mới nhận vào các tham số và sau đó gọi các hàm ban đầu một khi tất cả các tham số đã được cung cấp.
 
-Sự khác biệt giữa partial và partialRight là liệu các đối số mà chúng ta cung cấp là các đối số trái hoặc hầu hết các đối số cần thiết bởi chức năng ban đầu.
+Sự khác biệt giữa partial và partialRight là có phải các tham số mà chúng ta cung cấp là các tham số bên trái nhất hoặc bên phải nhất cần thiết bởi hàm ban đầu.
 
-Chúng ta hãy trở lại ví dụ ban đầu của chúng ta và sử dụng một trong những chức năng này thay vì viết lại các bài báo đã xuất bản. Vì chúng ta chỉ muốn cung cấp một năm, và đó là lập luận đúng nhất, chúng ta cần phải sử dụng partialRight.
+Chúng ta hãy trở lại ví dụ ban đầu của chúng ta và sử dụng một trong những hàm này thay vì viết lại publishedInYear. Vì chúng ta chỉ muốn cung cấp số năm, và đó là tham số bên phải nhất, chúng ta cần phải sử dụng partialRight.
 
 ```
 const publishedInYear = (book, year) => book.year === year
@@ -84,7 +84,7 @@ const titlesForYear = (books, year) => {
 
 Nếu chúng tôi đã viết được xuất bảnNên để lấy \(năm, sách\) thay vì \(sách, năm\), chúng tôi sẽ sử dụng một phần thay vì partialRight.
 
-Lưu ý rằng các đối số chúng ta cung cấp cho phần và từng phần Right phải luôn ở trong một mảng, ngay cả khi chỉ có một trong số chúng. Tôi không thể nói với bạn bao nhiêu lần tôi đã quên và kết thúc với một thông báo lỗi khó hiểu:
+Lưu ý rằng các đối số chúng ta cung cấp cho partial và partialRight phải luôn ở trong một mảng, ngay cả khi chỉ có một phần tử. Tôi không thể nói với bạn bao nhiêu lần tôi đã quên điều đó và kết thúc với một thông báo lỗi khó hiểu:
 
 ```
 First argument to _arity must be a non-negative integer no greater than ten
