@@ -58,7 +58,7 @@ const titlesForYear = (books, year) => {
 
 Bây giờ, khi chúng ta gọi `filter`, `publishedInYear(year)` được đánh giá ngay lập tức, trả về một hàm nhận vào `book`, đó chính là những gì `filter` cần.
 
-## CÁC HÀM ỨNG DỤNG MỘT PHẦN
+## CÁC HÀM ÁP DỤNG TỪNG PHẦN
 
 Chúng ta có thể viết lại bất kỳ hàm nhiều tham số theo cách này nếu chúng ta muốn, nhưng chúng ta không sở hữu tất cả các hàm mà chúng ta có thể muốn sử dụng. Ngoài ra, chúng ta có thể muốn sử dụng một số hàm đa đối số theo cách thông thường.
 
@@ -90,23 +90,23 @@ Lưu ý rằng các đối số chúng ta cung cấp cho `partial` và `partialR
 First argument to _arity must be a non-negative integer no greater than ten
 ```
 
-## Curry
+## CURRY
 
-Phải sử dụng partial và partialRight ở mọi nơi dẫn đến sự rườm rà và tẻ nhạt. Tuy nhiên, việc phải gọi hàm số nhiều tham số như một chuỗi các hàm đơn lẻ là không tốt.
+Phải sử dụng `partial` và `partialRight` ở mọi nơi dẫn đến sự rườm rà và tẻ nhạt. Tuy nhiên, việc phải gọi hàm số nhiều tham số như một chuỗi các hàm đơn lẻ cũng không tốt.
 
-May mắn thay, Ramda cung cấp cho chúng tôi một giải pháp: curry.
+May mắn thay, Ramda cung cấp cho chúng ta một giải pháp: `curry`.
 
-Currying là một khái niệm cốt lõi trong lập trình chức năng. Về mặt kỹ thuật, một hàm curried luôn là một chuỗi các hàm đơn lẻ, đó là điều tôi vừa phàn nàn. Trong ngôn ngữ chức năng thuần túy, cú pháp nói chung làm cho trông không khác gì gọi một hàm với nhiều đối số.
+[Currying](https://en.wikipedia.org/wiki/Currying) là một khái niệm cốt lõi trong lập trình hàm. Về mặt kỹ thuật, một hàm curried luôn là một chuỗi các hàm đơn tham số, đó cũng là điều tôi vừa phàn nàn. Trong ngôn ngữ lập trình hàm thuần túy, cú pháp nói chung làm cho nó trông không khác gì gọi một hàm với nhiều tham số.
 
-Nhưng bởi vì Ramda là một thư viện JavaScript, và JavaScript không có cú pháp đẹp để gọi một loạt các chức năng đơn lẻ, các tác giả đã nới lỏng định nghĩa truyền thống của currying một chút.
+Nhưng bởi vì Ramda là một thư viện JavaScript, và JavaScript không có cú pháp tốt để gọi một loạt các hàm đơn tham số, các tác giả đã nới lỏng định nghĩa truyền thống của currying một chút.
 
-Trong Ramda, một hàm curried có thể được gọi với một tập hợp các đối số, và nó sẽ trả về một hàm mới chấp nhận các đối số còn lại. Nếu bạn gọi một chức năng curried với tất cả các đối số của nó, nó sẽ gọi chỉ cần gọi chức năng.
+Trong Ramda, một hàm curried có thể được gọi với một tập hợp con các tham số, và nó sẽ trả về một hàm mới chấp nhận các tham số còn lại. Nếu bạn gọi một hàm curried với tất cả các tham số của nó, nó sẽ thực thi hàm đó.
 
-Bạn có thể nghĩ đến một chức năng tiên tiến như là tốt nhất của cả hai thế giới: bạn có thể gọi nó bình thường với tất cả các đối số của nó và nó sẽ chỉ làm việc. Hoặc bạn có thể gọi nó bằng một tập hợp các đối số, và nó sẽ hoạt động như thể bạn đã từng sử dụng một phần.
+Bạn có thể nghĩ đến một hàm curried như là sự kết hợp tốt nhất của cả hai cách tiếp cận: bạn có thể gọi nó bình thường với tất cả các tham số của nó. Hoặc bạn có thể gọi nó với một tập hợp con các tham số, và nó sẽ hoạt động như thể bạn sử dụng `partial`.
 
-Lưu ý rằng sự linh hoạt này giới thiệu một hit hiệu suất nhỏ, bởi vì cà ri cần phải tìm ra chức năng được gọi như thế nào và sau đó xác định phải làm gì. Nói chung, tôi chỉ curry chức năng khi tôi thấy tôi cần phải sử dụng một phần ở nhiều nơi.
+Lưu ý rằng sự linh hoạt này mang đến một cải thiện hiệu suất nhỏ, bởi vì `curry` cần phải tìm hiểu hàm được gọi như thế nào và sau đó xác định cần phải làm gì. Nói chung, tôi chỉ thực hiện curry hàm khi tôi thấy tôi cần phải sử dụng `partial` ở nhiều nơi.
 
-Chúng ta hãy tận dụng cà ri với chức năngInYear đã được xuất bản của chúng tôi. Lưu ý rằng cà ri luôn hoạt động như thể bạn đã từng sử dụng một phần; không có phiên bản partialRight. Chúng ta sẽ nói về điều đó ở bên dưới, nhưng bây giờ, chúng ta sẽ đảo ngược các lập luận để xuất bản Ngày Năm để năm đầu tiên đến.
+Chúng ta hãy áp dụng `curry` với hàm `publishedInYear`. Lưu ý rằng `curry` luôn hoạt động theo cách bạn đã từng sử dụng `partial`; không có phiên bản cho `partialRight`. Chúng ta sẽ nói về điều đó ở bên dưới, nhưng bây giờ, chúng ta sẽ đảo ngược các tham số cho `publishedInYear` để số năm như tham số đầu tiên.
 
 ```
 const publishedInYear = curry((year, book) => book.year === year)
