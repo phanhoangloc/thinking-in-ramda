@@ -68,9 +68,9 @@ May mắn thay, Ramda cung cấp hai chức năng để giúp chúng ta: `partia
 
 Hai chức năng này cho phép chúng ta gọi bất kỳ hàm nào với ít tham số hơn nó cần. Cả hai đều trả lại một hàm mới nhận vào các tham số và sau đó gọi các hàm ban đầu một khi tất cả các tham số đã được cung cấp.
 
-Sự khác biệt giữa partial và partialRight là có phải các tham số mà chúng ta cung cấp là các tham số bên trái nhất hoặc bên phải nhất cần thiết bởi hàm ban đầu.
+Sự khác biệt giữa `partial` và `partialRight` là có phải các tham số mà chúng ta cung cấp là các tham số bên trái nhất hoặc bên phải nhất cần thiết bởi hàm ban đầu.
 
-Chúng ta hãy trở lại ví dụ ban đầu của chúng ta và sử dụng một trong những hàm này thay vì viết lại publishedInYear. Vì chúng ta chỉ muốn cung cấp số năm, và đó là tham số bên phải nhất, chúng ta cần phải sử dụng partialRight.
+Chúng ta hãy trở lại ví dụ ban đầu của chúng ta và sử dụng một trong những hàm này thay vì viết lại `publishedInYear`. Vì chúng ta chỉ muốn cung cấp số năm, và đó là tham số bên phải nhất, chúng ta cần phải sử dụng `partialRight`.
 
 ```
 const publishedInYear = (book, year) => book.year === year
@@ -82,9 +82,9 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Nếu chúng tôi đã viết được xuất bảnNên để lấy \(năm, sách\) thay vì \(sách, năm\), chúng tôi sẽ sử dụng một phần thay vì partialRight.
+Nếu chúng tôi đã viết `publishedInYear` để nhận `(year, book)` thay vì `(book, year)`, chúng tôi ta sẽ sử dụng `partial` thay vì `partialRight`.
 
-Lưu ý rằng các đối số chúng ta cung cấp cho partial và partialRight phải luôn ở trong một mảng, ngay cả khi chỉ có một phần tử. Tôi không thể nói với bạn bao nhiêu lần tôi đã quên điều đó và kết thúc với một thông báo lỗi khó hiểu:
+Lưu ý rằng các đối số chúng ta cung cấp cho `partial` và `partialRight` phải luôn ở trong một mảng, ngay cả khi chỉ có một phần tử. Tôi không thể nói với bạn bao nhiêu lần tôi đã quên điều đó và kết thúc với một thông báo lỗi khó hiểu:
 
 ```
 First argument to _arity must be a non-negative integer no greater than ten
