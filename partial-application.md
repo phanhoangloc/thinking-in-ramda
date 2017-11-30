@@ -92,7 +92,7 @@ First argument to _arity must be a non-negative integer no greater than ten
 
 ## Curry
 
-Phải sử dụng phần và từng phần ở mọi nơi đều bị tiết đoạn và tẻ nhạt. Tuy nhiên, việc phải gọi hàm số nhiều tham số như một chuỗi các hàm đơn lẻ là không tốt.
+Phải sử dụng partial và partialRight ở mọi nơi dẫn đến sự rườm rà và tẻ nhạt. Tuy nhiên, việc phải gọi hàm số nhiều tham số như một chuỗi các hàm đơn lẻ là không tốt.
 
 May mắn thay, Ramda cung cấp cho chúng tôi một giải pháp: curry.
 
