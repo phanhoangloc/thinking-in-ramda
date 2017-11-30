@@ -6,7 +6,7 @@ Tôi sẽ sử dụng thư viện [Ramda](http://ramdajs.com/) cho loạt bài n
 
 Tôi sẽ gắn bó với một phiên bản nhẹ và ít hàn lâm hơn của lập trình hàm. Điều này chủ yếu là vì tôi muốn giữ cho loạt bài này có thể tiếp cận được cho nhiều người hơn, nhưng cũng một phần bởi vì bản thân tôi chưa đi đủ xa trên con đường lập trình hàm.
 
-## Ramda
+## RAMDA
 
 Tôi đã nói về thư viện [Ramda](http://ramdajs.com/) áp dụng cho JavaScript trên blog này một vài lần:
 
@@ -17,7 +17,7 @@ Tôi thấy Ramda là một thư viện được thiết kế độc đáo, cung
 
 Nếu bạn muốn thử nghiệm với Ramda trong khi đọc qua loạt bài này, có một [môi trường thử nghiệm](http://ramdajs.com/repl/) trên trang web Ramda.
 
-## Hàm
+## HÀM
 
 Như tên gọi có thể gợi ý, lập trình hàm có rất nhiều việc để làm với các hàm. Chúng ta sẽ định nghĩa một hàm như một đoạn code có thể tái sử dụng, được gọi với không hoặc nhiều đối số và trả về một kết quả.
 
@@ -45,7 +45,7 @@ Một số ngôn ngữ đi xa hơn và cung cấp hỗ trợ cho các hàm như 
 
 JavaScript là một ngôn ngữ như vậy, và chúng tôi sẽ tận dụng điều đó.
 
-## Hàm thuần khiết
+## HÀM THUẦN KHIẾT
 
 Khi viết các chương trình theo hướng lập trình hàm, điều quan trọng là chúng ta làm việc chủ yếu với các hàm "thuần khiết" \(pure functions\).
 
@@ -55,7 +55,7 @@ Các hàm thuần khiết là những hàm không có hiệu ứng phụ \(side 
 
 Bạn chắc chắn có thể làm một số thứ với các hàm không thuần khiết \(và bạn phải, nếu chương trình của bạn muốn làm bất cứ điều gì thú vị\), nhưng phần lớn bạn sẽ muốn giữ cho hầu hết các hàm của bạn trở nên thuần khiết.
 
-## Tính bất biến
+## TÍNH BẤT BIẾN
 
 Một khái niệm quan trọng khác trong lập trình hàm là "tính bất biến" \(immutability\). Điều đó có nghĩa là gì? "Không thay đổi" \(immutable\) có nghĩa là "không thể thay đổi được".
 
@@ -65,7 +65,7 @@ Thay vào đó, nếu tôi cần phải thay đổi một cái gì đó trong m�
 
 Tính bất biến luôn đi cùng với các hàm thuần khiết. Vì các hàm thuần khiết không được phép có các hiệu ứng phụ, chúng không được phép thay đổi cấu trúc dữ liệu bên ngoài. Chúng buộc phải làm việc với dữ liệu theo cách không thể thay đổi.
 
-## Bắt đầu từ đâu?
+## BẮT ĐẦU TỪ ĐÂU?
 
 Cách dễ nhất để bắt đầu suy nghĩ theo hướng lập trình hàm là bắt đầu thay thế các vòng lặp bằng tập hợp các hàm lặp.
 
@@ -93,7 +93,7 @@ forEach(value => console.log(value), myArray)
 
 Trong khi forEach là cách dễ tiếp cận nhất của các hàm lặp này, nó lại ít được sử dụng nhất trong lập trình hàm. Nó không trả về một giá trị, vì vậy thực sự nó chỉ được sử dụng cho việc gọi các hàm có hiệu ứng phụ.
 
-### Map
+### map
 
 Chức năng quan trọng nhất tiếp theo để học là `map`. Giống như `forEach`, `map` áp dụng một hàm cho mỗi phần tử của mảng. Tuy nhiên, không giống như `forEach`, `map` thu thập các kết quả của việc áp dụng hàm vào một mảng mới và trả về nó.
 
@@ -111,7 +111,7 @@ const double = x => x * 2
 map(double, [1, 2, 3])
 ```
 
-### Filter/Reject
+### filter/reject
 
 Tiếp theo, chúng ta hãy cũng xem xét `filter` và `reject`. Như tên của nó có thể gợi ý, `filter` lựa chọn các phần tử từ một mảng dựa trên một hàm. Ví dụ:
 
@@ -129,7 +129,7 @@ filter(isEven, [1, 2, 3, 4])  // --> [2, 4]
 reject(isEven, [1, 2, 3, 4]) // --> [1, 3]
 ```
 
-### Find
+### find
 
 `find` áp dụng một hàm cho mỗi phần của mảng và trả về phần tử đầu tiên mà hàm trả về một giá trị đúng.
 
@@ -137,7 +137,7 @@ reject(isEven, [1, 2, 3, 4]) // --> [1, 3]
 find(isEven, [1, 2, 3, 4]) // --> 2
 ```
 
-### Reduce
+### reduce
 
 `reduce` thì phức tạp hơn các hàm khác mà chúng ta đã thấy cho đến giờ.
 
@@ -165,13 +165,13 @@ reduce(add, 5, [1, 2, 3, 4]) // --> 15
 4. `reduce` gọi `add` lần cuối với `11` và giá trị cuối cùng của mảng \(`4`\), kết quả là `15`.
 5. `reduce` trả về giá trị tích lũy cuối cùng như là kết quả của nó \(`15`\).
 
-## Kết luận
+## KẾT LUẬN
 
 Bằng cách bắt đầu với các hàm lặp này, bạn có thể quen với ý tưởng truyền các hàm tới các hàm khác. Bạn có thể đã sử dụng chúng trong những ngôn ngữ khác mà không nhận ra bạn đã thực hành lập trình hàm.
 
-## Tiếp theo
+## TIẾP THEO
 
-Bài viết kế tiếp trong loạt bài này, [Kết hợp hàm](/combining-functions.md), chỉ ra làm thế nào có thể thực hiện bước tiếp theo và bắt đầu kết hợp các hàm theo những cách mới mẻ và thú vị.
+Bài viết kế tiếp trong loạt bài này, [Kết hợp hàm](/combining-functions.md), sẽ chỉ ra làm thế nào có thể thực hiện bước tiếp theo và bắt đầu kết hợp các hàm theo những cách mới mẻ và thú vị.
 
 Nguồn: [Thinking in Ramda: Getting started](http://randycoulman.com/blog/2016/05/24/thinking-in-ramda-getting-started/)
 
