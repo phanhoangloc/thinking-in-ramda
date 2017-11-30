@@ -184,9 +184,9 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Tôi tìm thấy phiên bản này dễ đọc hơn, nhưng nếu tôi cần sử dụng phiên bản "lật" của publishedInYear rất nhiều, tôi có thể định nghĩa một hàm trợ giúp bằng cách sử dụng lật, và sau đó sử dụng chức năng trợ giúp ở mọi nơi. Chúng ta sẽ thấy một số ví dụ về điều này trong các bài viết trong tương lai.
+Tôi nhận thấy phiên bản này dễ đọc hơn, nhưng nếu tôi cần sử dụng phiên bản "lật" \(flipped\) của `publishedInYear` nhiều, tôi có thể định nghĩa một hàm trợ giúp bằng cách sử dụng `flip`, và sau đó sử dụng hàm đó ở mọi nơi. Chúng ta sẽ thấy một số ví dụ về điều này trong các bài viết trong tương lai.
 
-Lưu ý rằng \_\_ chỉ hoạt động cho các chức năng chèn, trong khi phần, partialRight, và lật tất cả các công việc trên bất kỳ chức năng. Nếu bạn cần sử dụng \_\_ với một chức năng bình thường, bạn luôn có thể quấn nó với một cuộc gọi để cà ri đầu tiên.
+Lưu ý rằng `__` chỉ hoạt động cho các hàm curried, trong khi `partial`, `partialRight`, và `flip` chạy trên tất cả các hàm. Nếu bạn cần sử dụng `__` với một hàm bình thường, bạn luôn có thể bao quanh nó với một lệnh gọi để `curry` trước.
 
 ## HÃY LÀM MỘT ĐƯỜNG ỐNG
 
