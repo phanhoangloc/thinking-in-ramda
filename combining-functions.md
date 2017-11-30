@@ -150,9 +150,11 @@ Tôi vẫn chưa phát triển một quy tắc tốt để nhận biết khi nà
 
 Bằng cách kết hợp các hàm theo những cách cụ thể, chúng ta có thể bắt đầu viết các hàm nhiều chức năng hơn.
 
-## KẾ TIẾP
+## TIẾP THEO
 
 Bạn có thể đã nhận thấy rằng chúng ta chủ yếu bỏ qua các tham số khi chúng ta kết hợp các hàm. Chúng ta chỉ cung cấp các tham số khi chúng ta gọi hàm kết hợp.
 
 Điều này là phổ biến trong lập trình hàm, và chúng ta nói về điều đó nhiều hơn nữa trong bài tiếp theo, [Áp dụng từng phần](/partial-application.md). Chúng ta cũng sẽ nói về việc làm thế nào để kết hợp các hàm có nhiều hơn một tham số.
+
+Nguồn: [Thinking in Ramda: Combining functions](http://randycoulman.com/blog/2016/05/31/thinking-in-ramda-combining-functions/)
 
