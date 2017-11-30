@@ -151,7 +151,7 @@ Bạn có thể có thể đi được một chặng đường dài mà không n
 
 Hàm cần phải trả về một giá trị accumulator mới.
 
-Hãy xem xét một ví dụ và sau đó giải thích những gì đang xảy ra.
+Hãy cùng xem xét một ví dụ và sau đó giải thích chi tiết những gì đã xảy ra.
 
 ```
 const add = (accum, value) => accum + value
@@ -171,7 +171,7 @@ Bằng cách bắt đầu với các hàm lặp này, bạn có thể quen với
 
 ## Tiếp theo
 
-Bài viết kế tiếp trong loạt bài này, [Kết hợp hàm](/combining-functions.md), chỉ ra làm thể nào có thể thực hiện bước tiếp theo và bắt đầu kết hợp các hàm theo những cách mới mẻ và thú vị.
+Bài viết kế tiếp trong loạt bài này, [Kết hợp hàm](/combining-functions.md), chỉ ra làm thế nào có thể thực hiện bước tiếp theo và bắt đầu kết hợp các hàm theo những cách mới mẻ và thú vị.
 
 Nguồn: [Thinking in Ramda: Getting started](http://randycoulman.com/blog/2016/05/24/thinking-in-ramda-getting-started/)
 
