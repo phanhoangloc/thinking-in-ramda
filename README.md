@@ -1,4 +1,4 @@
-# Giới thiệu
+# GIỚI THIỆU
 
 Đây là bản dịch tiếng Việt của loạt bài viết [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/) của Randy Coulman.
 

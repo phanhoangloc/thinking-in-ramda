@@ -1,4 +1,4 @@
-# Bắt đầu
+# BẮT ĐẦU
 
 Bài viết này là sự khởi đầu của một series mới về lập trình hàm được gọi là Thinking in Ramda.
 
@@ -147,7 +147,7 @@ Bạn có thể có thể đi được một chặng đường dài mà không n
 
 `reduce` nhận vào một hàm hai đối số, một giá trị ban đầu, và mảng để vận hành.
 
-Đối số đầu tiên của hàm mà chúng ta truyền vào được gọi là "giá trị tích lũy" (accumulator) và đối số thứ hai là giá trị từ mảng.
+Đối số đầu tiên của hàm mà chúng ta truyền vào được gọi là "giá trị tích lũy" \(accumulator\) và đối số thứ hai là giá trị từ mảng.
 
 Hàm cần phải trả về một giá trị tích lũy mới.
 
