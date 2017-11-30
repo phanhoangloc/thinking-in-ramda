@@ -154,9 +154,9 @@ Trong hầu hết các trường hợp, tôi muốn ưu tiên sử dụng thứ 
 
 ### placeholder
 
-Tùy chọn tổng quát hơn là đối số "giữ chỗ" \(\_\_\).
+Tùy chọn tổng quát hơn là tham số "placeholder" \(`__`\).
 
-Điều gì sẽ xảy ra nếu chúng ta có một chức năng của ba đối số, và chúng ta muốn cung cấp các đối số đầu tiên và cuối cùng, để lại cho trung gian một lần nữa? Chúng ta có thể sử dụng trình giữ chỗ cho đối số trung gian:
+Điều gì sẽ xảy ra nếu chúng ta có một hàm ba tham số, và chúng ta muốn cung cấp các tham số đầu tiên và cuối cùng, để lại tham số giữa? Chúng ta có thể sử dụng trình placeholder cho tham số giữa:
 
 ```
 const threeArgs = curry((a, b, c) => { /* ... */ })
@@ -164,7 +164,7 @@ const threeArgs = curry((a, b, c) => { /* ... */ })
 const middleArgumentLater = threeArgs('value for a', __, 'value for c')
 ```
 
-Bạn cũng có thể sử dụng trình giữ chỗ nhiều lần trong cuộc gọi. Ví dụ, nếu muốn chỉ cung cấp các đối số trung gian?
+Bạn cũng có thể sử dụng placeholder nhiều lần trong lần gọi. Ví dụ, nếu muốn chỉ cung cấp các tham số ở giữa?
 
 ```
 const threeArgs = curry((a, b, c) => { /* ... */ })
@@ -172,7 +172,7 @@ const threeArgs = curry((a, b, c) => { /* ... */ })
 const middleArgumentOnly = threeArgs(__, 'value for b', __)
 ```
 
-Chúng ta có thể sử dụng kiểu giữ chỗ thay vì lật nếu chúng ta thích:
+Chúng ta có thể sử dụng placeholder thay vì `flip` nếu chúng ta thích:
 
 ```
 const publishedInYear = curry((book, year) => book.year === year)
