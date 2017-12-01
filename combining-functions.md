@@ -142,9 +142,9 @@ Như với `pipe`, lưu ý rằng tất cả các hàm ngoại trừ hàm cuối
 
 ### compose hay pipe?
 
-Tôi nghĩ rằng `pipe` có lẽ là dễ hiểu nhất khi đến từ một nền tảng bắt buộc \(imperative\) hơn kể từ khi bạn đọc các hàm từ trái sang phải. Tuy nhiên, `compose` thì dễ dàng hơn để dịch cho các kiểu hàm lồng nhau như tôi đã chỉ ra ở trên.
+Tôi nghĩ rằng `pipe` có lẽ là dễ hiểu nhất khi đến từ một nền tảng lập trình mệnh lệnh \(imperative\) khi bạn đọc các hàm từ trái sang phải. Tuy nhiên, `compose` thì dễ dàng hơn để chuyển đổi cho các hàm lồng nhau như tôi đã chỉ ra ở trên.
 
-Tôi vẫn chưa phát triển một quy tắc tốt để nhận biết khi nào tôi chọn `compose` và khi tôi chọn `pipe`. Vì chúng tương đương nhau trong Ramda, có thể không quan trọng bạn chọn hàm nào. Hãy chọn bất kỳ cái nào tốt nhất trong tình huống của bạn.
+Tôi vẫn chưa phát triển một quy tắc cụ thể để nhận biết khi nào tôi chọn `compose` và khi nào tôi chọn `pipe`. Vì chúng tương đương nhau trong Ramda, có thể không quan trọng bạn chọn hàm nào. Hãy chọn bất kỳ cái nào tốt nhất trong tình huống của bạn.
 
 ## KẾT LUẬN
 
