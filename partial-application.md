@@ -130,13 +130,13 @@ Chúng ta đã thấy các ví dụ này với các hàm lặp trên tập hợp
 
 ## CÁC THAM SỐ SAI THỨ TỰ
 
-Điều gì sẽ xảy ra nếu chúng ta đã bỏ qua thứ tự tham số của `publishedInYear`? Làm sao chúng ta vẫn có thể tận dụng được bản chất của curry?
+Điều gì sẽ xảy ra nếu chúng ta bỏ qua việc thay đổi thứ tự tham số của `publishedInYear`? Làm sao chúng ta vẫn có thể tận dụng được bản chất của curry?
 
 Ramda cung cấp một vài lựa chọn.
 
 ### flip
 
-Tùy chọn đầu tiên là `flip`. `flip` nhận một hàm của 2 hoặc nhiều tham số và trả về một hàm mới có các tham số tương tự, nhưng sẽ chuyển đổi thứ tự của hai tham số đầu tiên. Nó chủ yếu được sử dụng với hàm hai đối số.
+Tùy chọn đầu tiên là `flip`. `flip` nhận một hàm của 2 hoặc nhiều tham số và trả về một hàm mới có các tham số tương tự, nhưng sẽ chuyển đổi thứ tự của hai tham số đầu tiên. Nó chủ yếu được sử dụng với hàm hai tham số, nhưng vẫn có thể được sử dụng trong các trường hợp tổng quát hơn.
 
 Sử dụng `flip`, chúng ta có thể quay trở lại thứ tự tham số ban đầu của `publishedInYear`:
 
@@ -156,7 +156,7 @@ Trong hầu hết các trường hợp, tôi muốn ưu tiên sử dụng thứ 
 
 Tùy chọn tổng quát hơn là tham số "placeholder" \(`__`\).
 
-Điều gì sẽ xảy ra nếu chúng ta có một hàm ba tham số, và chúng ta muốn cung cấp các tham số đầu tiên và cuối cùng, để lại tham số giữa? Chúng ta có thể sử dụng trình placeholder cho tham số giữa:
+Điều gì sẽ xảy ra nếu chúng ta có một hàm ba tham số, và chúng ta muốn cung cấp các tham số đầu tiên và cuối cùng, để lại tham số giữa? Chúng ta có thể sử dụng placeholder cho tham số ở giữa:
 
 ```
 const threeArgs = curry((a, b, c) => { /* ... */ })
@@ -164,7 +164,7 @@ const threeArgs = curry((a, b, c) => { /* ... */ })
 const middleArgumentLater = threeArgs('value for a', __, 'value for c')
 ```
 
-Bạn cũng có thể sử dụng placeholder nhiều lần trong lần gọi. Ví dụ, nếu muốn chỉ cung cấp các tham số ở giữa?
+Bạn cũng có thể sử dụng placeholder nhiều lần trong một lần gọi. Ví dụ, nếu muốn chỉ cung cấp các tham số ở giữa?
 
 ```
 const threeArgs = curry((a, b, c) => { /* ... */ })
