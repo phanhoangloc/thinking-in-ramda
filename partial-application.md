@@ -190,7 +190,7 @@ Lưu ý rằng `__` chỉ hoạt động cho các hàm curried, trong khi `part
 
 ## HÃY LÀM MỘT ĐƯỜNG ỐNG
 
-Hãy xem liệu chúng ta có thể di chuyển các bộ lọc và các cuộc gọi bản đồ vào đường ống. Đây là trạng thái hiện tại của mã, với trật tự thuận tiện cho publishInYear:
+Hãy xem liệu chúng ta có thể di chuyển `filter` và `map` vào đường ống. Đây là trạng thái hiện tại của code, với thứ tự tham số thuận tiện cho `publishedInYear`:
 
 ```
 const publishedInYear = curry((year, book) => book.year === year)
@@ -202,11 +202,11 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Chúng tôi đã học được về đường ống và sáng tác trong bài đăng cuối cùng, nhưng chúng tôi cần thêm một thông tin nữa để chúng tôi có thể tận dụng việc học đó.
+Chúng ta đã học được về `pipe` và `compose` trong bài viết trước đó, nhưng chúng ta cần thêm một thông tin nữa để có thể tận dụng điều đó.
 
-Phần thông tin còn thiếu là: hầu như mọi chức năng Ramda đều được kích hoạt theo mặc định. Điều này bao gồm bộ lọc và bản đồ. Vì vậy, bộ lọc \(publishedInYear \(year\)\) là hoàn toàn hợp pháp và trả về một chức năng mới mà chỉ cần chúng ta chờ chúng ta vượt qua các cuốn sách dọc theo sau, như là map \(book =&gt; book.title\).
+Phần thông tin còn thiếu là: hầu như mọi hàm của Ramda đều được curried theo mặc định. Nó bao gồm `filter` và `map`. Vì vậy, `filter(publishedInYear(year))` là hoàn toàn hợp lệ và trả về một hàm mới mà chỉ cần chờ chúng ta truyền vào `books` sau đó, tiếp theo là `map(book => book.title)`.
 
-Và bây giờ chúng ta có thể viết đường ống:
+Và bây giờ chúng ta có thể tạo ra đường ống:
 
 ```
 const publishedInYear = curry((year, book) => book.year === year)
@@ -218,7 +218,7 @@ const titlesForYear = (books, year) =>
   )(books)
 ```
 
-Chúng ta hãy đi thêm một bước nữa và đảo ngược các đối số cho TitleForYear để phù hợp với công ước của Ramda về dữ liệu-cuối cùng. Chúng ta cũng có thể curry chức năng để cho phép sử dụng nó trong các đường ống sau này.
+Chúng ta hãy đi thêm một bước nữa và đảo ngược các tham số cho `titlesForYear` để phù hợp với quy ước của Ramda về dữ liệu ở vị trí sau cùng. Chúng ta cũng có thể curry hàm để cho phép sử dụng nó trong các đường ống sau này.
 
 ```
 const publishedInYear = curry((year, book) => book.year === year)
@@ -233,13 +233,13 @@ const titlesForYear = curry((year, books) =>
 
 ## KẾT LUẬN
 
-Bài đăng này có lẽ là bài sâu nhất trong loạt bài này. Một phần ứng dụng và currying có thể mất một thời gian và nỗ lực để quấn quanh đầu của bạn. Nhưng một khi bạn "nhận được" chúng, họ sẽ giới thiệu cho bạn một cách rất mạnh mẽ để chuyển đổi dữ liệu của bạn một cách có chức năng.
+Bài viết này có lẽ là bài đi sâu nhất trong loạt bài này. Áp dụng từng phần và currying có thể mất một thời gian và nỗ lực để trở nên quen thuộc với bạn. Nhưng một khi bạn "hiểu ra" chúng, chúng sẽ giới thiệu cho bạn một cách rất mạnh mẽ để chuyển đổi dữ liệu của bạn theo cách lập trình hàm.
 
-Họ dẫn bạn bắt đầu xây dựng các phép biến đổi bằng cách tạo ra những đường ống nhỏ, các khối xây dựng đơn giản.
+Chúng sẽ hướng bạn đến việc bắt đầu xây dựng các phép biến đổi bằng cách tạo ra những đường ống nhỏ, các khối xây dựng đơn giản.
 
 ## TIẾP THEO
 
-Để viết mã theo kiểu chức năng, chúng ta cần bắt đầu suy nghĩ "declaratively" thay vì "imperatively". Để làm được điều đó, chúng ta sẽ cần phải tìm ra những cách thể hiện các cấu trúc bắt buộc chúng ta đã quen với cách thức chức năng. Lập trình tuyên bố thảo luận về những ý tưởng này.
+Để viết code theo phong cách lập trình hàm, chúng ta cần bắt đầu suy nghĩ "declaratively" thay vì "imperatively". Để làm được điều đó, chúng ta sẽ cần phải tìm ra những cách thể hiện các cấu trúc mệnh lệnh chúng ta đã quen thuộc theo cách thức lập trình hàm. [Declarative programming](/declarative-programming.md) thảo luận về những ý tưởng này.
 
 Nguồn: [Thinking in Ramda: Partial application](http://randycoulman.com/blog/2016/06/07/thinking-in-ramda-partial-application/)
 
