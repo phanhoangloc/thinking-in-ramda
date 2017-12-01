@@ -6,7 +6,7 @@ Trong [Phần 2](/combining-functions.md), chúng ta đã nói về việc kết
 
 Trong bài viết đó, chúng ta đã xem xét các hàm đường ống đơn giản chỉ có một tham số. Vậy nếu chúng ta muốn sử dụng các hàm có nhiều hơn một tham số thì như thế nào?
 
-Ví dụ: giả sử chúng ta có một bộ sưu tập các đối tượng sách và chúng tôi muốn tìm các tiêu đề của tất cả sách được xuất bản trong một năm nhất định. Chúng ta hãy cùng viết bằng cách chỉ sử dụng các hàm lặp trên tập hợp của Ramda:
+Ví dụ: giả sử chúng ta có một bộ sưu tập các quyển sách và chúng tôi muốn tìm các tiêu đề của tất cả sách được xuất bản trong một năm nhất định. Chúng ta hãy cùng viết bằng cách chỉ sử dụng các hàm lặp trên tập hợp của Ramda:
 
 ```
 const publishedInYear = (book, year) => book.year === year
@@ -18,13 +18,13 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Sẽ là tốt nếu kết hợp `filter` và `map` vào một đường ống, nhưng chúng ta không biết làm thế nào bởi vì `filter` và `map` có hai đối số.
+Sẽ là tốt nếu có thể kết hợp `filter` và `map` vào một đường ống, nhưng chúng ta không biết làm thế nào bởi vì `filter` và `map` có hai tham số.
 
-Nó cũng sẽ là tốt nếu chúng ta không cần phải sử dụng một hàm mũi tên trong `filter`. Hãy giải quyết vấn đề đó trước vì nó sẽ dạy cho chúng ta một số điều chúng ta có thể sử dụng để làm đường ống.
+Tốt hơn nữa là chúng ta không cần phải sử dụng một hàm mũi tên trong `filter`. Hãy giải quyết vấn đề đó trước vì nó sẽ chỉ cho chúng ta một số điều chúng ta có thể sử dụng để làm đường ống.
 
 ## HÀM BẬC CAO
 
-Trong [Phần 1 của loạt bài này](//getting-started.md), chúng ta đã nói về các hàm như là các cấu trúc first-class. Các hàm có thể được truyền như các tham số cho các hàm khác và trả về như các kết quả từ các hàm khác. Chúng ta đã làm phần đầu tiên rất nhiều trước đây, nhưng đã không nhìn thấy phần sau.
+Trong [Phần 1 của loạt bài này](//getting-started.md), chúng ta đã nói về các hàm như là các cấu trúc hạng nhất \(\)first-class. Các hàm có thể được truyền như các tham số cho các hàm khác và trả về như các kết quả từ các hàm khác. Chúng ta đã làm phần đầu tiên rất nhiều trước đây, nhưng đã chưa nhìn thấy phần sau đó.
 
 Các hàm nhận hoặc trả về các hàm khác được gọi là "các hàm bậc cao" \(higher order functions\).
 
@@ -64,9 +64,9 @@ Chúng ta có thể viết lại bất kỳ hàm nhiều tham số theo cách n�
 
 Ví dụ: nếu chúng ta có một số code khác chỉ muốn kiểm tra xem một cuốn sách đã được xuất bản trong một năm nhất định hay không, chúng ta muốn gọi `publishedInYear(book, 2012)` nhưng chúng ta không thể làm được điều đó được nữa. Thay vào đó, chúng ta phải gọi `publishedInYear(2012)(book)`. Nó khó đọc và gây phiền toái hơn.
 
-May mắn thay, Ramda cung cấp hai chức năng để giúp chúng ta: `partial` và một `partialRight`.
+May mắn thay, Ramda cung cấp hai hàm để giúp chúng ta: `partial` và một `partialRight`.
 
-Hai chức năng này cho phép chúng ta gọi bất kỳ hàm nào với ít tham số hơn nó cần. Cả hai đều trả lại một hàm mới nhận vào các tham số và sau đó gọi các hàm ban đầu một khi tất cả các tham số đã được cung cấp.
+Hai hàm này cho phép chúng ta gọi bất kỳ hàm nào với ít tham số hơn nó cần. Cả hai đều trả lại một hàm mới nhận vào các tham số và sau đó gọi các hàm ban đầu một khi tất cả các tham số đã được cung cấp.
 
 Sự khác biệt giữa `partial` và `partialRight` là có phải các tham số mà chúng ta cung cấp là các tham số bên trái nhất hoặc bên phải nhất cần thiết bởi hàm ban đầu.
 
@@ -82,7 +82,7 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Nếu chúng tôi đã viết `publishedInYear` để nhận `(year, book)` thay vì `(book, year)`, chúng tôi ta sẽ sử dụng `partial` thay vì `partialRight`.
+Nếu chúng ta đã viết `publishedInYear` để nhận `(year, book)` thay vì `(book, year)`, chúng tôi ta sẽ sử dụng `partial` thay vì `partialRight`.
 
 Lưu ý rằng các đối số chúng ta cung cấp cho `partial` và `partialRight` phải luôn ở trong một mảng, ngay cả khi chỉ có một phần tử. Tôi không thể nói với bạn bao nhiêu lần tôi đã quên điều đó và kết thúc với một thông báo lỗi khó hiểu:
 
@@ -104,7 +104,7 @@ Trong Ramda, một hàm curried có thể được gọi với một tập hợp
 
 Bạn có thể nghĩ đến một hàm curried như là sự kết hợp tốt nhất của cả hai cách tiếp cận: bạn có thể gọi nó bình thường với tất cả các tham số của nó. Hoặc bạn có thể gọi nó với một tập hợp con các tham số, và nó sẽ hoạt động như thể bạn sử dụng `partial`.
 
-Lưu ý rằng sự linh hoạt này mang đến một cải thiện hiệu suất nhỏ, bởi vì `curry` cần phải tìm hiểu hàm được gọi như thế nào và sau đó xác định cần phải làm gì. Nói chung, tôi chỉ thực hiện curry hàm khi tôi thấy tôi cần phải sử dụng `partial` ở nhiều nơi.
+Lưu ý rằng sự linh hoạt này dẫn đến một ảnh hưởng nhỏ về hiệu suất, bởi vì `curry` cần phải tìm hiểu hàm được gọi như thế nào và sau đó xác định cần phải làm gì. Nói chung, tôi chỉ thực hiện curry hàm khi tôi thấy tôi cần phải sử dụng `partial` ở nhiều nơi.
 
 Chúng ta hãy áp dụng `curry` với hàm `publishedInYear`. Lưu ý rằng `curry` luôn hoạt động theo cách bạn đã từng sử dụng `partial`; không có phiên bản cho `partialRight`. Chúng ta sẽ nói về điều đó ở bên dưới, nhưng bây giờ, chúng ta sẽ đảo ngược các tham số cho `publishedInYear` để số năm như tham số đầu tiên.
 
@@ -122,7 +122,7 @@ Chúng ta có thể một lần nữa gọi `publishedInYear` với số năm v�
 
 ## THỨ TỰ THAM SỐ
 
-Lưu ý rằng để `curry` làm việc cho chúng ta, chúng ta đã phải đảo ngược thứ tự tham số. Điều này là rất phổ biến với lập trình hàm, do đó, hầu như mỗi hàm của Ramda được viết để cho các dữ liệu được vận hành đi đến như là tham số cuối cùng.
+Lưu ý rằng để `curry` làm việc cho chúng ta, chúng ta đã phải đảo ngược thứ tự tham số. Điều này là rất phổ biến với lập trình hàm, do đó, hầu như mỗi hàm của Ramda được viết để cho các dữ liệu cần thiết để vận hành đi đến như là tham số cuối cùng.
 
 Bạn có thể nghĩ về các tham số trước đó như là cấu hình cho tác vụ. Vì vậy, đối với `publishedInYear`, tham số `year` là cấu hình \(chúng ta đang tìm kiếm cái gì?\) Và tham số `book` là dữ liệu \(chúng ta đang tìm kiếm nó ở đâu?\).
 
