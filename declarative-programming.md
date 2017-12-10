@@ -12,17 +12,17 @@ Nhưng trước tiên, hãy cùng xem qua các kiến thức nền tảng.
 
 Có nhiều cách khác nhau để phân chia các ngôn ngữ hay phong cách lập trình. Kiểu dữ liệu tĩnh và động, ngôn ngữ thông dịch so với ngôn ngữ biên dịch, cấp cao và cấp thấp, v.v ...
 
-Một sự so sánh như vậy là lập trình imperative \(mệnh lệnh chi tiết\) và declarative \(tuyên bố, hướng dẫn\).
+Một sự so sánh như vậy là lập trình imperative \(mệnh lệnh chi tiết\) và declarative \(khai báo\).
 
 Nếu không đi quá sâu vào sự so sánh này, lập trình imperative là một phong cách lập trình mà các lập trình viên nói với máy tính phải làm gì bằng cách nói cho nó làm thế nào để làm điều đó. Lập trình imperative tạo ra rất nhiều cấu trúc mà chúng ta sử dụng hàng ngày: điều khiển luồng \(`if`-`then`-`else` statement và vòng lặp\), toán tử số học \(`+`, `-`, `*`, `/`\), toán tử so sánh \(`===`,`>`, `<` , vv\), và các toán tử logic \(`&&`, `||`,`!`\).
 
-Lập trình tuyên bố là một phong cách lập trình mà các lập trình viên nói với máy tính phải làm gì bằng cách nói với họ điều họ muốn. Máy tính sau đó phải tìm ra làm thế nào để tạo ra kết quả.
+Lập trình declarative là một phong cách lập trình mà các lập trình viên nói với máy tính phải làm gì bằng cách nói với nó điều họ muốn. Máy tính sau đó phải tìm ra cách làm thế nào để đạt được kết quả.
 
-Một trong những ngôn ngữ khai báo cổ điển là Prolog. Trong Prolog, một chương trình bao gồm một tập hợp các sự kiện và một bộ quy tắc suy luận. Bạn khởi động chương trình bằng cách hỏi một câu hỏi, và công cụ suy luận của Prolog sử dụng các sự kiện và các quy tắc để trả lời câu hỏi của bạn.
+Một trong những ngôn ngữ declarative cổ điển là Prolog. Trong Prolog, một chương trình bao gồm một tập hợp các sự kiện và một bộ quy tắc suy luận. Bạn khởi động chương trình bằng cách hỏi một câu hỏi, và công cụ suy luận của Prolog sử dụng các sự kiện và các quy tắc để trả lời câu hỏi của bạn.
 
-Lập trình chức năng được coi là một tập con của chương trình khai báo. Trong một chương trình chức năng, chúng ta xác định các chức năng và sau đó cho máy tính biết phải làm gì bằng cách kết hợp các chức năng này.
+Lập trình hàm được coi là một tập con của chương trình declarative. Trong một chương trình theo lập trình hàm, chúng ta xác định các hàm và sau đó cho máy tính biết phải làm gì bằng cách kết hợp các hàm này với nhau.
 
-Ngay cả trong các chương trình khai báo, chúng ta cũng cần làm những công việc tương tự như những chương trình bắt buộc. Kiểm soát dòng chảy, số học, so sánh, và logic vẫn là các khối xây dựng cơ bản chúng ta phải làm việc với. Nhưng chúng ta cần phải tìm một cách để thể hiện những cấu trúc này theo cách khai báo.
+Ngay cả trong các chương trình declarative, chúng ta cũng cần làm những công việc tương tự như những chương trình imperative. Điều khiển luồng, số học, so sánh, và logic vẫn là các khối xây dựng cơ bản chúng ta phải làm việc cùng. Nhưng chúng ta cần phải tìm một cách để thể hiện những cấu trúc này theo cách declarative.
 
 ## Thay thế tuyên bố
 
