@@ -1,4 +1,4 @@
-# Declarative programming
+# DECLARATIVE PROGRAMMING
 
 Bài đăng này là Phần 4 của loạt bài về lập trình hàm được gọi là [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/).
 
@@ -8,11 +8,11 @@ Khi chúng ta bắt đầu viết các hàm nhỏ để tạo nên các khối \
 
 Nhưng trước tiên, hãy cùng xem qua các kiến thức nền tảng.
 
-## Imperative vs Declarative
+## IMPERATIVE VS DECLARATIVE
 
 Có nhiều cách khác nhau để phân chia các ngôn ngữ hay phong cách lập trình. Kiểu dữ liệu tĩnh và động, ngôn ngữ thông dịch so với ngôn ngữ biên dịch, cấp cao và cấp thấp, v.v ...
 
-Một sự so sánh như vậy là lập trình imperative \(mệnh lệnh chi tiết\) và declarative \(khai báo\).
+Một sự so sánh như vậy là lập trình imperative \(bắt buộc, mệnh lệnh chi tiết\) và declarative \(khai báo, tuyên bố\).
 
 Nếu không đi quá sâu vào sự so sánh này, lập trình imperative là một phong cách lập trình mà các lập trình viên nói với máy tính phải làm gì bằng cách nói cho nó làm thế nào để làm điều đó. Lập trình imperative tạo ra rất nhiều cấu trúc mà chúng ta sử dụng hàng ngày: điều khiển luồng \(`if`-`then`-`else` statement và vòng lặp\), toán tử số học \(`+`, `-`, `*`, `/`\), toán tử so sánh \(`===`,`>`, `<` , vv\), và các toán tử logic \(`&&`, `||`,`!`\).
 
@@ -24,17 +24,17 @@ Lập trình hàm được coi là một tập con của chương trình declara
 
 Ngay cả trong các chương trình declarative, chúng ta cũng cần làm những công việc tương tự như những chương trình imperative. Điều khiển luồng, số học, so sánh, và logic vẫn là các khối xây dựng cơ bản chúng ta phải làm việc cùng. Nhưng chúng ta cần phải tìm một cách để thể hiện những cấu trúc này theo cách declarative.
 
-## Thay thế tuyên bố
+## NHỮNG SỰ THAY THẾ THEO HƯỚNG DECLARATIVE
 
-Vì chúng ta đang lập trình bằng JavaScript, ngôn ngữ bắt buộc, nên sử dụng cấu trúc bắt buộc chuẩn khi viết mã JavaScript "bình thường".
+Vì chúng ta đang lập trình bằng JavaScript, ngôn ngữ imperative, nên việc sử dụng các cấu trúc imperative khi viết mã JavaScript là một điều "bình thường".
 
-Nhưng khi chúng ta viết các biến đổi chức năng sử dụng đường ống và các cấu trúc tương tự, các cấu trúc bắt buộc không chơi tốt.
+Nhưng khi chúng ta tạo ra các biến đổi chức năng \(transformations\) bằng việc sử dụng đường ống và các cấu trúc tương tự, các cấu trúc imperative không hoạt động tốt.
 
-Hãy nhìn vào một số khối xây dựng cơ bản mà Ramda cung cấp để giúp chúng tôi thoát khỏi sự kẹt xe này.
+Hãy nhìn vào một số khối xây dựng cơ bản mà Ramda cung cấp để giúp chúng tôi thoát khỏi sự bất tiện này.
 
-### Số học
+## SỐ HỌC
 
-Trở lại phần 2, chúng tôi thực hiện một loạt các phép biến đổi số học để mô tả một đường ống:
+Trở lại [phần 2](/combining-functions.md), chúng tôi thực hiện một loạt các phép biến đổi số học để mô tả một đường ống:
 
 ```
 const multiply = (a, b) => a * b
@@ -52,7 +52,7 @@ operate(3, 4) // => ((3 * 4) + 1)^2 => (12 + 1)^2 => 13^2 => 169
 
 Chú ý chúng ta phải viết các hàm cho tất cả các khối xây dựng cơ bản mà chúng ta muốn sử dụng.
 
-Ramda cung cấp thêm, trừ, nhân và chia các chức năng để sử dụng thay cho các toán tử số học tiêu chuẩn. Vì vậy, chúng ta có thể sử dụng phép nhân của Ramda thay cho ký tự mà chúng ta đã viết, chúng ta có thể tận dụng chức năng bổ sung curried của Ramda để thay thế addOne của chúng ta, và chúng ta có thể viết hình vuông bằng các phép nhân cũng như:
+Ramda cung cấp các hàm `add`, `subtract`, `multiply` và `divide` để sử dụng thay cho các toán tử số học tiêu chuẩn. Vì vậy, chúng ta có thể sử dụng phép nhân `multiply` của Ramda thay cho ký tự mà chúng ta đã viết, chúng ta có thể tận dụng hàm curried `add` của Ramda để thay thế `addOne` của chúng ta, và chúng ta có thể viết `square` bằng các phép nhân `multiply`:
 
 ```
 const square = x => multiply(x, x)
@@ -64,7 +64,7 @@ const operate = pipe(
 )
 ```
 
-add \(1\) rất giống với toán tử increment \(++\), nhưng toán tử increment điều chỉnh biến được tăng lên, do đó nó là một đột biến. Như chúng ta đã học trong Phần 1, tính không thay đổi là nguyên lý cốt lõi của lập trình chức năng nên chúng ta không muốn sử dụng ++ hoặc anh em họ của nó.
+`add (1)` rất giống với toán tử increment \(`++`\), nhưng toán tử increment điều chỉnh biến được tăng lên, do đó nó là một mutation. Như chúng ta đã học trong [Phần 1](//getting-started.md), tính không thay đổi là nguyên lý cốt lõi của lập trình hàm nên chúng ta không muốn sử dụng `++` hoặc anh em của nó `--`.
 
 Chúng ta có thể sử dụng add \(1\) và subtract \(1\) để incrementing và decrementing, nhưng vì hai hoạt động này là phổ biến nên Ramda cung cấp inc và dec.
 
