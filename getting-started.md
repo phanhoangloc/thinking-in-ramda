@@ -13,7 +13,7 @@ Tôi đã nói về thư viện [Ramda](http://ramdajs.com/) áp dụng cho Java
 * Trong [Using Ramda With Redux](http://randycoulman.com/blog/2016/02/16/using-ramda-with-redux/), tôi đã đưa ra một số ví dụ về cách Ramda có thể được sử dụng trong các ngữ cảnh khác nhau khi viết các ứng dụng [Redux](http://redux.js.org/).
 * Trong [Using Redux-api-middleware With Rails](http://randycoulman.com/blog/2016/04/19/using-redux-api-middleware-with-rails/), tôi đã sử dụng Ramda để giúp chuyển đổi request và response payloads.
 
-Tôi thấy Ramda là một thư viện được thiết kế độc đáo, cung cấp rất nhiều công cụ để lập trình hàm trong JavaScript một cách gọn gàng, thanh lịch.
+Tôi thấy Ramda là một thư viện được thiết kế độc đáo, cung cấp rất nhiều công cụ để lập trình hàm trong JavaScript một cách gọn gàng, dễ hiểu.
 
 Nếu bạn muốn thử nghiệm với Ramda trong khi đọc qua loạt bài này, có một [môi trường thử nghiệm](http://ramdajs.com/repl/) trên trang web Ramda.
 
@@ -91,7 +91,7 @@ forEach(value => console.log(value), myArray)
 
 `forEach` nhận vào một hàm và một mảng, gọi hàm trên mỗi phần tử của mảng.
 
-Trong khi forEach là cách dễ tiếp cận nhất của các hàm lặp này, nó lại ít được sử dụng nhất trong lập trình hàm. Nó không trả về một giá trị, vì vậy thực sự nó chỉ được sử dụng cho việc gọi các hàm có hiệu ứng phụ.
+Trong khi `forEach` là cách dễ tiếp cận nhất của các hàm lặp này, nó lại ít được sử dụng nhất trong lập trình hàm. Nó không trả về một giá trị, vì vậy thực sự nó chỉ được sử dụng cho việc gọi các hàm có hiệu ứng phụ.
 
 ### map
 

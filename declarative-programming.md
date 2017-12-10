@@ -1,4 +1,4 @@
-# DECLARATIVE PROGRAMMING
+# LẬP TRÌNH DECLARATIVE
 
 Bài đăng này là Phần 4 của loạt bài về lập trình hàm được gọi là [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/).
 
@@ -96,7 +96,7 @@ const isCitizen = either(wasBornInCountry, wasNaturalized)
 const isEligibleToVote = both(isOver18, isCitizen)
 ```
 
-Lưu ý rằng một số hàm của chúng ta đang sử dụng toán tử so sánh tiêu chuẩn \(`===` và `>=` trong trường hợp này\). Như bạn có thể nghi ngờ bây giờ, Ramda cũng cung cấp những thay thế cho các toán tử này.
+Lưu ý rằng một số hàm của chúng ta đang sử dụng toán tử so sánh tiêu chuẩn \(`===` và `>=` trong trường hợp này\). Như bạn có thể dự đoán, Ramda cũng cung cấp những thay thế cho các toán tử này.
 
 Hãy sửa đổi code của chúng ta để sử dụng `equals` thay thế `===` và `gte` thay cho `>=`.
 
