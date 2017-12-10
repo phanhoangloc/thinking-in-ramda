@@ -22,7 +22,7 @@ Một trong những ngôn ngữ declarative cổ điển là Prolog. Trong Prolo
 
 Lập trình hàm được coi là một tập con của chương trình declarative. Trong một chương trình theo lập trình hàm, chúng ta xác định các hàm và sau đó cho máy tính biết phải làm gì bằng cách kết hợp các hàm này với nhau.
 
-Ngay cả trong các chương trình declarative, chúng ta cũng cần làm những công việc tương tự như những chương trình imperative. Điều khiển luồng, số học, so sánh, và logic vẫn là các khối xây dựng cơ bản chúng ta phải làm việc cùng. Nhưng chúng ta cần phải tìm một cách để thể hiện những cấu trúc này theo cách declarative.
+Ngay cả trong các chương trình declarative, chúng ta cũng cần làm những công việc tương tự như những chương trình imperative. Điều khiển luồng, số học, so sánh, và logic vẫn là các khối xây dựng cơ bản chúng ta phải làm việc cùng. Nhưng chúng ta cần phải tìm một cách để thể hiện những cấu trúc này theo hướng declarative.
 
 ## NHỮNG SỰ THAY THẾ THEO HƯỚNG DECLARATIVE
 
@@ -30,7 +30,7 @@ Vì chúng ta đang lập trình bằng JavaScript, ngôn ngữ imperative, nên
 
 Nhưng khi chúng ta tạo ra các biến đổi chức năng \(transformations\) bằng việc sử dụng đường ống và các cấu trúc tương tự, các cấu trúc imperative không hoạt động tốt.
 
-Hãy nhìn vào một số khối xây dựng cơ bản mà Ramda cung cấp để giúp chúng tôi thoát khỏi sự bất tiện này.
+Hãy nhìn vào một số khối xây dựng cơ bản mà Ramda cung cấp để giúp chúng ta thoát khỏi sự bất tiện này.
 
 ## SỐ HỌC
 
@@ -64,9 +64,9 @@ const operate = pipe(
 )
 ```
 
-`add (1)` rất giống với toán tử increment \(`++`\), nhưng toán tử increment điều chỉnh biến được tăng lên, do đó nó là một mutation. Như chúng ta đã học trong [Phần 1](//getting-started.md), tính không thay đổi là nguyên lý cốt lõi của lập trình hàm nên chúng ta không muốn sử dụng `++` hoặc anh em của nó `--`.
+`add(1)` rất giống với toán tử increment \(`++`\), nhưng toán tử increment điều chỉnh biến tăng lên và làm nó thay đổi, do đó nó là một mutation. Như chúng ta đã học trong [Phần 1](//getting-started.md), tính không thay đổi là nguyên lý cốt lõi của lập trình hàm nên chúng ta không muốn sử dụng `++` hoặc anh em của nó `--`.
 
-Chúng ta có thể sử dụng `add (1)` và `subtract (1)` để incrementing và decrementing, nhưng vì hai tác vụ này là phổ biến nên Ramda cung cấp `inc` và `dec`.
+Chúng ta có thể sử dụng `add(1)` và `subtract(1)` để incrementing và decrementing, nhưng vì hai tác vụ này là phổ biến nên Ramda cung cấp `inc` và `dec`.
 
 Vì vậy, chúng ta có thể đơn giản hóa các đường ống của chúng ta một chút nữa:
 
@@ -80,7 +80,7 @@ const operate = pipe(
 )
 ```
 
-`subtract` là sự thay thế cho toán tử trừ `-`, nhưng cũng có toán tử unary `-` để phủ định một giá trị. Chúng ta có thể sử dụng `multiply(-1)`, nhưng Ramda cung cấp hàm phủ định `negate` để thực hiện công việc này.
+`subtract` là sự thay thế cho toán tử trừ `-`, nhưng cũng có toán tử `-` để phủ định một giá trị. Chúng ta có thể sử dụng `multiply(-1)`, nhưng Ramda cung cấp hàm phủ định `negate` để giúp thực hiện công việc này.
 
 ## SO SÁNH
 
@@ -112,15 +112,15 @@ const isEligibleToVote = both(isOver18, isCitizen)
 
 Ramda cũng cung cấp `gt` cho `>`, `lt` cho `<`, và `lte` cho `<=`.
 
-Lưu ý rằng các hàm này nhận các tham số của chúng theo một thứ tự có vẻ bình thường \(tham số đầu tiên lớn hơn cái thứ hai?\) Điều đó có ý nghĩa khi được sử dụng trong sự cô lập, nhưng có thể gây nhầm lẫn khi kết hợp các hàm. Các hàm này dường như vi phạm nguyên tắc "dữ liệu cuối cùng" của Ramda, vì vậy chúng tôi phải cẩn thận khi sử dụng chúng trong các đường ống và các tình huống tương tự. Đó là khi `flip` và placeholder \(`__`\) sẽ có ích.
+Lưu ý rằng các hàm này nhận các tham số của chúng theo một thứ tự có vẻ bình thường \(tham số đầu tiên lớn hơn cái thứ hai?\). Điều này có ý nghĩa khi được sử dụng trong sự cô lập, nhưng có thể gây nhầm lẫn khi kết hợp các hàm. Các hàm này dường như vi phạm nguyên tắc "dữ liệu cuối cùng" của Ramda, vì vậy chúng ta phải cẩn thận khi sử dụng chúng trong các đường ống và các tình huống tương tự. Đó là khi `flip` và placeholder \(`__`\) sẽ có ích.
 
 Bổ sung cho `equals`, có `identical` để xác định nếu hai giá trị tham chiếu cùng một bộ nhớ.
 
-Có một vài trường hợp sử dụng phổ biến của `===`: kiểm tra nếu một chuỗi hoặc mảng la rỗng \(`str === ''` hoặc `arr.length === 0`\), và kiểm tra nếu một biến là null hoặc undefined. Ramda cung cấp các hàm hữu ích cho cả hai trường hợp: `isEmpty` và `isNil`.
+Có một vài trường hợp sử dụng phổ biến của `===`: kiểm tra nếu một chuỗi hoặc mảng là rỗng \(`str === ''` hoặc `arr.length === 0`\), và kiểm tra nếu một biến là `null` hoặc `undefined`. Ramda cung cấp các hàm hữu ích cho cả hai trường hợp: `isEmpty` và `isNil`.
 
 ## LOGIC
 
-Trong [Phần 2](/combining-functions.md) \(và ở trên\), chúng ta đã sử dụng các hàm `both` và `either` thay cho `&&` và `||`. Chúng tôi cũng nói về việc `complement`  thay vì `!`
+Trong [Phần 2](/combining-functions.md) \(và ở trên\), chúng ta đã sử dụng các hàm `both` và `either` thay cho `&&` và `||`. Chúng ta cũng nói về việc dùng `complement`  thay vì `!`
 
 Những hàm kết hợp này hoạt động tốt khi cả hai hàm chúng ta kết hợp hoạt động trên cùng một giá trị. Trên đây, `wasBornInCountry`, `wasNaturalized`, và `isOver18` đều áp dụng cho một người.
 
@@ -132,7 +132,7 @@ Trường hợp sử dụng phổ biến của `||` là để cung cấp các gi
 const lineWidth = settings.lineWidth || 80
 ```
 
-Đây là một thành ngữ phổ biến, và hoạt động đúng trong phần lớn trường hợp, nhưng lại dựa vào định nghĩa "falsy" của JavaScript. Điều gì sẽ xảy ra nếu `0` là một giá hợp lệ? Vì `0` là falsy, chúng ta sẽ kết thúc với lineWidth là 80.
+Đây là một cách sử dụng phổ biến, và hoạt động đúng trong phần lớn trường hợp, tuy nhiên nó lại dựa vào định nghĩa "falsy" của JavaScript. Điều gì sẽ xảy ra nếu `0` là một giá hợp lệ? Vì `0` là falsy, chúng ta sẽ kết thúc với lineWidth là 80.
 
 Chúng ta có thể sử dụng hàm `isNil` mà chúng ta vừa học được ở trên, nhưng một lần nữa Ramda có một lựa chọn tốt hơn cho chúng ta: `defaultTo`.
 
@@ -140,7 +140,7 @@ Chúng ta có thể sử dụng hàm `isNil` mà chúng ta vừa học được 
 const lineWidth = defaultTo(80, settings.lineWidth)
 ```
 
-`defaultTo` kiểm tra nếu đối số thứ hai với `isNil`. Nếu không, nó trả về giá trị đó, ngược lại thì nó trả về giá trị đầu tiên.
+`defaultTo` kiểm tra nếu đối số thứ hai với `isNil`. Nếu false, nó trả về giá trị đó, ngược lại thì nó trả về giá trị đầu tiên.
 
 ## Điều kiện
 
@@ -148,7 +148,7 @@ const lineWidth = defaultTo(80, settings.lineWidth)
 
 ### ifElse
 
-Chúng ta hãy viết một hàm, forever21, nhận vào một số tuổi và trở về tuổi tiếp theo. Nhưng, như tên của nó, một khi đến 21 tuổi, nó sẽ luôn như vậy.
+Chúng ta hãy viết một hàm, `forever21`, nhận vào một số tuổi và trả về tuổi tiếp theo. Nhưng, như tên của nó, một khi đến 21 tuổi, nó sẽ luôn như vậy.
 
 ```
 const forever21 = age => age >= 21 ? 21 : age + 1
@@ -190,17 +190,17 @@ const alwaysDrivingAge = age => ifElse(lt(__, 16), always(16), a => a)(age)
 
 Nhánh thứ hai của điều kiện \(`a => a`\) là một mô hình \(pattern\) phổ biến trong lập trình hàm. Nó được gọi là hàm nhận dạng \(identity\). Tức là, một hàm trả lại bất kỳ tham số nào được đưa vào.
 
-Như bạn có thể nghi ngờ, Ramda cung cấp một hàm `identity` cho chúng ta.
+Như bạn có thể giả định, Ramda cung cấp hàm `identity` cho chúng ta.
 
 ```
 const alwaysDrivingAge = age => ifElse(lt(__, 16), always(16), identity)(age)
 ```
 
-`identity` có thể có nhiều hơn một tham số, nhưng nó luôn trả về tham số đầu tiên. Nếu chúng ta muốn trả về một cái gì đó khác với đối số đầu tiên, thì hàm `nthArg` tổng quát hơn. Nó ít phổ biến hơn `identity`.
+`identity` có thể có nhiều hơn một tham số, nhưng nó luôn trả về tham số đầu tiên. Nếu chúng ta muốn trả về một cái gì đó khác với tham số đầu tiên, thì hàm `nthArg` tổng quát hơn. Tuy nhiên, nó ít phổ biến hơn `identity`.
 
 ### when và unless
 
-Có một câu lệnh `ifElse`, trong đó một trong các nhánh có điều kiện là `identity` cũng khá phổ biến, do đó Ramda cung cấp một số phím tắt cho chúng ta.
+Có một câu lệnh `ifElse`, trong đó một trong các nhánh có điều kiện là `identity` cũng khá phổ biến, do đó Ramda cung cấp một số cách viết tắt cho chúng ta.
 
 Nếu, như trong trường hợp của chúng ta, nhánh thứ hai là `identity`, chúng ta có thể sử dụng `when` thay vì `ifElse`:
 
@@ -226,7 +226,7 @@ Tôi sẽ lặp lại ví dụ từ tài liệu Ramda để chỉ ra nó đượ
       [T,           temp => `nothing special happens at ${temp}°C`]
     ])(temperature)
 
-Tôi đã chưa từng cần thiết phải sử dụng `cond` trong code Ramda của tôi, nhưng tôi đã viết code Common Lisp từ nhiều năm trước, do đó cond cảm thấy như một người bạn cũ.
+Tôi chưa từng cần thiết phải sử dụng `cond` trong code Ramda của tôi, nhưng tôi đã viết code Common Lisp từ nhiều năm trước, do đó `cond` đối với tôi như một người bạn cũ.
 
 ## KẾT LUẬN
 
@@ -236,7 +236,7 @@ Chúng ta đã cùng xem xét một số hàm mà Ramda cung cấp để chuyể
 
 Bạn có thể nhận thấy rằng vài hàm cuối cùng chúng ta đã viết \(`forever21`, `drivingAge`, and `water`\) tất cả đều nhận vào một tham số, xây dựng một hàm mới và sau đó áp dụng hàm đó cho tham số.
 
-Đây là một mô hình phổ biến, và một lần nữa Ramda cung cấp các công cụ để làm gọn cấu trúc nàyviết. Bài đăng tiếp theo, [Pointfree Style](/point-free-style.md) xem xét làm thế nào để đơn giản hóa các hàm theo mẫu này.
+Đây là một mô hình phổ biến, và một lần nữa Ramda cung cấp các công cụ để làm gọn cấu trúc này. Bài đăng tiếp theo, [Pointfree Style](/point-free-style.md) xem xét làm thế nào để đơn giản hóa các hàm theo mẫu này.
 
-Nguon: [Thinking in Ramda: Declarative programming](http://randycoulman.com/blog/2016/06/14/thinking-in-ramda-declarative-programming/)
+Nguồn: [Thinking in Ramda: Declarative programming](http://randycoulman.com/blog/2016/06/14/thinking-in-ramda-declarative-programming/)
 
