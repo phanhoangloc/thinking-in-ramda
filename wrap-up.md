@@ -1,3 +1,5 @@
+# TỔNG KẾT
+
 DRAFT VERSION
 
 Bài đăng này hoàn thành một loạt về lập trình chức năng được gọi là Tư duy trong Ramda.

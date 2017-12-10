@@ -1,3 +1,5 @@
+# TÍNH BẤT BIẾN VÀ MẢNG
+
 DRAFT VERSION
 
 Bài đăng này là Phần 7 của loạt bài về lập trình chức năng được gọi là Tư duy trong Ramda.
