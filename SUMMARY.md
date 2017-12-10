@@ -1,9 +1,9 @@
 # Summary
 
 * [Giới thiệu](README.md)
-* [Bắt đầu](/getting-started.md)
-* [Kết hợp hàm](combining-functions.md)
-* [Áp dụng từng phần](partial-application.md)
-* [Lập trình declarative](declarative-programming.md)
-* [Pointfree style](point-free-style.md)
+* [1. Bắt đầu](/getting-started.md)
+* [2. Kết hợp hàm](combining-functions.md)
+* [3. Áp dụng từng phần](partial-application.md)
+* [4. Lập trình declarative](declarative-programming.md)
+* [5. Pointfree style](point-free-style.md)
 
