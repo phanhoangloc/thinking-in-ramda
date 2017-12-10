@@ -2,7 +2,7 @@
 
 DRAFT VERSION
 
-Bài đăng này hoàn thành một loạt về lập trình chức năng được gọi là Tư duy trong Ramda.
+Bài đăng này hoàn thành series về lập trình hàm được gọi là Thinking in  Ramda.
 
 Trong tám bài viết vừa qua, chúng tôi đã nói về thư viện JavaScript của Ramda cung cấp các chức năng để làm việc với JavaScript theo cách chức năng, khai báo và không thay đổi.
 
