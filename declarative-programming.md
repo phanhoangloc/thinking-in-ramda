@@ -170,55 +170,55 @@ const forever21 = age => ifElse(lte(21), () => 21, inc)(age)
 
 Trong trường hợp này, chúng ta phải đọc cái này là "21 nhỏ hơn hoặc bằng số tuổi". Tôi sẽ gắn bó với placeholder cho phần còn lại của bài viết này vì tôi thấy nó dễ đọc hơn và ít gây nhầm lẫn.
 
-Hằng số
+### Hằng số
 
-Hằng số chức năng khá hữu ích trong các tình huống như thế này. Như bạn có thể tưởng tượng, Ramda cung cấp cho chúng ta một phím tắt. Trong trường hợp này, phím tắt được đặt tên luôn luôn.
+Các hàm hằng số khá hữu ích trong các tình huống như thế này. Như bạn có thể tưởng tượng, Ramda cung cấp cho chúng ta một con đường tắt. Trong trường hợp này, nó được đặt tên là `always`.
 
 ```
 const forever21 = age => ifElse(gte(__, 21), always(21), inc)(age)
 ```
 
-Ramda cũng cung cấp T và F như các phím tắt xa hơn cho luôn luôn \(đúng\) và luôn luôn \(sai\).
+Ramda cũng cung cấp `T` và `F` thay cho `always(true)` và `always(false)`.
 
-Danh tính
+### identity
 
-Hãy thử một chức năng khác, alwaysDrivingAge. Chức năng này mất một thời gian và trả lại nó nếu nó là gte 16. Nhưng nếu nó nhỏ hơn 16, nó sẽ trả về 16. Điều này cho phép bất cứ ai giả vờ rằng họ đang lái xe tuổi, ngay cả khi họ không.
+Hãy thử một hàm khác, `alwaysDrivingAge`. Hàm này nhận một giá trị thời gian và trả lại chính nó nếu nó là `gte` 16. Nhưng nếu nó nhỏ hơn 16, nó sẽ trả về 16. Điều này cho phép bất cứ ai giả vờ rằng họ đang ở tuổi lái xe, ngay cả khi họ không phải vậy.
 
 ```
 const alwaysDrivingAge = age => ifElse(lt(__, 16), always(16), a => a)(age)
 ```
 
-Chi nhánh thứ hai của điều kiện \(a =&gt; a\) là một mô hình chung trong lập trình chức năng. Nó được gọi là chức năng nhận dạng. Tức là, một hàm trả về bất kỳ đối số nào được đưa ra.
+Nhánh thứ hai của điều kiện \(`a => a`\) là một mô hình \(pattern\) phổ biến trong lập trình hàm. Nó được gọi là hàm nhận dạng \(identity\). Tức là, một hàm trả lại bất kỳ tham số nào được đưa vào.
 
-Như bạn có thể nghi ngờ, Ramda cung cấp một chức năng nhận dạng cho chúng tôi.
+Như bạn có thể nghi ngờ, Ramda cung cấp một hàm `identity` cho chúng ta.
 
 ```
 const alwaysDrivingAge = age => ifElse(lt(__, 16), always(16), identity)(age)
 ```
 
-nhận dạng có thể có nhiều hơn một đối số, nhưng nó luôn trả về đối số đầu tiên. Nếu chúng ta muốn trả về một cái gì đó khác với đối số đầu tiên, thì hàm nthArg chung chung hơn. Nó ít phổ biến hơn bản sắc.
+`identity` có thể có nhiều hơn một tham số, nhưng nó luôn trả về tham số đầu tiên. Nếu chúng ta muốn trả về một cái gì đó khác với đối số đầu tiên, thì hàm `nthArg` tổng quát hơn. Nó ít phổ biến hơn `identity`.
 
-khi nào và trừ khi
+### when và unless
 
-Có một câu lệnh ifElse, trong đó một trong các nhánh có điều kiện là nhận dạng cũng khá phổ biến, do đó Ramda cung cấp nhiều phím tắt cho chúng ta.
+Có một câu lệnh ifElse, trong đó một trong các nhánh có điều kiện là identity cũng khá phổ biến, do đó Ramda cung cấp một số phím tắt cho chúng ta.
 
-Nếu, như trong trường hợp của chúng tôi, nhánh thứ hai là nhận dạng, chúng ta có thể sử dụng khi thay vì ifElse:
+Nếu, như trong trường hợp của chúng ta, nhánh thứ hai là identity, chúng ta có thể sử dụng when thay vì ifElse:
 
 ```
 const alwaysDrivingAge = age => when(lt(__, 16), always(16))(age)
 ```
 
-Nếu chi nhánh đầu tiên của điều kiện là bản sắc, chúng ta có thể sử dụng trừ khi. Nếu chúng ta đảo ngược điều kiện của chúng ta để sử dụng gte \(\_\_, 16\), chúng ta có thể sử dụng trừ khi.
+Nếu nhánh đầu tiên của điều kiện là identity, chúng ta có thể sử dụng unless. Nếu chúng ta đảo ngược điều kiện của chúng ta để sử dụng gte \(\_\_, 16\), chúng ta có thể sử dụng unless.
 
 ```
 const alwaysDrivingAge = age => unless(gte(__, 16), always(16))(age)
 ```
 
-dè dặt
+### cond
 
-Ramda cũng cung cấp các chức năng cond có thể thay thế một tuyên bố chuyển đổi hoặc một chuỗi các câu lệnh if ... then ... else.
+Ramda cũng cung cấp hàm cond để có thể thay thế switch hoặc một chuỗi các câu lệnh if...then...else.
 
-Tôi sẽ lặp lại ví dụ từ tài liệu Ramda để cho biết nó được sử dụng như thế nào:
+Tôi sẽ lặp lại ví dụ từ tài liệu Ramda để chỉ ra nó được sử dụng như thế nào:
 
     const water = temperature => cond([
       [equals(0),   always('water freezes at 0°C')],
@@ -226,9 +226,9 @@ Tôi sẽ lặp lại ví dụ từ tài liệu Ramda để cho biết nó đư�
       [T,           temp => `nothing special happens at ${temp}°C`]
     ])(temperature)
 
-Tôi đã không cần thiết để sử dụng cond trong mã Ramda của tôi, nhưng tôi đã sử dụng để viết Common Lisp mã nhiều năm trước, do đó cond cảm thấy như một người bạn cũ.
+Tôi đã chưa từng cần thiết phải sử dụng cond trong code Ramda của tôi, nhưng tôi đã viết code Common Lisp từ nhiều năm trước, do đó cond cảm thấy như một người bạn cũ.
 
-Phần kết luận
+## KẾT LUẬN
 
 Bây giờ chúng ta đã xem xét một số chức năng mà Ramda cho chúng ta để chuyển mã bắt buộc của chúng ta thành mã chức năng khai báo.
 
