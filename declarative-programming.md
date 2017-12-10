@@ -66,9 +66,9 @@ const operate = pipe(
 
 `add (1)` rất giống với toán tử increment \(`++`\), nhưng toán tử increment điều chỉnh biến được tăng lên, do đó nó là một mutation. Như chúng ta đã học trong [Phần 1](//getting-started.md), tính không thay đổi là nguyên lý cốt lõi của lập trình hàm nên chúng ta không muốn sử dụng `++` hoặc anh em của nó `--`.
 
-Chúng ta có thể sử dụng add \(1\) và subtract \(1\) để incrementing và decrementing, nhưng vì hai hoạt động này là phổ biến nên Ramda cung cấp inc và dec.
+Chúng ta có thể sử dụng `add (1)` và `subtract (1)` để incrementing và decrementing, nhưng vì hai tác vụ này là phổ biến nên Ramda cung cấp `inc` và `dec`.
 
-Vì vậy, chúng tôi có thể đơn giản hóa các đường ống của chúng tôi một chút nữa:
+Vì vậy, chúng ta có thể đơn giản hóa các đường ống của chúng ta một chút nữa:
 
 ```
 const square = x => multiply(x, x)
@@ -80,9 +80,9 @@ const operate = pipe(
 )
 ```
 
-trừ đi là sự thay thế cho toán tử nhị phân, nhưng cũng có toán tử unary để bỏ một giá trị. Chúng ta có thể sử dụng nhân \(-1\), nhưng Ramda cung cấp chức năng phủ định để thực hiện công việc này.
+`subtract` là sự thay thế cho toán tử trừ `-`, nhưng cũng có toán tử unary `-` để phủ định một giá trị. Chúng ta có thể sử dụng `multiply(-1)`, nhưng Ramda cung cấp hàm phủ định `negate` để thực hiện công việc này.
 
-## So sánh
+## SO SÁNH
 
 Cũng trong Phần 2, chúng tôi đã viết một số chức năng để xác định xem một người có đủ điều kiện bỏ phiếu hay không. Phiên bản cuối cùng của mã đó trông như sau:
 
