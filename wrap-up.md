@@ -26,7 +26,7 @@ Hai nguyên tắc này cho phép chúng ta viết code theo hướng lập trì
 * Tính bất biến và Mảng tiếp tục chủ đề và cho chúng ta thấy làm thế nào để làm tương tự cho các mảng.
 * Ống kính kết luận bằng cách giới thiệu khái niệm ống kính, một cấu trúc cho phép chúng ta tập trung vào một phần nhỏ của một cấu trúc dữ liệu lớn hơn. Sử dụng chế độ xem, đặt, và hơn, chúng ta có thể đọc, cập nhật và chuyển đổi giá trị tập trung trong ngữ cảnh của cấu trúc dữ liệu lớn hơn của nó.
 
-* ## TIẾP THEO LÀ GÌ?
+## TIẾP THEO LÀ GÌ?
 
 Chúng tôi đã không bao gồm tất cả các phần của Ramda trong loạt bài này. Đặc biệt, chúng tôi đã không nói về các chức năng để làm việc với chuỗi, và chúng tôi đã không nói về những khái niệm tiên tiến hơn như đầu dò.
 
@@ -34,7 +34,8 @@ Chúng tôi đã không bao gồm tất cả các phần của Ramda trong loạ
 
 Nếu bạn quan tâm đến các chủ đề chức năng nâng cao hơn, đây là một số nơi bạn có thể đi:
 
-Transducers: Có một bài giới thiệu tốt về phân tích các bản ghi với các đầu dò.
+* Transducers: Có một bài giới thiệu tốt về phân tích các bản ghi với các đầu dò.
+* Các loại dữ liệu đại số: Nếu bạn đã đọc nhiều về lập trình chức năng, bạn sẽ nghe về các loại đại số và thuật ngữ như "Functor", "Applicative" và "Monad". Nếu bạn quan tâm đến việc khám phá những ý tưởng này trong bối cảnh của Ramda, hãy kiểm tra dự án ramda-tưởng tượng, thực hiện một số loại dữ liệu phù hợp với Đặc điểm Đất Ảo \(aka Đặc tả JavaScript Đại số\).
 
-Các loại dữ liệu đại số: Nếu bạn đã đọc nhiều về lập trình chức năng, bạn sẽ nghe về các loại đại số và thuật ngữ như "Functor", "Applicative" và "Monad". Nếu bạn quan tâm đến việc khám phá những ý tưởng này trong bối cảnh của Ramda, hãy kiểm tra dự án ramda-tưởng tượng, thực hiện một số loại dữ liệu phù hợp với Đặc điểm Đất Ảo \(aka Đặc tả JavaScript Đại số\).
+
 
