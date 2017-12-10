@@ -200,15 +200,15 @@ const alwaysDrivingAge = age => ifElse(lt(__, 16), always(16), identity)(age)
 
 ### when và unless
 
-Có một câu lệnh ifElse, trong đó một trong các nhánh có điều kiện là identity cũng khá phổ biến, do đó Ramda cung cấp một số phím tắt cho chúng ta.
+Có một câu lệnh `ifElse`, trong đó một trong các nhánh có điều kiện là `identity` cũng khá phổ biến, do đó Ramda cung cấp một số phím tắt cho chúng ta.
 
-Nếu, như trong trường hợp của chúng ta, nhánh thứ hai là identity, chúng ta có thể sử dụng when thay vì ifElse:
+Nếu, như trong trường hợp của chúng ta, nhánh thứ hai là `identity`, chúng ta có thể sử dụng `when` thay vì `ifElse`:
 
 ```
 const alwaysDrivingAge = age => when(lt(__, 16), always(16))(age)
 ```
 
-Nếu nhánh đầu tiên của điều kiện là identity, chúng ta có thể sử dụng unless. Nếu chúng ta đảo ngược điều kiện của chúng ta để sử dụng gte \(\_\_, 16\), chúng ta có thể sử dụng unless.
+Nếu nhánh đầu tiên của điều kiện là `identity`, chúng ta có thể sử dụng `unless`. Nếu chúng ta đảo ngược điều kiện của chúng ta để sử dụng `gte(__, 16)`, chúng ta có thể sử dụng `unless`.
 
 ```
 const alwaysDrivingAge = age => unless(gte(__, 16), always(16))(age)
@@ -216,7 +216,7 @@ const alwaysDrivingAge = age => unless(gte(__, 16), always(16))(age)
 
 ### cond
 
-Ramda cũng cung cấp hàm cond để có thể thay thế switch hoặc một chuỗi các câu lệnh if...then...else.
+Ramda cũng cung cấp hàm `cond` để có thể thay thế `switch` hoặc một chuỗi các câu lệnh `if...then...else`.
 
 Tôi sẽ lặp lại ví dụ từ tài liệu Ramda để chỉ ra nó được sử dụng như thế nào:
 
@@ -226,17 +226,17 @@ Tôi sẽ lặp lại ví dụ từ tài liệu Ramda để chỉ ra nó đượ
       [T,           temp => `nothing special happens at ${temp}°C`]
     ])(temperature)
 
-Tôi đã chưa từng cần thiết phải sử dụng cond trong code Ramda của tôi, nhưng tôi đã viết code Common Lisp từ nhiều năm trước, do đó cond cảm thấy như một người bạn cũ.
+Tôi đã chưa từng cần thiết phải sử dụng `cond` trong code Ramda của tôi, nhưng tôi đã viết code Common Lisp từ nhiều năm trước, do đó cond cảm thấy như một người bạn cũ.
 
 ## KẾT LUẬN
 
-Bây giờ chúng ta đã xem xét một số chức năng mà Ramda cho chúng ta để chuyển mã bắt buộc của chúng ta thành mã chức năng khai báo.
+Chúng ta đã cùng xem xét một số hàm mà Ramda cung cấp để chuyển đổi code từ imperative sang declarative.
 
-Kế tiếp
+## TIẾP THEO
 
-Bạn có thể nhận thấy rằng vài chức năng cuối cùng chúng tôi đã viết \(forever21, drivingAge, and water\) đều lấy một tham số, xây dựng một hàm mới và sau đó áp dụng hàm đó cho tham số.
+Bạn có thể nhận thấy rằng vài hàm cuối cùng chúng ta đã viết \(`forever21`, `drivingAge`, and `water`\) tất cả đều nhận vào một tham số, xây dựng một hàm mới và sau đó áp dụng hàm đó cho tham số.
 
-Đây là một mô hình phổ biến, và một lần nữa Ramda cung cấp các công cụ để làm sạch này lên. Bài đăng tiếp theo, Pointfree Style xem xét làm thế nào để đơn giản hóa các chức năng theo mẫu này.
+Đây là một mô hình phổ biến, và một lần nữa Ramda cung cấp các công cụ để làm gọn cấu trúc nàyviết. Bài đăng tiếp theo, [Pointfree Style](/point-free-style.md) xem xét làm thế nào để đơn giản hóa các hàm theo mẫu này.
 
 Nguon: [Thinking in Ramda: Declarative programming](http://randycoulman.com/blog/2016/06/14/thinking-in-ramda-declarative-programming/)
 
