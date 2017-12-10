@@ -144,31 +144,31 @@ const lineWidth = defaultTo(80, settings.lineWidth)
 
 ## Điều kiện
 
-Kiểm soát dòng chảy là không cần thiết trong các chương trình chức năng, nhưng đôi khi vẫn hữu ích. Việc lặp lại bộ sưu tập các chức năng mà chúng ta đã nói ở Phần 1 chú ý đến hầu hết các tình huống lặp, nhưng các điều kiện vẫn còn khá quan trọng.
+Điều khiển luồng là không cần thiết trong các chương trình theo lập trình hàm, nhưng đôi khi vẫn hữu ích. Các hàm lặp trên tập hợp mà chúng ta đã nói ở [Phần 1](//getting-started.md) bao gồm hầu hết các tình huống lặp, nhưng các cấu trúc điều kiện vẫn còn quan trọng.
 
-### nếu khác
+### ifElse
 
-Chúng ta hãy viết một chức năng, mãi mãi21, mà phải mất một tuổi tác và trở về tuổi tác tiếp theo. Nhưng, như tên của nó, một khi 21 tuổi, nó vẫn như vậy.
+Chúng ta hãy viết một hàm, forever21, nhận vào một số tuổi và trở về tuổi tiếp theo. Nhưng, như tên của nó, một khi đến 21 tuổi, nó sẽ luôn như vậy.
 
 ```
 const forever21 = age => age >= 21 ? 21 : age + 1
 ```
 
-Lưu ý rằng điều kiện của chúng tôi \(tuổi&gt; = 21\) và chi nhánh thứ hai \(tuổi + 1\) đều có thể được viết theo chức năng của độ tuổi. Chúng ta có thể viết lại nhánh đầu tiên \(21\) như một hàm không đổi \(\(\) =&gt; 21\). Bây giờ chúng ta có ba chức năng mà có \(hoặc bỏ qua\) tuổi tác.
+Lưu ý rằng điều kiện của chúng ta \(`age >= 21`\) và nhánh thứ hai \(`age + 1`\) đều có thể được viết theo hàm của độ tuổi `age`. Chúng ta có thể viết lại nhánh đầu tiên \(`21`\) như một hàm không đổi \(`() => 21`\). Bây giờ chúng ta có ba hàm mà có \(hoặc bỏ qua\) `age`.
 
-Bây giờ chúng ta đang ở một vị trí mà chúng ta có thể sử dụng ifElse của Ramda, tương đương với cấu trúc if ... then ... else hoặc người anh em họ ngắn hơn, toán tử thứ ba \(? :\).
+Bây giờ chúng ta đang ở một vị trí mà chúng ta có thể sử dụng `ifElse` của Ramda, tương đương với cấu trúc `if... then...else` hoặc người anh em họ ngắn hơn, toán tử thứ ba \(`?:`\).
 
 ```
 const forever21 = age => ifElse(gte(__, 21), () => 21, inc)(age)
 ```
 
-Như đã đề cập ở trên, các chức năng so sánh không hoạt động như chúng ta mong muốn khi kết hợp các chức năng, vì vậy chúng ta buộc phải giới thiệu trình giữ chỗ ở đây \(\_\_\). Chúng ta cũng có thể chuyển sang lte thay vì:
+Như đã đề cập ở trên, các hàm so sánh không hoạt động như chúng ta mong muốn khi kết hợp các hàm, vì vậy chúng ta buộc phải sử dụng placeholder ở đây \(`__`\). Chúng ta cũng có thể chuyển sang `lte`:
 
 ```
 const forever21 = age => ifElse(lte(21), () => 21, inc)(age)
 ```
 
-Trong trường hợp này, chúng ta phải đọc cái này là "21 nhỏ hơn hoặc bằng tuổi". Tôi sẽ gắn bó với phiên bản giữ chỗ cho phần còn lại của bài đăng này vì tôi thấy nó dễ đọc hơn và ít gây nhầm lẫn.
+Trong trường hợp này, chúng ta phải đọc cái này là "21 nhỏ hơn hoặc bằng số tuổi". Tôi sẽ gắn bó với placeholder cho phần còn lại của bài viết này vì tôi thấy nó dễ đọc hơn và ít gây nhầm lẫn.
 
 Hằng số
 
