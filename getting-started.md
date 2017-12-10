@@ -43,7 +43,7 @@ Một số ngôn ngữ đi xa hơn và cung cấp hỗ trợ cho các hàm như 
 * Truyền chúng như các tham số cho các hàm khác
 * Trả lại chúng như kết quả từ các hàm khác
 
-JavaScript là một ngôn ngữ như vậy, và chúng tôi sẽ tận dụng điều đó.
+JavaScript là một ngôn ngữ như vậy, và chúng ta sẽ tận dụng điều đó.
 
 ## HÀM THUẦN KHIẾT
 

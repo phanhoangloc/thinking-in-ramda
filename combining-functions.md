@@ -43,7 +43,7 @@ Lưu ý rằng `complement` thực hiện cùng một ý tưởng cho các hàm 
 
 ### both/either
 
-Giả sử rằng chúng ta đang làm việc trên một hệ thống bỏ phiếu. Với một người, chúng tôi muốn có thể xác định xem người đó có đủ điều kiện bỏ phiếu hay không. Dựa trên kiến thức hiện tại của chúng ta, một người cần phải từ 18 tuổi trở lên và là một công dân mới có thể bỏ phiếu. Một người nào đó là công dân nếu họ sinh ra ở trong nước hoặc nếu sau đó họ trở thành công dân thông qua việc nhập quốc tịch.
+Giả sử rằng chúng ta đang làm việc trên một hệ thống bỏ phiếu. Với một người, chúng ta muốn có thể xác định xem người đó có đủ điều kiện bỏ phiếu hay không. Dựa trên kiến thức hiện tại của chúng ta, một người cần phải từ 18 tuổi trở lên và là một công dân mới có thể bỏ phiếu. Một người nào đó là công dân nếu họ sinh ra ở trong nước hoặc nếu sau đó họ trở thành công dân thông qua việc nhập quốc tịch.
 
 ```
 const wasBornInCountry = person => person.birthCountry === OUR_COUNTRY
@@ -74,7 +74,7 @@ Ramda cũng cung cấp `allPass` và `anyPass`, nhận một mảng bất kỳ s
 
 ## ĐƯỜNG ỐNG
 
-Đôi khi chúng tôi muốn áp dụng một số hàm cho một số dữ liệu theo kiểu đường ống. Ví dụ, chúng ta có thể muốn lấy hai con số, nhân chúng với nhau, cộng thêm một, và lấy bình phương của kết quả. Chúng ta có thể viết nó như sau:
+Đôi khi chúng ta muốn áp dụng một số hàm cho một số dữ liệu theo kiểu đường ống. Ví dụ, chúng ta có thể muốn lấy hai con số, nhân chúng với nhau, cộng thêm một, và lấy bình phương của kết quả. Chúng ta có thể viết nó như sau:
 
 ```
 const multiply = (a, b) => a * b

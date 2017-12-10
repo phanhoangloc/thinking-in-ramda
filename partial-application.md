@@ -6,7 +6,7 @@ Trong [Phần 2](/combining-functions.md), chúng ta đã nói về việc kết
 
 Trong bài viết đó, chúng ta đã xem xét các hàm đường ống đơn giản chỉ có một tham số. Vậy nếu chúng ta muốn sử dụng các hàm có nhiều hơn một tham số thì như thế nào?
 
-Ví dụ: giả sử chúng ta có một bộ sưu tập các quyển sách và chúng tôi muốn tìm các tiêu đề của tất cả sách được xuất bản trong một năm nhất định. Chúng ta hãy cùng viết bằng cách chỉ sử dụng các hàm lặp trên tập hợp của Ramda:
+Ví dụ: giả sử chúng ta có một bộ sưu tập các quyển sách và chúng ta muốn tìm các tiêu đề của tất cả sách được xuất bản trong một năm nhất định. Chúng ta hãy cùng viết bằng cách chỉ sử dụng các hàm lặp trên tập hợp của Ramda:
 
 ```
 const publishedInYear = (book, year) => book.year === year
@@ -82,7 +82,7 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Nếu chúng ta đã viết `publishedInYear` để nhận `(year, book)` thay vì `(book, year)`, chúng tôi ta sẽ sử dụng `partial` thay vì `partialRight`.
+Nếu chúng ta đã viết `publishedInYear` để nhận `(year, book)` thay vì `(book, year)`, chúng ta sẽ sử dụng `partial` thay vì `partialRight`.
 
 Lưu ý rằng các đối số chúng ta cung cấp cho `partial` và `partialRight` phải luôn ở trong một mảng, ngay cả khi chỉ có một phần tử. Tôi không thể nói với bạn bao nhiêu lần tôi đã quên điều đó và kết thúc với một thông báo lỗi khó hiểu:
 

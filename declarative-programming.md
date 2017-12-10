@@ -34,7 +34,7 @@ Hãy nhìn vào một số khối xây dựng cơ bản mà Ramda cung cấp đ�
 
 ## SỐ HỌC
 
-Trở lại [phần 2](/combining-functions.md), chúng tôi thực hiện một loạt các phép biến đổi số học để mô tả một đường ống:
+Trở lại [phần 2](/combining-functions.md), chúng ta thực hiện một loạt các phép biến đổi số học để mô tả một đường ống:
 
 ```
 const multiply = (a, b) => a * b
