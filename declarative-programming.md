@@ -110,15 +110,15 @@ const isCitizen = either(wasBornInCountry, wasNaturalized)
 const isEligibleToVote = both(isOver18, isCitizen)
 ```
 
-Ramda cũng cung cấp gt cho&gt;, lt cho &lt;, và lte cho &lt;=.
+Ramda cũng cung cấp `gt` cho `>`, `lt` cho `<`, và `lte` cho `<=`.
 
-Lưu ý rằng các hàm này lấy các đối số của chúng trong những gì có vẻ như trật tự bình thường \(là đối số đầu tiên lớn hơn thứ hai?\) Điều đó có ý nghĩa khi được sử dụng trong sự cô lập, nhưng có thể gây nhầm lẫn khi kết hợp các chức năng. Các chức năng này dường như vi phạm nguyên tắc "dữ liệu-cuối cùng" của Ramda, vì vậy chúng tôi phải cẩn thận khi sử dụng chúng trong các đường ống và các tình huống tương tự. Đó là khi lật và trình giữ chỗ \(\_\_\) sẽ có ích.
+Lưu ý rằng các hàm này nhận các tham số của chúng theo một thứ tự có vẻ bình thường \(tham số đầu tiên lớn hơn cái thứ hai?\) Điều đó có ý nghĩa khi được sử dụng trong sự cô lập, nhưng có thể gây nhầm lẫn khi kết hợp các hàm. Các hàm này dường như vi phạm nguyên tắc "dữ liệu cuối cùng" của Ramda, vì vậy chúng tôi phải cẩn thận khi sử dụng chúng trong các đường ống và các tình huống tương tự. Đó là khi `flip` và placeholder \(`__`\) sẽ có ích.
 
-Ngoài các phương trình bằng nhau, có trùng để xác định nếu hai giá trị tham chiếu cùng một bộ nhớ.
+Bổ sung cho `equals`, có `identical` để xác định nếu hai giá trị tham chiếu cùng một bộ nhớ.
 
-Có một vài sử dụng phổ biến của ===: kiểm tra nếu một chuỗi hoặc mảng có sản phẩm nào \(str === '' hoặc arr.length === 0\), và kiểm tra nếu một biến là null hoặc undefined. Ramda cung cấp các chức năng hữu ích cho cả hai trường hợp: isEmpty và isNil.
+Có một vài trường hợp sử dụng phổ biến của `===`: kiểm tra nếu một chuỗi hoặc mảng la rỗng \(`str === ''` hoặc `arr.length === 0`\), và kiểm tra nếu một biến là null hoặc undefined. Ramda cung cấp các hàm hữu ích cho cả hai trường hợp: `isEmpty` và `isNil`.
 
-## Logic
+## LOGIC
 
 Trong Phần 2 \(và ở trên\), chúng tôi đã sử dụng cả hai và một trong hai chức năng thay cho && và \|\| hoạt động. Chúng tôi cũng nói chuyện về bổ sung tại chỗ của!
 
