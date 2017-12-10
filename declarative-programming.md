@@ -84,7 +84,7 @@ const operate = pipe(
 
 ## SO SÁNH
 
-Cũng trong Phần 2, chúng tôi đã viết một số chức năng để xác định xem một người có đủ điều kiện bỏ phiếu hay không. Phiên bản cuối cùng của mã đó trông như sau:
+Cũng trong [Phần 2](/combining-functions.md), chúng ta đã viết một số hàm để xác định xem một người có đủ điều kiện bỏ phiếu hay không. Phiên bản cuối cùng của code đó trông như sau:
 
 ```
 const wasBornInCountry = person => person.birthCountry === OUR_COUNTRY
@@ -96,9 +96,9 @@ const isCitizen = either(wasBornInCountry, wasNaturalized)
 const isEligibleToVote = both(isOver18, isCitizen)
 ```
 
-Lưu ý rằng một số chức năng của chúng tôi đang sử dụng toán tử so sánh tiêu chuẩn \(=== và&gt; = trong trường hợp này\). Như bạn có thể nghi ngờ bây giờ, Ramda cũng cung cấp thay thế cho những điều này.
+Lưu ý rằng một số hàm của chúng ta đang sử dụng toán tử so sánh tiêu chuẩn \(`===` và `>=` trong trường hợp này\). Như bạn có thể nghi ngờ bây giờ, Ramda cũng cung cấp những thay thế cho các toán tử này.
 
-Hãy sửa đổi mã của chúng tôi để sử dụng bằng thay thế tại === và gte thay cho&gt; =.
+Hãy sửa đổi code của chúng ta để sử dụng `equals` thay thế `===` và `gte` thay cho `>=`.
 
 ```
 const wasBornInCountry = person => equals(person.birthCountry, OUR_COUNTRY)
