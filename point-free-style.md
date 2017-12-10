@@ -152,15 +152,15 @@ Lợi thế của phong cách pointfree là gì? Có người lập luận rằn
 
 ## KẾT LUẬN
 
-Phong cách không Pointfree, còn được gọi là lập trình ngầm, có thể làm cho mã của chúng tôi rõ ràng và dễ hiểu hơn. Bằng cách tái cấu trúc mã của chúng tôi để kết hợp tất cả biến đổi của chúng tôi thành một chức năng duy nhất, chúng tôi sẽ kết thúc với các khối xây dựng nhỏ hơn có thể được sử dụng ở nhiều nơi hơn.
+Phong cách pointfree, còn được gọi là [tacit programming](https://en.wikipedia.org/wiki/Tacit_programming), có thể làm cho code của chúng ta rõ ràng và dễ hiểu hơn. Bằng cách tái cấu trúc code của chúng tôi để kết hợp tất cả biến đổi của chúng ta thành một hàm duy nhất, chúng ta sẽ kết thúc với các khối xây dựng nhỏ hơn có thể được sử dụng ở nhiều nơi hơn.
 
-## KẾ TIẾP
+## TIẾP THEO
 
-Trong ví dụ của chúng tôi, chúng tôi đã không thể refactor tất cả mọi thứ để phong cách pointfree. Chúng tôi vẫn có mã được viết theo phong cách bắt buộc. Hầu hết các mã này là xử lý các đối tượng và mảng.
+Trong ví dụ của chúng ta, chúng ta đã không thể refactor tất cả mọi thứ để phong cách pointfree. Chúng ta vẫn có code được viết theo phong cách imperative. Hầu hết các code này xử lý các đối tượng và mảng.
 
-Chúng ta cần tìm những cách biểu lộ tương tác với các đối tượng và mảng. Và những gì về tính bất biến? Làm thế nào để chúng ta thao tác các đối tượng và mảng một cách không thể thay đổi?
+Chúng ta cần tìm những cách tương tác với các đối tượng và mảng. Vậy tính bất biến thì sao? Làm thế nào để chúng ta thao tác với các đối tượng và mảng theo cách bất biến?
 
-Các bài tiếp theo trong loạt bài này, Immutability và Đối tượng thảo luận làm thế nào để làm việc với các đối tượng một cách chức năng và không thay đổi. Các bài sau đó, tính không đổi và mảng làm tương tự cho mảng.
+Bài tiếp theo trong series này, Tính bất biến và Đối tượng thảo luận làm thế nào để làm việc với các đối tượng theo hướng lập trình hàm  và bất biến. Và bài sau đó, tính bất biến và mảng tương tự cho mảng.
 
 Nguồn: [Thinking in Ramda: Pointfree style](http://randycoulman.com/blog/2016/06/21/thinking-in-ramda-pointfree-style/)
 
