@@ -28,14 +28,14 @@ Hai nguyên tắc này cho phép chúng ta viết code theo hướng lập trì
 
 ## TIẾP THEO LÀ GÌ?
 
-Chúng tôi đã không bao gồm tất cả các phần của Ramda trong loạt bài này. Đặc biệt, chúng tôi đã không nói về các chức năng để làm việc với chuỗi, và chúng tôi đã không nói về những khái niệm tiên tiến hơn như đầu dò.
+Chúng ta đã không bao gồm tất cả các phần của Ramda trong series này. Đặc biệt, chúng ta đã không nói về các hàm để làm việc với chuỗi, và chúng ta đã không nói về những khái niệm tiên tiến hơn như [transducers](http://ramdajs.com/0.21.0/docs/#transduce).
 
-Để tìm hiểu thêm về những gì Ramda có thể làm, tôi khuyên bạn nên đọc kỹ tài liệu. Có rất nhiều thông tin ở đó. Tất cả các chức năng được nhóm lại theo loại dữ liệu mà chúng hoạt động, mặc dù có sự chồng chéo nhau. Ví dụ, một số các chức năng mảng cũng sẽ làm việc trên dây, và bản đồ hoạt động trên cả mảng và các đối tượng.
+Để tìm hiểu thêm về những gì Ramda có thể làm, tôi khuyên bạn nên đọc kỹ [tài liệu](http://ramdajs.com/docs/). Có rất nhiều thông tin ở đó. Tất cả các hàm được nhóm lại theo loại dữ liệu mà chúng hoạt động, mặc dù có sự đan xen nhau. Ví dụ, một số các hàm mảng cũng sẽ làm việc trên chuỗi, và `map` hoạt động trên cả mảng và đối tượng.
 
-Nếu bạn quan tâm đến các chủ đề chức năng nâng cao hơn, đây là một số nơi bạn có thể đi:
+Nếu bạn quan tâm đến các chủ đề lập trình hàm nâng cao hơn, đây là một số nơi bạn có thể đi đến:
 
-* Transducers: Có một bài giới thiệu tốt về phân tích các bản ghi với các đầu dò.
-* Các loại dữ liệu đại số: Nếu bạn đã đọc nhiều về lập trình chức năng, bạn sẽ nghe về các loại đại số và thuật ngữ như "Functor", "Applicative" và "Monad". Nếu bạn quan tâm đến việc khám phá những ý tưởng này trong bối cảnh của Ramda, hãy kiểm tra dự án ramda-tưởng tượng, thực hiện một số loại dữ liệu phù hợp với Đặc điểm Đất Ảo \(aka Đặc tả JavaScript Đại số\).
+* Transducers: Có một [bài giới thiệu hay](http://simplectic.com/blog/2015/ramda-transducers-logs/) về phân tích logs với các transducers.
+* Các kiểu dữ liệu đại số \(ADTs\): Nếu bạn đã đọc nhiều về lập trình hàm, bạn có thể sẽ nghe về các kiểu đại số và thuật ngữ như "Functor", "Applicative" và "Monad". Nếu bạn quan tâm đến việc khám phá những ý tưởng này trong ngữ cảnh của Ramda, hãy xem thử dự án [ramda-fantasy](https://github.com/ramda/ramda-fantasy), nó bổ sung một số loại dữ liệu phù hợp với [Fantasy Land Specification](https://github.com/fantasyland/fantasy-land) \(aka Algebraic JavaScript Specification\).
 
 
 
