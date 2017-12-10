@@ -24,7 +24,7 @@ Tốt hơn nữa là chúng ta không cần phải sử dụng một hàm mũi t
 
 ## HÀM BẬC CAO
 
-Trong [Phần 1 của loạt bài này](//getting-started.md), chúng ta đã nói về các hàm như là các cấu trúc hạng nhất \(\)first-class. Các hàm có thể được truyền như các tham số cho các hàm khác và trả về như các kết quả từ các hàm khác. Chúng ta đã làm phần đầu tiên rất nhiều trước đây, nhưng đã chưa nhìn thấy phần sau đó.
+Trong [Phần 1 của loạt bài này](//getting-started.md), chúng ta đã nói về các hàm như là các cấu trúc first-class. Các hàm có thể được truyền như các tham số cho các hàm khác và trả về như các kết quả từ các hàm khác. Chúng ta đã thực hành phần đầu tiên rất nhiều trước đây, nhưng chưa nhìn thấy phần sau đó.
 
 Các hàm nhận hoặc trả về các hàm khác được gọi là "các hàm bậc cao" \(higher order functions\).
 
@@ -64,7 +64,7 @@ Chúng ta có thể viết lại bất kỳ hàm nhiều tham số theo cách n�
 
 Ví dụ: nếu chúng ta có một số code khác chỉ muốn kiểm tra xem một cuốn sách đã được xuất bản trong một năm nhất định hay không, chúng ta muốn gọi `publishedInYear(book, 2012)` nhưng chúng ta không thể làm được điều đó được nữa. Thay vào đó, chúng ta phải gọi `publishedInYear(2012)(book)`. Nó khó đọc và gây phiền toái hơn.
 
-May mắn thay, Ramda cung cấp hai hàm để giúp chúng ta: `partial` và một `partialRight`.
+May mắn thay, Ramda cung cấp hai hàm để giúp chúng ta: `partial` và  `partialRight`.
 
 Hai hàm này cho phép chúng ta gọi bất kỳ hàm nào với ít tham số hơn nó cần. Cả hai đều trả lại một hàm mới nhận vào các tham số và sau đó gọi các hàm ban đầu một khi tất cả các tham số đã được cung cấp.
 
@@ -122,7 +122,7 @@ Chúng ta có thể một lần nữa gọi `publishedInYear` với số năm v�
 
 ## THỨ TỰ THAM SỐ
 
-Lưu ý rằng để `curry` làm việc cho chúng ta, chúng ta đã phải đảo ngược thứ tự tham số. Điều này là rất phổ biến với lập trình hàm, do đó, hầu như mỗi hàm của Ramda được viết để cho các dữ liệu cần thiết để vận hành đi đến như là tham số cuối cùng.
+Lưu ý rằng để `curry` làm việc, chúng ta đã phải đảo ngược thứ tự tham số. Điều này là rất phổ biến với lập trình hàm, do đó, hầu như mỗi hàm của Ramda được viết để cho các dữ liệu cần thiết để vận hành đi đến như là tham số cuối cùng.
 
 Bạn có thể nghĩ về các tham số trước đó như là cấu hình cho tác vụ. Vì vậy, đối với `publishedInYear`, tham số `year` là cấu hình \(chúng ta đang tìm kiếm cái gì?\) Và tham số `book` là dữ liệu \(chúng ta đang tìm kiếm nó ở đâu?\).
 
@@ -233,9 +233,9 @@ const titlesForYear = curry((year, books) =>
 
 ## KẾT LUẬN
 
-Bài viết này có lẽ là bài đi sâu nhất trong loạt bài này. Áp dụng từng phần và currying có thể mất một thời gian và nỗ lực để trở nên quen thuộc với bạn. Nhưng một khi bạn "hiểu ra" chúng, chúng sẽ giới thiệu cho bạn một cách rất mạnh mẽ để chuyển đổi dữ liệu của bạn theo cách lập trình hàm.
+Bài viết này có lẽ là bài đi sâu nhất trong loạt bài viết. Áp dụng từng phần và currying có thể mất một thời gian và nỗ lực để trở nên quen thuộc với bạn. Nhưng một khi bạn "hiểu ra" chúng, chúng sẽ giới thiệu cho bạn một cách rất hữu ích để chuyển đổi dữ liệu của bạn theo hướng lập trình hàm.
 
-Chúng sẽ hướng bạn đến việc bắt đầu xây dựng các phép biến đổi bằng cách tạo ra những đường ống nhỏ, các khối xây dựng đơn giản.
+Chúng sẽ dẫn bạn đến việc bắt đầu xây dựng các phép biến đổi bằng cách tạo ra những đường ống nhỏ, các khối xây dựng đơn giản.
 
 ## TIẾP THEO
 

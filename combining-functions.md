@@ -20,9 +20,9 @@ const isEven = x => x % 2 === 0
 find(isEven, [1, 2, 3, 4]) // --> 2
 ```
 
-Điều gì sẽ xảy ra nếu chúng ta muốn tìm số lẻ đầu tiên. Chúng ta luôn có thể viết một hàm `isOdd` và sử dụng nó, nhưng chúng ta biết rằng bất kỳ số nào nếu không phải là chẵn thỉ là số lẻ. Chúng ta hãy sử dụng lại hàm `isEven`.
+Điều gì sẽ xảy ra nếu chúng ta muốn tìm số lẻ đầu tiên. Chúng ta luôn có thể viết một hàm `isOdd` và sử dụng nó, nhưng chúng ta biết rằng bất kỳ số nào nếu không phải là chẵn thì là số lẻ. Chúng ta hãy sử dụng lại hàm `isEven`.
 
-Ramda cung cấp một hàm bậc cao \(higher order function\), `complement`, lấy nhận một hàm và trả về một hàm mới, trả về `true` khi hàm gốc trả về một giá trị `false` và `false` khi hàm gốc trả về một giá trị `true`.
+Ramda cung cấp một hàm bậc cao \(higher order function\), `complement`, nhận một hàm và trả về một hàm mới, trả về `true` khi hàm gốc trả về một giá trị `false` và `false` khi hàm gốc trả về một giá trị `true`.
 
 ```
 const isEven = x => x % 2 === 0
@@ -98,9 +98,9 @@ Chú ý mỗi thao tác được áp dụng dựa trên kết quả của phép 
 
 Ramda cung cấp hàm `pipe`, nhận vào danh sách của một hoặc nhiều hàm và trả về một hàm mới.
 
-Hàm mới có cùng số đối số như là hàm đầu tiên được đưa vào. Sau đó nó sẽ "truyền" \(pipe\) những đối số thông qua mỗi hàm trong danh sách. Nó áp dụng hàm đầu tiên cho các tham số, truyền kết quả của nó đến hàm thứ hai và vv. Kết quả của hàm cuối cùng là kết quả của lệnh gọi `pipe`.
+Hàm mới có cùng số tham số như là hàm đầu tiên được đưa vào. Sau đó nó sẽ "truyền" \(pipe\) những đối số thông qua mỗi hàm trong danh sách. Nó áp dụng hàm đầu tiên cho các tham số, truyền kết quả của nó đến hàm thứ hai và vv. Kết quả của hàm cuối cùng là kết quả của lệnh gọi `pipe`.
 
-Lưu ý rằng tất cả các hàm sau hàm đầu tiên phải chỉ có một đối số duy nhất.
+Lưu ý rằng tất cả các hàm sau hàm đầu tiên phải chỉ có một tham số duy nhất.
 
 Biết được điều này, chúng ta có thể sử dụng `pipe` để đơn giản hóa hàm operate của chúng ta:
 
