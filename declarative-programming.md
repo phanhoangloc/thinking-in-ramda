@@ -120,27 +120,27 @@ Có một vài trường hợp sử dụng phổ biến của `===`: kiểm tra 
 
 ## LOGIC
 
-Trong Phần 2 \(và ở trên\), chúng tôi đã sử dụng cả hai và một trong hai chức năng thay cho && và \|\| hoạt động. Chúng tôi cũng nói chuyện về bổ sung tại chỗ của!
+Trong [Phần 2](/combining-functions.md) \(và ở trên\), chúng ta đã sử dụng các hàm `both` và `either` thay cho `&&` và `||`. Chúng tôi cũng nói về việc `complement`  thay vì `!`
 
-Những chức năng kết hợp này hoạt động tốt khi các chức năng chúng ta kết hợp cả hai hoạt động trên cùng một giá trị. Trên đây, làBornInCountry, wasNaturalized, và isOver18 đều áp dụng cho một người.
+Những hàm kết hợp này hoạt động tốt khi cả hai hàm chúng ta kết hợp hoạt động trên cùng một giá trị. Trên đây, `wasBornInCountry`, `wasNaturalized`, và `isOver18` đều áp dụng cho một người.
 
-Nhưng đôi khi chúng ta cần áp dụng &&, \|\|, và! để các giá trị khác nhau. Đối với những trường hợp đó, Ramda cho chúng ta và, hoặc, và không có chức năng. Tôi nghĩ về nó theo cách này: và, hoặc, và không làm việc với các giá trị, trong khi cả hai, hoặc, và bổ sung làm việc với các chức năng.
+Nhưng đôi khi chúng ta cần áp dụng `&&`, `||`, và `!` cho các giá trị khác biệt. Đối với những trường hợp đó, Ramda cho chúng ta các hàm `and`, `or`, và `not`. Tôi nghĩ về nó theo cách này: `and`, `or`, và `not` làm việc với các giá trị, trong khi cả `both`, `either`, và `complement` làm việc với các hàm.
 
-Sử dụng chung của \|\| là để cung cấp các giá trị mặc định. Ví dụ, chúng ta có thể viết một cái gì đó như thế này:
+Trường hợp sử dụng phổ biến của `||` là để cung cấp các giá trị mặc định. Ví dụ, chúng ta có thể viết như thế này:
 
 ```
 const lineWidth = settings.lineWidth || 80
 ```
 
-Đây là một thành ngữ phổ biến, và chủ yếu hoạt động, nhưng dựa vào định nghĩa "sai" của JavaScript. Điều gì sẽ xảy ra nếu 0 là một thiết lập hợp lệ? Vì 0 là sai, chúng ta sẽ kết thúc với chiều rộng dòng là 80.
+Đây là một thành ngữ phổ biến, và hoạt động đúng trong phần lớn trường hợp, nhưng lại dựa vào định nghĩa "falsy" của JavaScript. Điều gì sẽ xảy ra nếu `0` là một giá hợp lệ? Vì `0` là falsy, chúng ta sẽ kết thúc với lineWidth là 80.
 
-Chúng ta có thể sử dụng hàm isNil mà chúng ta vừa học được ở trên, nhưng một lần nữa Ramda có một lựa chọn đẹp hơn cho chúng ta: defaultTo.
+Chúng ta có thể sử dụng hàm `isNil` mà chúng ta vừa học được ở trên, nhưng một lần nữa Ramda có một lựa chọn tốt hơn cho chúng ta: `defaultTo`.
 
 ```
 const lineWidth = defaultTo(80, settings.lineWidth)
 ```
 
-defaultTo kiểm tra nếu đối số thứ hai làNil. Nếu không, nó trả về giá trị đó, nếu không thì nó trả về giá trị đầu tiên.
+`defaultTo` kiểm tra nếu đối số thứ hai với `isNil`. Nếu không, nó trả về giá trị đó, ngược lại thì nó trả về giá trị đầu tiên.
 
 ## Điều kiện
 
