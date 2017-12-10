@@ -82,7 +82,7 @@ const titlesForYear = curry((year, books) =>
 )
 ```
 
-Lưu ý rằng sách chỉ xuất hiện hai lần: một lần là tham số cuối cùng trong danh sách đối số \(dữ liệu cuối cùng!\), Và một lần ở cuối của hàm khi chúng ta áp dụng đường ống dẫn của chúng vào nó. Điều này cũng tương tự như mô hình chúng ta thấy với độ tuổi ở trên, do đó hãy áp dụng cùng một sự chuyển đổi với nó:
+Lưu ý rằng books chỉ xuất hiện hai lần: một lần là tham số cuối cùng trong danh sách đối số \(dữ liệu cuối cùng!\), Và một lần ở cuối của hàm khi chúng ta áp dụng đường ống vào nó. Điều này cũng tương tự như mô hình chúng ta thấy với độ tuổi ở trên, do đó hãy áp dụng cùng một sự chuyển đổi với nó:
 
 ```
 const titlesForYear = year =>
@@ -92,21 +92,21 @@ const titlesForYear = year =>
   )
 ```
 
-Nó hoạt động! Bây giờ chúng ta có một phiên bản pointForre miễn phí của danh sáchForYear.
+Nó hoạt động! Bây giờ chúng ta có một phiên bản pointfree cho titlesForYear.
 
 Trung thực, tôi có lẽ sẽ không hướng tới phong cách pointfree trong trường hợp này vì JavaScript không làm cho việc gọi một loạt các hàm đối số đơn giản là thuận tiện, như chúng ta đã thảo luận trong các bài viết trước đó.
 
-Nếu chúng ta muốn sử dụng các tiêu đềNếu trong một đường ống, chúng tôi vẫn ổn. Chúng ta có thể gọi titleForYear \(2012\) rất dễ dàng. Nhưng nếu chúng ta muốn sử dụng nó một cách tự nhiên, chúng ta phải quay trở lại mô hình\) \(mô hình chúng ta đã thấy trong bài trước: titlesForYear \(2012\) \(books\). Với tôi, điều đó không có giá trị.
+Nếu chúng ta muốn sử dụng titlesForYear trong một đường ống, nó vẫn ổn. Chúng ta có thể gọi titleForYear\(2012\) rất dễ dàng. Nhưng nếu chúng ta muốn sử dụng nó một cách tự nhiên, chúng ta phải quay trở lại mô hình \)\( mà chúng ta đã thấy trong bài trước: titlesForYear\(2012\) \(books\). Với tôi, điều đó không đáng để đánh đổi.
 
-Nhưng bất cứ lúc nào tôi có một đối số duy nhất chức năng đó sau \(hoặc có thể được refactored để làm theo\) các mô hình trên, tôi sẽ hầu như luôn luôn làm cho nó pointfree.
+Nhưng bất cứ lúc nào tôi có hàm một tham số theo \(hoặc có thể được refactored để theo\) mô hình trên, tôi sẽ hầu như luôn luôn làm cho nó pointfree.
 
-Tái cấu trúc lại thành Pointfree
+## REFACTOR THÀNH POINTFREE
 
-Sẽ có những lúc các chức năng của chúng tôi không theo khuôn mẫu. Chúng tôi có thể đang hoạt động trên dữ liệu nhiều lần trong cùng một chức năng.
+Sẽ có những lúc các hàm của chúng ta không theo khuôn mẫu. Chúng ta có thể đang vận hành trên dữ liệu nhiều lần trong cùng một hàm.
 
-Đây là trường hợp trong một số ví dụ trong Phần 2. Trong những ví dụ này, chúng tôi đã tái cấu trúc mã của chúng tôi để kết hợp các chức năng bằng cách sử dụng các thứ như cả hai, hoặc, đường ống và sáng tác. Một khi chúng tôi đã làm điều đó, làm cho các chức năng của chúng tôi pointfree là một sự chuyển đổi tương đối dễ dàng.
+Đây là trường hợp trong một số ví dụ trong [Phần 2](/combining-functions.md). Trong những ví dụ này, chúng ta đã tái cấu trúc code để kết hợp các hàm bằng cách sử dụng các thứ như both, either, pipe và compose. Một khi chúng tôi đã làm điều đó, làm cho các hàm của chúng ta pointfree là một sự chuyển đổi tương đối dễ dàng.
 
-Chúng ta hãy nhìn lại ví dụ isEligibleToVote. Đây là nơi chúng tôi bắt đầu:
+Chúng ta hãy nhìn lại ví dụ isEligibleToVote. Đây là nơi chúng ta bắt đầu:
 
 ```
 const wasBornInCountry = person => person.birthCountry === OUR_COUNTRY
@@ -118,46 +118,43 @@ const isCitizen = person => wasBornInCountry(person) || wasNaturalized(person)
 const isEligibleToVote = person => isOver18(person) && isCitizen(person)
 ```
 
-Hãy bắt đầu với isCitizen. Phải mất một người và sau đó áp dụng hai chức năng khác nhau cho người đó, kết hợp các kết quả với \|\|. Như chúng ta đã học trong Phần 2, chúng ta có thể sử dụng hoặc để kết hợp hai chức năng vào một hàm số mới đầu tiên, và sau đó áp dụng hàm kết hợp với người đó.
+Hãy bắt đầu với isCitizen. Nó nhận vào một người person và sau đó áp dụng hai hàm khác nhau cho người đó, kết hợp các kết quả với \|\|. Như chúng ta đã học trong [Phần 2](/combining-functions.md), chúng ta có thể sử dụng either để kết hợp hai hàm vào một hàm số mới trước, và sau đó áp dụng hàm kết hợp với người đó.
 
 ```
 const isCitizen = person => either(wasBornInCountry, wasNaturalized)(person)
 ```
 
-Chúng ta có thể làm điều tương tự với isEligibleToVote bằng cả hai:
+Chúng ta có thể làm điều tương tự với isEligibleToVote bằng both:
 
 ```
 const isEligibleToVote = person => both(isOver18, isCitizen)(person)
 ```
 
-Bây giờ chúng ta đã thực hiện các tái cấu trúc này, chúng ta có thể thấy rằng cả hai hàm đều làm theo mô hình chúng ta đã nói ở trên: người được nhắc đến hai lần, một lần là đối số hàm, và một lần ở cuối khi chúng ta áp dụng hàm kết hợp của chúng với nó. Bây giờ chúng ta có thể refactor để pointfree phong cách:
+Bây giờ chúng ta đã thực hiện việc tái cấu trúc này, chúng ta có thể thấy rằng cả hai hàm đều làm theo mô hình chúng ta đã nói ở trên: person được nhắc đến hai lần, một lần là tham số hàm, và một lần ở cuối khi chúng ta áp dụng hàm kết hợp với nó. Bây giờ chúng ta có thể refactor theo phong cách pointfree:
 
 ```
 const isCitizen = either(wasBornInCountry, wasNaturalized)
 const isEligibleToVote = both(isOver18, isCitizen)
 ```
 
-Tại sao?
+## TẠI SAO?
 
-Phong cách Pointfree cần có thời gian để làm quen. Có thể khó để thích ứng với các đối số dữ liệu bị thiếu ở mọi nơi. Điều quan trọng là phải có một số quen thuộc với các chức năng của Ramda để biết có bao nhiêu đối số mà họ cuối cùng cần.
+Phong cách Pointfree cần có thời gian để làm quen. Có thể khó để thích ứng với các tham số dữ liệu bị thiếu ở mọi nơi. Điều quan trọng là phải có một sự quen thuộc với các hàm của Ramda để biết có bao nhiêu tham số cần thiết.
 
-Nhưng một khi bạn đã quen với nó, nó sẽ trở nên rất mạnh mẽ để có một loạt các chức năng pointfree nhỏ kết hợp với nhau trong những cách thú vị.
+Nhưng một khi bạn đã quen với nó, nó sẽ trở nên rất có giá trị để có một loạt các hàm pointfree nhỏ kết hợp với nhau theo những cách thú vị.
 
-Lợi thế của phong cách pointfree là gì? Người ta có thể lập luận rằng đó chỉ là một bài tập học thuật được thiết kế để giành được huy hiệu mệnh danh chương trình chức năng. Tuy nhiên, tôi nghĩ rằng có một vài lợi thế, thậm chí mặc dù công việc cần để làm quen với phong cách:
+Lợi thế của phong cách pointfree là gì? Có người lập luận rằng đó chỉ là một bài tập học thuật được thiết kế để giành được huy hiệu mệnh danh lập trình hàm. Tuy nhiên, tôi nghĩ rằng nó có một vài lợi thế, mặc dù phải mất thời gian để làm quen:
 
-Nó làm cho các chương trình đơn giản và súc tích hơn. Đây không phải là một điều tốt, nhưng nó có thể được.
+* Nó làm cho các chương trình đơn giản và súc tích hơn. Đây không phải luôn là một điều tốt, nhưng có thể.
+* Nó làm cho các thuật toán rõ ràng hơn. Bằng cách chỉ tập trung vào các hàm được kết hợp, chúng ta có được một cảm nhận tốt hơn về những gì đang xảy ra khi không có các tham số dữ liệu.
+* Nó buộc chúng ta suy nghĩ nhiều hơn về việc chuyển đổi đang được thực hiện hơn là về dữ liệu đang được chuyển đổi.
+* Nó giúp chúng ta suy nghĩ về các hàm của chúng ta như các khối xây dựng thông thường, có thể làm việc với các loại dữ liệu khác nhau, hơn là nghĩ về chúng như các hoạt động trên một loại dữ liệu cụ thể. Bằng cách cung cấp cho dữ liệu một cái tên, chúng ta đang hạn chế suy nghĩ của chúng ta về nơi mà chúng ta có thể sử dụng hàm. Bằng cách bỏ qua dữ liệu, nó cho phép chúng ta sáng tạo hơn.
 
-Nó làm cho các thuật toán rõ ràng hơn. Bằng cách chỉ tập trung vào các chức năng được kết hợp, chúng ta có được một ý nghĩa tốt hơn về những gì đang xảy ra mà không có đối số dữ liệu nhận được trong cách.
-
-Nó buộc chúng ta suy nghĩ nhiều hơn về việc chuyển đổi đang được thực hiện hơn là về dữ liệu đang được chuyển đổi.
-
-Nó giúp chúng ta suy nghĩ về các chức năng của chúng ta như các khối xây dựng thông thường có thể làm việc với các loại dữ liệu khác nhau, hơn là nghĩ về chúng như các hoạt động trên một loại dữ liệu cụ thể. Bằng cách cung cấp cho dữ liệu một cái tên, chúng tôi đang neo đậu suy nghĩ của chúng tôi về nơi mà chúng tôi có thể sử dụng chức năng của chúng tôi. Bằng cách lập luận dữ liệu, nó cho phép chúng ta sáng tạo hơn.
-
-Phần kết luận
+## KẾT LUẬN
 
 Phong cách không Pointfree, còn được gọi là lập trình ngầm, có thể làm cho mã của chúng tôi rõ ràng và dễ hiểu hơn. Bằng cách tái cấu trúc mã của chúng tôi để kết hợp tất cả biến đổi của chúng tôi thành một chức năng duy nhất, chúng tôi sẽ kết thúc với các khối xây dựng nhỏ hơn có thể được sử dụng ở nhiều nơi hơn.
 
-Kế tiếp
+## KẾ TIẾP
 
 Trong ví dụ của chúng tôi, chúng tôi đã không thể refactor tất cả mọi thứ để phong cách pointfree. Chúng tôi vẫn có mã được viết theo phong cách bắt buộc. Hầu hết các mã này là xử lý các đối tượng và mảng.
 
