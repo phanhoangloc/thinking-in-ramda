@@ -113,68 +113,68 @@ Ví dụ: chúng ta có thể cung cấp một placeholder khi chúng ta không 
 
 ### keys / values
 
-phím trả về một mảng có chứa tên của tất cả các thuộc tính của chính nó trong một đối tượng. các giá trị trả về các giá trị của các thuộc tính đó. Các chức năng này có thể hữu ích khi kết hợp với các chức năng lặp lại bộ sưu tập mà chúng ta đã học được trong Phần 1.
+keys trả về một mảng có chứa tên của tất cả các thuộc tính của chính nó trong một đối tượng. values trả về các giá trị của các thuộc tính đó. Các hàm này có thể hữu ích khi kết hợp với các hàm lặp trên tập hợp mà chúng ta đã học được trong Phần 1.
 
-Thêm, cập nhật và xóa thuộc tính
+## THÊM, CẬP NHẬT VÀ XÓA THUỘC TÍNH
 
-Bây giờ chúng ta có rất nhiều công cụ để đọc từ các đối tượng một cách khai báo, nhưng khi nào chúng ta muốn thay đổi thì sao?
+Bây giờ chúng ta có rất nhiều công cụ để đọc từ các đối tượng một cách declarative, nhưng khi chúng ta muốn thay đổi thì sao?
 
-Vì tính bất biến là quan trọng, chúng ta không muốn thay đổi trực tiếp các đối tượng. Thay vào đó, chúng tôi muốn trả lại các đối tượng mới đã được thay đổi theo cách chúng tôi muốn.
+Vì tính bất biến là quan trọng, chúng ta không muốn thay đổi trực tiếp các đối tượng. Thay vào đó, chúng ta muốn trả lại các đối tượng mới đã được thay đổi theo cách chúng ta muốn.
 
-Một lần nữa, Ramda cung cấp rất nhiều sự giúp đỡ cho chúng tôi.
+Một lần nữa, Ramda cung cấp rất nhiều sự giúp đỡ cho chúng ta.
 
-assoc / assocPath
+### assoc / assocPath
 
-Khi lập trình bắt buộc, chúng ta có thể thiết lập hoặc thay đổi tên của một người với toán tử gán: person.name = 'New name'.
+Khi lập trình theo cách imperative, chúng ta có thể thiết lập hoặc thay đổi tên của một người với toán tử gán: person.name = 'New name'.
 
-Trong thế giới chức năng, không thay đổi của chúng ta, chúng ta sử dụng assoc thay vì: const updatedPerson = assoc \('name', 'New name', person\).
+Trong thế giới functional, bất biến của chúng ta, chúng ta sử dụng assoc: const updatedPerson = assoc\('name', 'New name', person\).
 
-assoc trả về một đối tượng mới với giá trị thuộc tính được cập nhật hoặc cập nhật, để đối tượng ban đầu không thay đổi.
+assoc trả về một đối tượng mới với giá trị thuộc tính được cập nhật, để đối tượng ban đầu không thay đổi.
 
-Ngoài ra còn có assocPath để cập nhật một thuộc tính lồng nhau: const updatedPerson = assocPath \(\['address', 'zipcode', '97504', person\).
+Ngoài ra còn có assocPath để cập nhật một thuộc tính lồng nhau: const updatedPerson = assocPath\(\['address', 'zipcode'\], '97504', person\).
 
-dissoc / dissocPath / bỏ qua
+### dissoc / dissocPath / omit
 
-Điều gì về việc xóa tài sản? Nhu cầu, chúng tôi có thể muốn nói xóa person.age. Trong Ramda, chúng ta sẽ sử dụng dissoc: const updatedPerson = dissoc \('age', person\).
+Việc xoá thuộc tính thì như thế nào? Theo cách imperative, chúng ta có thể muốn xóa person.age. Trong Ramda, chúng ta sẽ sử dụng dissoc: const updatedPerson = dissoc\('age', person\).
 
-dissocPath tương tự, nhưng hoạt động sâu hơn vào cấu trúc của đối tượng: dissocPath \(\['address', 'zipCode'\), person\).
+dissocPath tương tự, nhưng hoạt động sâu hơn vào cấu trúc của đối tượng: dissocPath\(\['address', 'zipCode'\), person\).
 
-Cũng có thể bỏ qua, có thể loại bỏ một số tài sản cùng một lúc. const updatedPerson = bỏ qua \(\['tuổi', 'birthCountry'\], người\).
+Cũng có omit, có thể loại bỏ một số thuộc tính cùng một lúc. const updatedPerson = omit\(\['tuổi', 'birthCountry'\], người\).
 
-Lưu ý rằng chọn và bỏ qua là khá tương tự và bổ sung cho nhau độc đáo. Chúng rất tiện dụng cho danh sách trắng \(chỉ giữ lại các thuộc tính này bằng cách chọn\) hoặc danh sách đen \(loại bỏ thuộc tính này bằng cách bỏ qua\).
+Lưu ý rằng pick và omit là khá tương tự và bổ sung cho nhau. Chúng rất tiện dụng cho white-listing \(chỉ giữ lại các thuộc tính này bằng pick\) hoặc black-listing \(loại bỏ các thuộc tính này bằng omit\).
 
-Chuyển đổi Thuộc tính
+### Chuyển đổi các thuộc tính
 
-Bây giờ chúng ta đã biết đủ để làm việc với các vật thể theo một cách khai báo và không thay đổi. Hãy viết một chức năng, chào mừngBirthday, cập nhật tuổi của một người vào sinh nhật của họ.
+Bây giờ chúng ta đã biết đủ để làm việc với các đối tượng theo một cách declarative và bất biến. Hãy viết một hàm, celebrateBirthday, cập nhật tuổi của một người vào sinh nhật của họ.
 
 ```
 const nextAge = compose(inc, prop('age'))
 const celebrateBirthday = person => assoc('age', nextAge(person), person)
 ```
 
-Đây là một mẫu khá phổ biến. Thay vì cập nhật thuộc tính đến một giá trị mới được biết, chúng tôi thực sự muốn chuyển đổi giá trị bằng cách áp dụng một hàm cho giá trị cũ như chúng ta đã làm ở đây.
+Đây là một mẫu \(pattern\) khá phổ biến. Thay vì cập nhật thuộc tính đến một giá trị mới được biết, chúng ta thực sự muốn chuyển đổi giá trị bằng cách áp dụng một hàm cho giá trị cũ như chúng ta đã làm ở đây.
 
-Tôi không biết một cách hay để viết ra điều này với sự trùng lặp ít hơn và trong phong cách phi tuyến miễn phí cho các công cụ chúng tôi biết.
+Tôi không biết một cách hay để viết ra điều này với sự trùng lặp ít hơn và theo phong cách pointfree dựa trên các công cụ chúng tôi biết.
 
-Ramda để giải cứu một lần nữa với chức năng tiến triển của nó. Tôi giới thiệu tiến triển trong một bài trước.
+Ramda để giải cứu chúng ta một lần nữa với hàm evolve của nó. Tôi giới thiệu evolve trong một [bài viết trước](http://randycoulman.com/blog/2016/02/16/using-ramda-with-redux/).
 
-tiến triển có một đối tượng xác định một chức năng chuyển đổi cho mỗi thuộc tính được chuyển đổi. Hãy tái tổ chức lại RefactorBirthday để sử dụng tiến triển:
+evolve có một đối tượng xác định một chức năng chuyển đổi cho mỗi thuộc tính được chuyển đổi. Hãy tái tổ chức lại RefactorBirthday để sử dụng evolve:
 
 ```
 const celebrateBirthday = evolve({ age: inc })
 ```
 
-Mã này nói để phát triển đối tượng đích \(không được hiển thị ở đây vì phong cách pointfree\) bằng cách tạo ra một đối tượng mới có cùng các thuộc tính và giá trị, nhưng độ tuổi của nó có được bằng cách áp dụng inc với giá trị tuổi gốc.
+Code này để phát triển đối tượng đích \(không được hiển thị ở đây vì phong cách pointfree\) bằng cách tạo ra một đối tượng mới có cùng các thuộc tính và giá trị, nhưng age của nó có được bằng cách áp dụng inc với giá trị age gốc.
 
-tiến triển có thể chuyển đổi nhiều thuộc tính cùng một lúc và ở nhiều cấp độ làm tổ. Đối tượng chuyển đổi có thể có cùng hình dạng với đối tượng đang được tiến hóa và tiến triển sẽ đệ quy qua các cấu trúc, áp dụng các chức năng chuyển đổi khi nó đi.
+evolve có thể chuyển đổi nhiều thuộc tính cùng một lúc và ở nhiều cấp độ làm nesting. Đối tượng chuyển đổi có thể có cùng hình dạng với đối tượng đang được tiến hóa và evolve sẽ đệ quy qua các cấu trúc, áp dụng các hàm chuyển đổi khi nó đi.
 
-Lưu ý rằng phát triển sẽ không thêm thuộc tính mới; nếu bạn chỉ định một sự chuyển đổi cho một thuộc tính không xuất hiện trong đối tượng đích, thì tiến triển sẽ chỉ bỏ qua nó.
+Lưu ý rằng evolve sẽ không thêm thuộc tính mới; nếu bạn chỉ định một sự chuyển đổi cho một thuộc tính không xuất hiện trong đối tượng đích, thì evolve sẽ bỏ qua nó.
 
-Tôi đã phát hiện ra rằng tiến triển đã nhanh chóng trở thành một workhorse trong các ứng dụng của tôi.
+Tôi đã phát hiện ra rằng evolve đã nhanh chóng trở thành một workhorse trong các ứng dụng của tôi.
 
-Hợp nhất Đối tượng
+## HỢP NHẤT CÁC ĐỐI TƯỢNG
 
-Đôi khi, bạn sẽ muốn hợp nhất hai đối tượng lại với nhau. Một trường hợp phổ biến là khi bạn có một chức năng mà có các tùy chọn được đặt tên và bạn muốn kết hợp các tùy chọn với một bộ các tùy chọn mặc định. Ramda cung cấp hợp nhất cho mục đích này.
+Đôi khi, bạn sẽ muốn hợp nhất hai đối tượng lại với nhau. Một trường hợp phổ biến là khi bạn có một hàm mà có các tùy chọn được đặt tên và bạn muốn kết hợp các tùy chọn với một bộ các tùy chọn mặc định. Ramda cung cấp merge cho mục đích này.
 
 ```
 function f(a, b, options = {}) {
@@ -183,23 +183,25 @@ function f(a, b, options = {}) {
 }
 ```
 
-hợp nhất trả về một đối tượng mới có chứa tất cả các thuộc tính và giá trị từ cả hai đối tượng. Nếu cả hai đối tượng có cùng một thuộc tính, giá trị từ đối số thứ hai sẽ được sử dụng.
+merge trả về một đối tượng mới có chứa tất cả các thuộc tính và giá trị từ cả hai đối tượng. Nếu cả hai đối tượng có cùng một thuộc tính, giá trị từ đối số thứ hai sẽ được sử dụng.
 
-Có tranh chấp thứ hai chiến thắng có ý nghĩa khi sử dụng hợp nhất của chính nó, nhưng ít hơn trong một tình huống đường ống. Trong trường hợp đó, bạn thường thực hiện một loạt các biến đổi đối với một đối tượng và một trong những biến đổi đó là hợp nhất một số giá trị thuộc tính mới. Trong trường hợp này, bạn muốn đối số đầu tiên giành chiến thắng.
+Tham số thứ hai chiến thắng có ý nghĩa khi sử dụng merge bởi chính nó, nhưng ít có giá trị trong một tình huống đường ống \(pipe\). Trong trường hợp đó, bạn thường thực hiện một loạt các biến đổi đối với một đối tượng và một trong những biến đổi đó là hợp nhất một số giá trị của thuộc tính mới. Trong trường hợp này, bạn muốn tham số đầu tiên giành chiến thắng.
 
-Đơn giản chỉ cần sử dụng hợp nhất \(newValues\) trong đường ống sẽ không làm những gì bạn mong đợi.
+Đơn giản chỉ cần sử dụng merge\(newValues\) trong đường ống sẽ không làm những gì bạn mong đợi.
 
-Đối với tình huống này, tôi thường định nghĩa một hàm tiện ích gọi là reverseMerge. Nó có thể được viết như const reversMerge = flip \(merge\). Nhớ lại rằng lật ngược hai đối số đầu tiên của hàm mà nó được áp dụng.
+Đối với tình huống này, tôi thường định nghĩa một hàm tiện ích gọi là reverseMerge. Nó có thể được viết như const reversMerge = flip\(merge\). Nhớ lại rằng flip đảo ngược hai đối số đầu tiên của hàm mà nó được áp dụng.
 
-hợp nhất thực hiện một sự hợp nhất nông. Nếu các đối tượng đang được hợp nhất cả hai đều có một thuộc tính có giá trị là một đối tượng phụ, những đối tượng con đó sẽ không được hợp nhất. Ramda hiện không có khả năng "hợp nhất sâu", nơi các đối tượng con được hợp nhất đệ quy.
+merge thực hiện một sự hợp nhất cạn \(shallow merge\). Nếu các đối tượng đang được hợp nhất cả hai đều có một thuộc tính có giá trị là một đối tượng phụ, những đối tượng con đó sẽ không được hợp nhất. Ramda hiện không có khả năng "hợp nhất sâu", nơi các đối tượng con được hợp nhất đệ quy.
 
 Lưu ý rằng hợp nhất chỉ mất hai đối số. Nếu bạn muốn hợp nhất nhiều đối tượng vào một, có mergeAll có một mảng các đối tượng sẽ được hợp nhất.
 
-Phần kết luận
+## KẾT LUẬN
 
-Điều này đã cho chúng ta một bộ công cụ đẹp để làm việc với các đối tượng theo một cách khai báo và không thay đổi. Bây giờ chúng ta có thể đọc, thêm, cập nhật, xoá và chuyển đổi thuộc tính trong các đối tượng mà không thay đổi đối tượng gốc. Và chúng ta có thể làm những điều này theo một cách hoạt động khi kết hợp các chức năng.
+Bài viết này đã cho chúng ta một bộ công cụ để làm việc với các đối tượng theo cách declarative và bất biến. Bây giờ chúng ta có thể đọc, thêm, cập nhật, xoá và chuyển đổi thuộc tính trong các đối tượng mà không thay đổi đối tượng gốc. Và chúng ta có thể làm những điều này dựa trên sự kết hợp các hàm.
 
-Kế tiếp
+## TIẾP THEO
 
-Bây giờ chúng ta có thể làm việc với các đối tượng một cách không thay đổi, những gì về mảng? Tính không thay đổi và Mảng hiển thị chúng ta như thế nào.
+Bây giờ chúng ta có thể làm việc với các đối tượng một cách bất biến, còn mảng thì sao? [Tính bất biến và mảng](//immutability-array.md) chỉ ra cho chúng ta như thế nào.
+
+Nguồn: [Thinking in Ramda: Immutability and Objects](http://randycoulman.com/blog/2016/06/28/thinking-in-ramda-immutability-and-objects/)
 
