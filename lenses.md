@@ -91,5 +91,7 @@ Code sau đó có thể làm việc với cấu trúc dữ liệu của chúng t
 
 ## TIẾP THEO
 
-Bây giờ chúng ta đã học được rất nhiều thứ mà Ramda cung cấp; chắc chắn đủ để làm hầu hết những gì chúng ta cần làm trong các chương trình của chúng ta. Tổng kết đánh giá series này và đề cập đến một số chủ đề khác mà chúng ta có thể muốn khám phá thêm.
+Bây giờ chúng ta đã học được rất nhiều thứ mà Ramda cung cấp; chắc chắn đủ để làm hầu hết những gì chúng ta cần làm trong các chương trình của chúng ta. [Tổng kết](///wrap-up.md) đánh giá series này và đề cập đến một số chủ đề khác mà chúng ta có thể muốn khám phá thêm.
+
+Nguồn: [Thinking in Ramda: Lenses](http://randycoulman.com/blog/2016/07/12/thinking-in-ramda-lenses/)
 
