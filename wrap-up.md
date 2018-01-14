@@ -1,10 +1,8 @@
 # TỔNG KẾT
 
-DRAFT VERSION
-
 Bài viết này hoàn thành series về lập trình hàm được gọi là [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/).
 
-Trong tám bài viết vừa qua, chúng tôi đã nói về thư viện Ramda cung cấp các hàm để làm việc với JavaScript theo hướng lập trình hàm, declarative và bất biến.
+Trong 8 bài viết vừa qua, chúng ta đã nói về thư viện Ramda cung cấp các hàm để làm việc với JavaScript theo hướng lập trình hàm, declarative và bất biến.
 
 Trong series này, chúng ta đã biết rằng Ramda có một số nguyên tắc cơ bản:
 
@@ -26,13 +24,13 @@ Hai nguyên tắc này cho phép chúng ta viết code theo hướng lập trì
 * Tính bất biến và Mảng tiếp tục chủ đề và cho chúng ta thấy làm thế nào để làm tương tự cho các mảng.
 * Ống kính kết luận bằng cách giới thiệu khái niệm ống kính, một cấu trúc cho phép chúng ta tập trung vào một phần nhỏ của một cấu trúc dữ liệu lớn hơn. Sử dụng chế độ xem, đặt, và hơn, chúng ta có thể đọc, cập nhật và chuyển đổi giá trị tập trung trong ngữ cảnh của cấu trúc dữ liệu lớn hơn của nó.
 
-## TIẾP THEO LÀ GÌ?
+## TIẾP THEO?
 
-Chúng ta đã không bao gồm tất cả các phần của Ramda trong series này. Đặc biệt, chúng ta đã không nói về các hàm để làm việc với chuỗi, và chúng ta đã không nói về những khái niệm tiên tiến hơn như [transducers](http://ramdajs.com/0.21.0/docs/#transduce).
+Chúng ta đã không bao gồm tất cả các phần của Ramda trong series này. Đặc biệt, chúng ta đã không nói về các hàm để làm việc với chuỗi và những khái niệm tiên tiến hơn như [transducers](http://ramdajs.com/0.21.0/docs/#transduce).
 
 Để tìm hiểu thêm về những gì Ramda có thể làm, tôi khuyên bạn nên đọc kỹ [tài liệu](http://ramdajs.com/docs/). Có rất nhiều thông tin ở đó. Tất cả các hàm được nhóm lại theo loại dữ liệu mà chúng hoạt động, mặc dù có sự đan xen nhau. Ví dụ, một số các hàm mảng cũng sẽ làm việc trên chuỗi, và `map` hoạt động trên cả mảng và đối tượng.
 
-Nếu bạn quan tâm đến các chủ đề lập trình hàm nâng cao hơn, đây là một số nơi bạn có thể đi đến:
+Nếu bạn quan tâm đến các chủ đề lập trình hàm nâng cao hơn, đây là một số nơi bạn có thể tìm hiểu:
 
 * Transducers: Có một [bài giới thiệu hay](http://simplectic.com/blog/2015/ramda-transducers-logs/) về phân tích logs với các transducers.
 * Các kiểu dữ liệu đại số \(ADTs\): Nếu bạn đã đọc nhiều về lập trình hàm, bạn có thể sẽ nghe về các kiểu đại số và thuật ngữ như "Functor", "Applicative" và "Monad". Nếu bạn quan tâm đến việc khám phá những ý tưởng này trong ngữ cảnh của Ramda, hãy xem thử dự án [ramda-fantasy](https://github.com/ramda/ramda-fantasy), nó bổ sung một số loại dữ liệu phù hợp với [Fantasy Land Specification](https://github.com/fantasyland/fantasy-land) \(aka Algebraic JavaScript Specification\).
