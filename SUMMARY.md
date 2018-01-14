@@ -9,7 +9,7 @@
 * [6. Tính bất biến và đối tượng](/immutability-object.md)
 * [7. Tính bất biến và mảng](/immutability-array.md)
 * [8. Lenses](/lenses.md)
-* [Tổng kết](//wrap-up.md)
+* [Tổng kết](/wrap-up.md)
 
 
 
