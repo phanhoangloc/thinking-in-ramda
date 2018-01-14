@@ -1,22 +1,20 @@
 # LENSES
 
-DRAFT VERSION
+Bài đăng này là Phần 8 của loạt bài về lập trình chức năng được gọi là [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/).
 
-Bài đăng này là Phần 8 của loạt bài về lập trình chức năng được gọi là Tư duy trong Ramda.
+Trong [Phần 6](//immutability-object.md) và [Phần 7](//immutability-array.md), chúng ta đã học cách đọc, cập nhật và chuyển đổi các thuộc tính của đối tượng và các phần tử mảng theo cách declarative và bất biến.
 
-Trong Phần 6 và Phần 7, chúng ta đã học cách đọc, cập nhật và chuyển đổi thuộc tính đối tượng và các phần tử mảng theo một cách khai báo, không thay đổi.
+Ramda cung cấp một công cụ tổng quát hơn để thực hiện các tác vụ này, lens \(ống kính\).
 
-Ramda cung cấp một công cụ tổng quát hơn để thực hiện các hoạt động này, ống kính.
+## LENS LÀ GÌ?
 
-Lens là gì?
+Lens kết hợp một hàm "getter" và một hàm "setter" vào một đơn vị. Ramda cung cấp một bộ các hàm để làm việc với lens.
 
-Một ống kính kết hợp một hàm "getter" và một hàm "setter" vào một đơn vị. Ramda cung cấp một bộ các chức năng để làm việc với ống kính.
+Chúng ta có thể nghĩ đến lens như một cái gì đó tập trung vào một phần cụ thể của một cấu trúc dữ liệu lớn hơn.
 
-Chúng ta có thể nghĩ đến một ống kính như một cái gì đó tập trung vào một phần cụ thể của một cấu trúc dữ liệu lớn hơn.
+## LÀM THẾ NÀO ĐỂ TẠO MỘT LENS?
 
-Làm thế nào để Tạo một Lens?
-
-Cách chung nhất để tạo một ống kính ở Ramda là với chức năng ống kính. ống kính lấy một hàm getter và một hàm setter và trả về ống kính mới.
+Cách phổ biến nhất để tạo một lens ở Ramda là dùng hàm `lens`. `lens` nhận vào một hàm getter, một hàm setter và trả về lens mới.
 
 ```
 const person = {
@@ -34,36 +32,32 @@ const twitterLens = lens(
 )
 ```
 
-Ở đây chúng ta đang sử dụng prop và path như các hàm getter của chúng ta và assoc và assocPath như các hàm setter của chúng ta.
+Ở đây chúng ta sử dụng `prop` và `path` như các hàm getter, `assoc` và `assocPath` như các hàm setter.
 
-Lưu ý rằng chúng ta phải sao chép các thuộc tính và đối số đường dẫn đến các hàm này. May mắn thay, Ramda cung cấp các phím tắt đẹp cho việc sử dụng phổ biến nhất của ống kính: lensProp, lensPath, và lensIndex.
+Lưu ý rằng chúng ta phải sao chép các thuộc tính và đối số đường dẫn đến các hàm này. May mắn thay, Ramda cung cấp các phím tắt cho các trường hợp sử dụng phổ biến nhất của lens: `lensProp`, `lensPath`, và `lensIndex`.
 
-lensProp tạo ra một ống kính tập trung vào một thuộc tính của một đối tượng.
+* `lensProp` tạo ra một lens tập trung vào một thuộc tính của một đối tượng.
+* `lensPath` tạo ra một lens tập trung vào một thuộc tính lồng nhau của một đối tượng.
+* `lensIndex` tạo ra một lens tập trung vào một phần tử của mảng.
 
-lensPath tạo ra một ống kính tập trung vào một thuộc tính lồng nhau của một đối tượng.
-
-lensIndex tạo ra một ống kính tập trung vào một phần tử của mảng.
-
-Chúng tôi có thể viết lại ống kính của chúng tôi ở trên với lensProp và lensPath:
+Chúng ta có thể viết lại lens ở trên với `lensProp` và `lensPath`:
 
 ```
 const nameLens = lensProp('name')
 const twitterLens = lensPath(['socialMedia', 'twitter'])
 ```
 
-Đó là một đơn giản hơn rất nhiều và được thoát khỏi trùng lắp. Trong thực tế, tôi thấy rằng tôi hầu như không bao giờ cần phải sử dụng chức năng ống kính chung.
+Nó đơn giản hơn rất nhiều và không bị trùng lắp. Trong thực tế, tôi hầu như không bao giờ cần phải sử dụng hàm `lens`.
 
-Tôi có thể làm gì với nó?
+## Tôi có thể làm gì với nó?
 
-OK, tuyệt vời, chúng tôi đã tạo ra một số ống kính. Chúng ta có thể làm gì với họ?
+OK, tuyệt vời, chúng ta đã tạo ra một số lens. Chúng ta có thể làm gì với chúng?
 
-Ramda cung cấp ba chức năng để làm việc với ống kính.
+Ramda cung cấp ba hàm để làm việc với lens.
 
-xem đọc giá trị của ống kính.
-
-thiết lập cập nhật giá trị của ống kính.
-
-over áp dụng một chức năng chuyển đổi cho ống kính.
+* `view` đọc giá trị của lens.
+* `set` cập nhật giá trị của lens.
+* `over` áp dụng một hàm chuyển đổi cho lens.
 
 ```
 view(nameLens, person) // => 'Randy'
@@ -87,15 +81,15 @@ over(nameLens, toUpper, person)
 // }
 ```
 
-Lưu ý rằng thiết lập và trả lại toàn bộ đối tượng với thuộc tính tập trung của ống kính được sửa đổi theo quy định.
+Lưu ý rằng `set` và `over` trả lại toàn bộ đối tượng với thuộc tính của lens được sửa đổi theo chỉ định.
 
-Phần kết luận
+## KẾT LUẬN
 
-Các ống kính có thể hữu ích nếu chúng ta có một cấu trúc dữ liệu phức tạp mà chúng ta muốn trừu tượng khỏi mã gọi. Thay vì phơi bày cấu trúc hoặc cung cấp một bộ getter, setter, và biến áp cho mọi tài sản dễ tiếp cận, thay vào đó chúng ta có thể phơi ra thấu kính.
+Các lens có thể hữu ích nếu chúng ta có một cấu trúc dữ liệu phức tạp mà chúng ta muốn trừu tượng hoá. Thay vì phơi bày cấu trúc hoặc cung cấp một bộ getter, setter, và hàm chuyển đổi cho mọi thuộc tính, thay vào đó chúng ta có thể cung cấp các lens.
 
-Mã khách hàng sau đó có thể làm việc với cấu trúc dữ liệu của chúng tôi bằng cách sử dụng chế độ xem, đặt và hơn mà không cần phải kết hợp với hình dạng chính xác của cấu trúc.
+Code sau đó có thể làm việc với cấu trúc dữ liệu của chúng ta bằng cách sử dụng `view`, `set` và `over` mà không cần phải kết hợp với hình dạng chính xác của cấu trúc.
 
-Kế tiếp
+## TIẾP THEO
 
-Bây giờ chúng ta đã học được rất nhiều thứ mà Ramda cung cấp; chắc chắn đủ để làm hầu hết những gì chúng ta cần làm trong các chương trình của chúng tôi. Tóm tắt đánh giá chuỗi và đề cập đến một số chủ đề khác mà chúng tôi có thể muốn tự khám phá.
+Bây giờ chúng ta đã học được rất nhiều thứ mà Ramda cung cấp; chắc chắn đủ để làm hầu hết những gì chúng ta cần làm trong các chương trình của chúng ta. Tổng kết đánh giá series này và đề cập đến một số chủ đề khác mà chúng ta có thể muốn khám phá thêm.
 
