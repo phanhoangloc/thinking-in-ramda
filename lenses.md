@@ -49,7 +49,7 @@ const twitterLens = lensPath(['socialMedia', 'twitter'])
 
 Nó đơn giản hơn rất nhiều và không bị trùng lắp. Trong thực tế, tôi hầu như không bao giờ cần phải sử dụng hàm `lens`.
 
-## Tôi có thể làm gì với nó?
+## TÔI CÓ THỂ LÀM GÌ VỚI NÓ?
 
 OK, tuyệt vời, chúng ta đã tạo ra một số lens. Chúng ta có thể làm gì với chúng?
 
