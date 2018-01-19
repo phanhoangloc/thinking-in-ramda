@@ -22,7 +22,7 @@ find(isEven, [1, 2, 3, 4]) // --> 2
 
 Điều gì sẽ xảy ra nếu chúng ta muốn tìm số lẻ đầu tiên. Chúng ta luôn có thể viết một hàm `isOdd` và sử dụng nó, nhưng chúng ta biết rằng bất kỳ số nào nếu không phải là chẵn thì là số lẻ. Chúng ta hãy sử dụng lại hàm `isEven`.
 
-Ramda cung cấp một hàm bậc cao \(higher order function\), `complement`, nhận một hàm và trả về một hàm mới, trả về `true` khi hàm gốc trả về một giá trị `false` và `false` khi hàm gốc trả về một giá trị `true`.
+Ramda cung cấp một hàm bậc cao \(higher order function\) `complement`, nhận một hàm và trả về một hàm mới, trả về `true` khi hàm gốc trả về một giá trị `false` và `false` khi hàm gốc trả về một giá trị `true`.
 
 ```
 const isEven = x => x % 2 === 0
@@ -57,9 +57,9 @@ const isEligibleToVote = person => isOver18(person) && isCitizen(person)
 
 Những gì chúng ta đã viết ở trên chạy tốt, nhưng Ramda cung cấp một vài hàm hữu ích để giúp chúng ta viết nó gọn gàng hơn.
 
-`both` nhận hai hàm và trả về một hàm mới, trả về `true` nếu cả hai hàm trả về một giá trị đúng khi áp dụng trên các tham số và `false` theo chiều ngược lại.
+`both` nhận hai hàm và trả về một hàm mới, trả về `true` nếu cả hai hàm trả về một giá trị đúng khi áp dụng trên cùng tham số và `false` theo chiều ngược lại.
 
-`either` nhận hai hàm và trả về một hàm mới, trả về `true` nếu một trong hai hàm trả về giá trị đúng khi áp dụng trên các tham số và `false` theo chiều ngược lại.
+`either` nhận hai hàm và trả về một hàm mới, trả về `true` nếu một trong hai hàm trả về giá trị đúng khi áp dụng trên cùng tham số và `false` theo chiều ngược lại.
 
 Sử dụng hai hàm này, chúng ta có thể đơn giản hóa `isCitizen` và `isEligibleToVote`:
 
