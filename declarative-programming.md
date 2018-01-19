@@ -14,9 +14,9 @@ Có nhiều cách khác nhau để phân chia các ngôn ngữ hay phong cách l
 
 Một sự so sánh như vậy là lập trình imperative \(bắt buộc, mệnh lệnh chi tiết\) và declarative \(khai báo, tuyên bố\).
 
-Nếu không đi quá sâu vào sự so sánh này, lập trình imperative là một phong cách lập trình mà các lập trình viên nói với máy tính phải làm gì bằng cách nói cho nó làm thế nào để làm điều đó. Lập trình imperative tạo ra rất nhiều cấu trúc mà chúng ta sử dụng hàng ngày: điều khiển luồng \(`if`-`then`-`else` statement và vòng lặp\), toán tử số học \(`+`, `-`, `*`, `/`\), toán tử so sánh \(`===`,`>`, `<` , vv\), và các toán tử logic \(`&&`, `||`,`!`\).
+Nếu không đi quá sâu vào sự so sánh này, lập trình imperative là một phong cách lập trình mà các lập trình viên nói với máy tính phải làm gì bằng cách nói cho nó làm thế nào để làm điều đó \(how\). Lập trình imperative tạo ra rất nhiều cấu trúc mà chúng ta sử dụng hàng ngày: điều khiển luồng \(`if`-`then`-`else` statement và vòng lặp\), toán tử số học \(`+`, `-`, `*`, `/`\), toán tử so sánh \(`===`,`>`, `<` , vv\), và các toán tử logic \(`&&`, `||`,`!`\).
 
-Lập trình declarative là một phong cách lập trình mà các lập trình viên nói với máy tính phải làm gì bằng cách nói với nó điều họ muốn. Máy tính sau đó phải tìm ra cách làm thế nào để đạt được kết quả.
+Lập trình declarative là một phong cách lập trình mà các lập trình viên nói với máy tính phải làm gì bằng cách nói với nó điều họ muốn \(what\). Máy tính sau đó phải tìm ra cách làm thế nào để đạt được kết quả.
 
 Một trong những ngôn ngữ declarative cổ điển là Prolog. Trong Prolog, một chương trình bao gồm một tập hợp các sự kiện và một bộ quy tắc suy luận. Bạn khởi động chương trình bằng cách hỏi một câu hỏi, và công cụ suy luận của Prolog sử dụng các sự kiện và các quy tắc để trả lời câu hỏi của bạn.
 
@@ -28,7 +28,7 @@ Ngay cả trong các chương trình declarative, chúng ta cũng cần làm nh�
 
 Vì chúng ta đang lập trình bằng JavaScript, ngôn ngữ imperative, nên việc sử dụng các cấu trúc imperative khi viết mã JavaScript là một điều "bình thường".
 
-Nhưng khi chúng ta tạo ra các biến đổi chức năng \(transformations\) bằng việc sử dụng đường ống và các cấu trúc tương tự, các cấu trúc imperative không hoạt động tốt.
+Nhưng khi chúng ta tạo ra các biến đổi \(transformations\) bằng việc sử dụng đường ống và các cấu trúc tương tự, các cấu trúc imperative không hoạt động tốt.
 
 Hãy nhìn vào một số khối xây dựng cơ bản mà Ramda cung cấp để giúp chúng ta thoát khỏi sự bất tiện này.
 
