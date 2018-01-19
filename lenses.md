@@ -8,7 +8,7 @@ Ramda cung cấp một công cụ tổng quát hơn để thực hiện các tá
 
 ## LENS LÀ GÌ?
 
-Lens kết hợp một hàm "getter" và một hàm "setter" vào một đơn vị. Ramda cung cấp một bộ các hàm để làm việc với lens.
+Lens kết hợp một hàm "getter" và một hàm "setter" vào một đơn vị duy nhất. Ramda cung cấp một bộ các hàm để làm việc với lens.
 
 Chúng ta có thể nghĩ đến lens như một cái gì đó tập trung vào một phần cụ thể của một cấu trúc dữ liệu lớn hơn.
 
@@ -85,7 +85,7 @@ Lưu ý rằng `set` và `over` trả lại toàn bộ đối tượng với thu
 
 ## KẾT LUẬN
 
-Các lens có thể hữu ích nếu chúng ta có một cấu trúc dữ liệu phức tạp mà chúng ta muốn trừu tượng hoá. Thay vì phơi bày cấu trúc hoặc cung cấp một bộ getter, setter, và hàm chuyển đổi cho mọi thuộc tính, thay vào đó chúng ta có thể cung cấp các lens.
+Các lens có thể hữu ích nếu chúng ta có một cấu trúc dữ liệu phức tạp mà chúng ta muốn trừu tượng hoá. Thay vì phơi bày cấu trúc hoặc cung cấp một bộ getter, setter, và hàm chuyển đổi cho mọi thuộc tính, chúng ta có thể cung cấp các lens.
 
 Code sau đó có thể làm việc với cấu trúc dữ liệu của chúng ta bằng cách sử dụng `view`, `set` và `over` mà không cần phải kết hợp với hình dạng chính xác của cấu trúc.
 
