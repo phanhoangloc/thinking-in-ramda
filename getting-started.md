@@ -1,6 +1,6 @@
 # BẮT ĐẦU
 
-Bài viết này là sự khởi đầu của một series mới về lập trình hàm được gọi là [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/).
+Bài viết này là sự khởi đầu của series về lập trình hàm \(functional programming\) được gọi là [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/).
 
 Tôi sẽ sử dụng thư viện [Ramda](http://ramdajs.com/) cho loạt bài này, mặc dù nhiều ý tưởng có thể được áp dụng cho các thư viện JavaScript khác như [Underscore](http://underscorejs.org/) và [Lodash](https://lodash.com/), cũng như cho các ngôn ngữ khác.
 
@@ -49,15 +49,15 @@ JavaScript là một ngôn ngữ như vậy, và chúng ta sẽ tận dụng đi
 
 Khi viết các chương trình theo hướng lập trình hàm, điều quan trọng là chúng ta làm việc chủ yếu với các hàm "thuần khiết" \(pure functions\).
 
-Các hàm thuần khiết là những hàm không có hiệu ứng phụ \(side effects\). Chúng không gán giá trị cho bất kỳ các biến bên ngoài, chúng không tiêu thụ đầu vào, chúng không sản xuất đầu ra, chúng không đọc hoặc ghi vào cơ sở dữ liệu, chúng không sửa đổi các tham số chúng được truyền, vv
+Các hàm thuần khiết là những hàm không có hiệu ứng phụ \(side effects\). Chúng không gán giá trị cho bất kỳ các biến bên ngoài, chúng không tiêu thụ đầu vào, chúng không sản xuất đầu ra, chúng không đọc hoặc ghi vào cơ sở dữ liệu, chúng không sửa đổi các tham số chúng được truyền vào, vv
 
 Ý tưởng cơ bản là, nếu bạn gọi một hàm với các đầu vào giống nhau nhiều lần, bạn luôn nhận được kết quả giống nhau.
 
-Bạn chắc chắn có thể làm một số thứ với các hàm không thuần khiết \(và bạn phải, nếu chương trình của bạn muốn làm bất cứ điều gì thú vị\), nhưng phần lớn bạn sẽ muốn giữ cho hầu hết các hàm của bạn trở nên thuần khiết.
+Bạn chắc chắn có thể làm một số thứ với các hàm không thuần khiết \(và bạn cần phải làm như vậy nếu chương trình của bạn muốn làm bất cứ điều gì thú vị\), nhưng phần lớn bạn sẽ muốn giữ cho hầu hết các hàm của bạn trở nên thuần khiết.
 
 ## TÍNH BẤT BIẾN
 
-Một khái niệm quan trọng khác trong lập trình hàm là "tính bất biến" \(immutability\). Điều đó có nghĩa là gì? "Không thay đổi" \(immutable\) có nghĩa là "không thể thay đổi được".
+Một khái niệm quan trọng khác trong lập trình hàm là "tính bất biến" \(immutability\). Điều đó có nghĩa là gì? "Bất biến" \(immutable\) có nghĩa là "không thể thay đổi được".
 
 Khi tôi làm việc theo mô hình bất biến, một khi tôi khởi tạo một giá trị hoặc một đối tượng tôi không bao giờ có thể thay đổi nó một lần nữa. Điều đó có nghĩa là sẽ không có sự thay đổi các phần tử của một mảng hoặc các thuộc tính của một đối tượng.
 
@@ -67,7 +67,7 @@ Tính bất biến luôn đi cùng với các hàm thuần khiết. Vì các hà
 
 ## BẮT ĐẦU TỪ ĐÂU?
 
-Cách dễ nhất để bắt đầu suy nghĩ theo hướng lập trình hàm là bắt đầu thay thế các vòng lặp bằng tập hợp các hàm lặp.
+Cách dễ nhất để bắt đầu suy nghĩ theo hướng lập trình hàm là bắt đầu thay thế các vòng lặp \(loop\) bằng các hàm lặp trên tập hợp.
 
 Nếu bạn đến từ một ngôn ngữ khác mà có các hàm này \(Ruby và Smalltalk là hai ví dụ\), bạn có thể đã quen thuộc với chúng.
 
@@ -91,11 +91,11 @@ forEach(value => console.log(value), myArray)
 
 `forEach` nhận vào một hàm và một mảng, gọi hàm trên mỗi phần tử của mảng.
 
-Trong khi `forEach` là cách dễ tiếp cận nhất của các hàm lặp này, nó lại ít được sử dụng nhất trong lập trình hàm. Nó không trả về một giá trị, vì vậy thực sự nó chỉ được sử dụng cho việc gọi các hàm có hiệu ứng phụ.
+Trong khi `forEach` là cách dễ tiếp cận nhất của các hàm lặp này, nó lại ít được sử dụng nhất trong lập trình hàm. Nó không trả về một giá trị, vì vậy thực sự nó chỉ được sử dụng cho việc gọi các hàm có hiệu ứng phụ \(side effects\).
 
 ### map
 
-Chức năng quan trọng nhất tiếp theo để học là `map`. Giống như `forEach`, `map` áp dụng một hàm cho mỗi phần tử của mảng. Tuy nhiên, không giống như `forEach`, `map` thu thập các kết quả của việc áp dụng hàm vào một mảng mới và trả về nó.
+Hàm quan trọng nhất tiếp theo cần học là `map`. Giống như `forEach`, `map` áp dụng một hàm cho mỗi phần tử của mảng. Tuy nhiên, không giống như `forEach`, `map` thu thập các kết quả của việc áp dụng hàm vào một mảng mới và trả về nó.
 
 Đây là một ví dụ:
 
