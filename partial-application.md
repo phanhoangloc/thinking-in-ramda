@@ -30,7 +30,7 @@ Các hàm nhận hoặc trả về các hàm khác được gọi là "các hàm
 
 Trong ví dụ ở trên, chúng ta truyền hàm mũi tên để `filter`: `book => publishedInYear(book, year)`, và chúng ta muốn cố gắng loại bỏ mũi tên. Để làm được điều đó, chúng ta cần một hàm mà nó nhận vào một cuốn sách và trả về giá trị đúng nếu cuốn sách được xuất bản trong một năm nhất định. Nhưng chúng ta cũng cần phải truyền vào số năm để làm cho hàm này linh hoạt.
 
-Cách chúng ta có thể giải quyết vấn đề này là thay đổi `publishedInYear` thành một hàm trả về một hàm khác. Tôi sẽ viết nó với cú pháp chức năng đầy đủ để bạn có thể xem những gì xảy ra, nhưng sau đó tôi sẽ cho bạn thấy phiên bản ngắn hơn bằng cách sử dụng cú pháp mũi tên:
+Cách chúng ta có thể giải quyết vấn đề này là thay đổi `publishedInYear` thành một hàm trả về một hàm khác. Tôi sẽ viết nó với cú pháp hàm đầy đủ để bạn có thể xem những gì xảy ra, nhưng sau đó tôi sẽ cho bạn thấy phiên bản ngắn hơn bằng cách sử dụng cú pháp mũi tên:
 
 ```
 // Full function version:
@@ -66,7 +66,7 @@ Ví dụ: nếu chúng ta có một số code khác chỉ muốn kiểm tra xem 
 
 May mắn thay, Ramda cung cấp hai hàm để giúp chúng ta: `partial` và  `partialRight`.
 
-Hai hàm này cho phép chúng ta gọi bất kỳ hàm nào với ít tham số hơn nó cần. Cả hai đều trả lại một hàm mới nhận vào các tham số và sau đó gọi các hàm ban đầu một khi tất cả các tham số đã được cung cấp.
+Hai hàm này cho phép chúng ta gọi bất kỳ hàm nào với ít tham số hơn nó cần. Cả hai đều trả lại một hàm mới, nhận vào các tham số và sau đó gọi các hàm ban đầu một khi tất cả các tham số đã được cung cấp.
 
 Sự khác biệt giữa `partial` và `partialRight` là có phải các tham số mà chúng ta cung cấp là các tham số bên trái nhất hoặc bên phải nhất cần thiết bởi hàm ban đầu.
 
@@ -150,7 +150,7 @@ const titlesForYear = (books, year) => {
 }
 ```
 
-Trong hầu hết các trường hợp, tôi muốn ưu tiên sử dụng thứ tự tham số thuận tiện hơn, nhưng nếu bạn cần sử dụng một hàm mà bạn không kiểm soát, `flip` là một lựa chọn hữu ích.
+Trong hầu hết các trường hợp, tôi muốn ưu tiên sử dụng thứ tự tham số thuận tiện hơn, nhưng nếu bạn cần sử dụng một hàm mà bạn không kiểm soát được, `flip` là một lựa chọn hữu ích.
 
 ### placeholder
 
@@ -204,7 +204,7 @@ const titlesForYear = (books, year) => {
 
 Chúng ta đã học được về `pipe` và `compose` trong bài viết trước đó, nhưng chúng ta cần thêm một thông tin nữa để có thể tận dụng điều đó.
 
-Phần thông tin còn thiếu là: hầu như mọi hàm của Ramda đều được curried theo mặc định. Nó bao gồm `filter` và `map`. Vì vậy, `filter(publishedInYear(year))` là hoàn toàn hợp lệ và trả về một hàm mới mà chỉ cần chờ chúng ta truyền vào `books` sau đó, tiếp theo là `map(book => book.title)`.
+Phần thông tin còn thiếu là: hầu như mọi hàm của Ramda đều được curried theo mặc định. Nó bao gồm `filter` và `map`. Vì vậy, `filter(publishedInYear(year))` là hoàn toàn hợp lệ và trả về một hàm mới, chờ chúng ta truyền vào `books` sau đó, tiếp theo là `map(book => book.title)`.
 
 Và bây giờ chúng ta có thể tạo ra đường ống:
 
