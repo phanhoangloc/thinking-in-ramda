@@ -122,7 +122,7 @@ Có một vài trường hợp sử dụng phổ biến của `===`: kiểm tra 
 
 Trong [Phần 2](/combining-functions.md) \(và ở trên\), chúng ta đã sử dụng các hàm `both` và `either` thay cho `&&` và `||`. Chúng ta cũng nói về việc dùng `complement`  thay vì `!`
 
-Những hàm kết hợp này hoạt động tốt khi cả hai hàm chúng ta kết hợp hoạt động trên cùng một giá trị. Trên đây, `wasBornInCountry`, `wasNaturalized`, và `isOver18` đều áp dụng cho một người.
+Những hàm kết hợp này hoạt động tốt khi cả hai hàm chúng ta kết hợp hoạt động trên cùng một giá trị. Trên đây, `wasBornInCountry`, `wasNaturalized`, và `isOver18` đều áp dụng cho một người `person`.
 
 Nhưng đôi khi chúng ta cần áp dụng `&&`, `||`, và `!` cho các giá trị khác biệt. Đối với những trường hợp đó, Ramda cho chúng ta các hàm `and`, `or`, và `not`. Tôi nghĩ về nó theo cách này: `and`, `or`, và `not` làm việc với các giá trị, trong khi cả `both`, `either`, và `complement` làm việc với các hàm.
 
@@ -132,7 +132,7 @@ Trường hợp sử dụng phổ biến của `||` là để cung cấp các gi
 const lineWidth = settings.lineWidth || 80
 ```
 
-Đây là một cách sử dụng phổ biến, và hoạt động đúng trong phần lớn trường hợp, tuy nhiên nó lại dựa vào định nghĩa "falsy" của JavaScript. Điều gì sẽ xảy ra nếu `0` là một giá hợp lệ? Vì `0` là falsy, chúng ta sẽ kết thúc với lineWidth là 80.
+Đây là một cách sử dụng phổ biến, và hoạt động đúng trong phần lớn trường hợp, tuy nhiên nó lại dựa vào định nghĩa "falsy" của JavaScript. Điều gì sẽ xảy ra nếu `0` là một giá hợp lệ? Vì `0` là falsy, chúng ta sẽ kết thúc với `lineWidth` là `80`.
 
 Chúng ta có thể sử dụng hàm `isNil` mà chúng ta vừa học được ở trên, nhưng một lần nữa Ramda có một lựa chọn tốt hơn cho chúng ta: `defaultTo`.
 
@@ -140,9 +140,9 @@ Chúng ta có thể sử dụng hàm `isNil` mà chúng ta vừa học được 
 const lineWidth = defaultTo(80, settings.lineWidth)
 ```
 
-`defaultTo` kiểm tra nếu đối số thứ hai với `isNil`. Nếu false, nó trả về giá trị đó, ngược lại thì nó trả về giá trị đầu tiên.
+`defaultTo` kiểm tra nếu đối số thứ hai với `isNil`. Nếu `false`, nó trả về giá trị đó, ngược lại thì nó trả về giá trị đầu tiên.
 
-## Điều kiện
+## ĐIỀU KIỆN
 
 Điều khiển luồng là không cần thiết trong các chương trình theo lập trình hàm, nhưng đôi khi vẫn hữu ích. Các hàm lặp trên tập hợp mà chúng ta đã nói ở [Phần 1](//getting-started.md) bao gồm hầu hết các tình huống lặp, nhưng các cấu trúc điều kiện vẫn còn quan trọng.
 
