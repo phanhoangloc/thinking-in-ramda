@@ -98,7 +98,7 @@ Chú ý mỗi thao tác được áp dụng dựa trên kết quả của phép 
 
 Ramda cung cấp hàm `pipe`, nhận vào danh sách của một hoặc nhiều hàm và trả về một hàm mới.
 
-Hàm mới có cùng số tham số như là hàm đầu tiên được đưa vào. Sau đó nó sẽ "truyền" \(pipe\) những đối số thông qua mỗi hàm trong danh sách. Nó áp dụng hàm đầu tiên cho các tham số, truyền kết quả của nó đến hàm thứ hai và vv. Kết quả của hàm cuối cùng là kết quả của lệnh gọi `pipe`.
+Hàm mới có cùng số tham số như là hàm đầu tiên được đưa vào. Sau đó nó sẽ "truyền" \(pipe\) những tham số thông qua mỗi hàm trong danh sách. Nó áp dụng hàm đầu tiên cho các tham số, truyền kết quả của nó đến hàm thứ hai và vv. Kết quả của hàm cuối cùng là kết quả của lệnh gọi `pipe`.
 
 Lưu ý rằng tất cả các hàm sau hàm đầu tiên phải chỉ có một tham số duy nhất.
 
@@ -122,9 +122,9 @@ Một cách khác chúng ta có thể viết hàm `operate` ban đầu của ch�
 const operate = (x, y) => square(addOne(multiply(x, y)))
 ```
 
-Nhìn nó còn nhỏ gọn hơn, nhưng lại hơi khó đọc hơn. Tuy nhiên, trong hình thức đó, nó dẫn đến việc có thể viết lại bằng cách sử dụng hàm `compose` của Ramda.
+Nhìn nó nhỏ gọn hơn, nhưng lại hơi khó đọc hơn. Tuy nhiên, trong hình thức đó, nó dẫn đến việc có thể viết lại bằng cách sử dụng hàm `compose` của Ramda.
 
-`compose` chính xác theo cùng cách với `pipe`, ngoại trừ việc áp dụng các hàm theo thứ tự từ phải sang trái \(right to left\) thay vì từ trái sang phải \(left to right\). Hãy viết lại `operate` với `compose`:
+`compose` hoạt động chính xác theo cùng cách với `pipe`, ngoại trừ việc áp dụng các hàm theo thứ tự từ phải sang trái \(right to left\) thay vì từ trái sang phải \(left to right\). Hãy viết lại `operate` với `compose`:
 
 ```
 const operate = compose(
