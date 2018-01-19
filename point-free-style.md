@@ -2,7 +2,7 @@
 
 Bài đăng này là Phần 5 của loạt bài về lập trình hàm được gọi là [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/).
 
-Trong [phần 4](/declarative-programming.md), chúng ta đã nói về việc viết code theo cách khai báo \(nói với máy tính phải làm gì\) thay vì imperative \(nói với máy tính làm như thế nào\).
+Trong [phần 4](/declarative-programming.md), chúng ta đã nói về việc viết code theo cách declarative \(nói với máy tính phải làm gì\) thay vì imperative \(nói với máy tính làm như thế nào\).
 
 Bạn có thể nhận thấy rằng một vài hàm mà chúng ta đã viết \(`forever21`, `drivingAge`và `water`\) đều nhận vào một tham số, xây dựng một hàm mới và sau đó áp dụng hàm đó cho tham số.
 
@@ -27,7 +27,7 @@ Chúng ta hãy nhìn vào `forever21`:
 const forever21 = age => ifElse(gte(__, 21), always(21), inc)(age)
 ```
 
-Lưu ý rằng độ tuổi `age` chỉ xuất hiện hai lần: một lần trong danh sách tham số và một lần ở cuối của hàm khi chúng ta áp dụng hàm mới được trả về bởi ifElse.
+Lưu ý rằng độ tuổi `age` chỉ xuất hiện hai lần: một lần trong danh sách tham số và một lần ở cuối của hàm khi chúng ta áp dụng hàm mới được trả về bởi `ifElse`.
 
 Nếu chúng ta để ý trong khi làm việc với Ramda, chúng ta sẽ thấy mẫu này rất nhiều. Nó có nghĩa là có một cách để chuyển đổi hàm sang phong cách pointfree.
 
@@ -37,7 +37,7 @@ Hãy xem nó sẽ như thế nào:
 const forever21 = ifElse(gte(__, 21), always(21), inc)
 ```
 
-Và, poof! Chúng ta vừa làm cho số tuổi `age` biến mất. Phong cách pointfree. Lưu ý rằng không có sự khác biệt về hành vi trong hai phiên bản này. Chúng ta vẫn trả lại một hàm nhận vào số tuổi, nhưng bây giờ chúng ta không chỉ rõ tham số tuổi.
+Và, poof! Chúng ta vừa làm cho số tuổi `age` biến mất. Phong cách pointfree. Lưu ý rằng không có sự khác biệt về hành vi trong hai phiên bản này. Chúng ta vẫn trả lại một hàm nhận vào số tuổi, nhưng bây giờ chúng ta không chỉ rõ tham số tuổi `age`.
 
 Chúng ta có thể làm tương tự với `alwaysDrivingAge` và `water`.
 
@@ -71,7 +71,7 @@ Và đây là `water` theo phong cách pointfree:
 
 ## HÀM ĐA THAM SỐ {#multi-argument-functions}
 
-Vậy các hàm mà có nhiều hơn một tham số thì sao ? Chúng ta hãy nhìn lại ví dụ `titlesForYear` từ [Phần 3](/partial-application.md).
+Vậy các hàm có nhiều hơn một tham số thì sao ? Chúng ta hãy nhìn lại ví dụ `titlesForYear` từ [Phần 3](/partial-application.md).
 
 ```
 const titlesForYear = curry((year, books) =>
@@ -96,7 +96,7 @@ Nó hoạt động! Bây giờ chúng ta có một phiên bản pointfree cho `t
 
 Thực tế thì tôi có lẽ sẽ không hướng tới phong cách pointfree trong trường hợp này vì JavaScript không làm cho việc gọi hàm với một loạt các tham số được thuận tiện, như chúng ta đã thảo luận trong các bài viết trước đó.
 
-Nếu chúng ta muốn sử dụng `titlesForYear` trong một đường ống, nó vẫn ổn. Chúng ta có thể gọi `titleForYear(2012)` rất dễ dàng. Nhưng nếu chúng ta muốn sử dụng nó một cách tự nhiên, chúng ta phải quay trở lại mô hình `)(` mà chúng ta đã thấy trong bài trước: `titlesForYear(2012) (books)`. Với tôi, điều đó không đáng để đánh đổi.
+Nếu chúng ta muốn sử dụng `titlesForYear` trong một đường ống, nó vẫn ổn. Chúng ta có thể gọi `titleForYear(2012)` rất dễ dàng. Nhưng nếu chúng ta muốn sử dụng nó một cách tự nhiên, chúng ta phải quay trở lại mô hình `)(` mà chúng ta đã thấy trong bài trước: `titlesForYear(2012)(books)`. Với tôi, điều đó không đáng để đánh đổi.
 
 Nhưng bất cứ lúc nào tôi có hàm một tham số theo \(hoặc có thể được refactor để theo\) mô hình trên, tôi sẽ luôn làm cho nó pointfree.
 
@@ -118,7 +118,7 @@ const isCitizen = person => wasBornInCountry(person) || wasNaturalized(person)
 const isEligibleToVote = person => isOver18(person) && isCitizen(person)
 ```
 
-Hãy bắt đầu với `isCitizen`. Nó nhận vào một người `person` và sau đó áp dụng hai hàm khác nhau cho người đó, kết hợp các kết quả với `||`. Như chúng ta đã học trong [Phần 2](/combining-functions.md), chúng ta có thể sử dụng `either` để kết hợp hai hàm vào một hàm số mới trước, và sau đó áp dụng hàm kết hợp với người đó.
+Hãy bắt đầu với `isCitizen`. Nó nhận vào một người `person` và sau đó áp dụng hai hàm khác nhau cho người đó, kết hợp các kết quả với `||`. Như chúng ta đã học trong [Phần 2](/combining-functions.md), chúng ta có thể sử dụng `either` để kết hợp hai hàm vào một hàm số mới trước, và sau đó áp dụng hàm kết hợp với người đó `person`.
 
 ```
 const isCitizen = person => either(wasBornInCountry, wasNaturalized)(person)
@@ -145,7 +145,7 @@ Nhưng một khi bạn đã quen với nó, nó sẽ trở nên rất có giá t
 
 Lợi thế của phong cách pointfree là gì? Có người lập luận rằng đó chỉ là một bài tập học thuật được thiết kế để giành được huy hiệu mệnh danh lập trình hàm. Tuy nhiên, tôi nghĩ rằng nó có một vài lợi thế, mặc dù phải mất thời gian để làm quen:
 
-* Nó làm cho các chương trình đơn giản và súc tích hơn \(Đây không phải luôn là một điều tốt\).
+* Nó làm cho các chương trình đơn giản và súc tích hơn \(Đây không phải luôn luôn là một điều tốt\).
 * Nó làm cho các thuật toán rõ ràng hơn. Bằng cách chỉ tập trung vào các hàm được kết hợp, chúng ta có được một cảm nhận tốt hơn về những gì đang xảy ra khi không có các tham số dữ liệu.
 * Nó buộc chúng ta suy nghĩ nhiều hơn về việc chuyển đổi đang được thực hiện hơn là về dữ liệu đang được chuyển đổi.
 * Nó giúp chúng ta suy nghĩ về các hàm của chúng ta như các khối xây dựng thông thường, có thể làm việc với các loại dữ liệu khác nhau, hơn là nghĩ về chúng như các hoạt động trên một loại dữ liệu cụ thể. Bằng cách cung cấp cho dữ liệu một cái tên, chúng ta đang hạn chế suy nghĩ của chúng ta về nơi mà chúng ta có thể sử dụng hàm. Bằng cách bỏ qua dữ liệu, nó cho phép chúng ta sáng tạo hơn.
