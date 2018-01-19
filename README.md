@@ -30,7 +30,7 @@ Nội dung
 
 ---
 
-Bản dịch này có thể còn nhiều sai sót, thiếu sự trao chuốt trong từ ngữ, tối nghĩa...
+Bản dịch này có thể còn nhiều sai sót, thiếu sự trao chuốt trong từ ngữ, tối nghĩa,...
 
 Mọi ý kiến đóng góp hay thắc mắc xin vui lòng liên hệ tại [đây](https://github.com/phanhoangloc/thinking-in-ramda/issues)
 
