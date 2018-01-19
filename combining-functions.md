@@ -8,7 +8,7 @@ Trong [Phần 1](//getting-started.md), tôi giới thiệu Ramda và một số
 
 Một khi bạn đã quen với ý tưởng truyền hàm đến các hàm khác, bạn có thể bắt đầu tìm ra các tình huống mà bạn muốn kết hợp nhiều hàm với nhau.
 
-Ramda cung cấp một số chức năng để tạo các kết hợp đơn giản. Hãy nhìn vào một vài ví dụ.
+Ramda cung cấp một số hàm để tạo các kết hợp đơn giản. Hãy nhìn vào một vài ví dụ.
 
 ### complement
 
