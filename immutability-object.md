@@ -85,7 +85,7 @@ const wasNaturalized = compose(Boolean, prop('naturalizationDate'))
 const isOver18 = compose(gte(__, 18), prop('age'))
 ```
 
-Không rõ ràng khi bắt đầu các phương pháp của chúng ta để làm hai việc khác nhau. Cả hai đều truy cập thuộc tính của một đối tượng và thực hiện một số tác vụ dựa trên giá trị của thuộc tính đó. Việc tái cấu trúc này theo phong cách pointfree đã làm cho điều đó rất rõ ràng.
+Khi bắt đầu, thật khó để nhận ra rằng các hàm của chúng ta đã làm hai việc khác nhau. Cả hai đều truy cập thuộc tính của một đối tượng và thực hiện một số tác vụ dựa trên giá trị của thuộc tính đó. Việc tái cấu trúc này theo phong cách pointfree đã làm cho điều đó rất rõ ràng.
 
 Hãy nhìn vào một số công cụ khác mà Ramda cung cấp để làm việc với các đối tượng.
 
@@ -103,13 +103,13 @@ Nếu chúng ta chỉ muốn biết nếu một đối tượng có một thuộ
 
 Trong khi `prop` đọc một thuộc tính từ một đối tượng, `path` đi vào các đối tượng lồng nhau. Ví dụ: chúng ta có thể truy cập mã zip từ cấu trúc sâu hơn dưới dạng `path(['address', 'zipCode'), person)`.
 
-Lưu ý rằng `path` khoan dung hơn `prop`. `path` sẽ trả lại `undefined` nếu bất cứ điều gì dọc theo đường dẫn \(bao gồm cả các đối số ban đầu\) là `null` hoặc `undefined` trong khi `prop` sẽ gây ra một lỗi.
+Lưu ý rằng `path` "khoan dung" hơn `prop`. `path` sẽ trả lại `undefined` nếu bất cứ điều gì dọc theo đường dẫn \(bao gồm cả các đối số ban đầu\) là `null` hoặc `undefined` trong khi `prop` sẽ gây ra một lỗi.
 
 ### propOr / pathOr
 
-propOr và pathOr tương tự như prop và path kết hợp với defaultTo. Chúng cho phép bạn cung cấp giá trị mặc định để sử dụng nếu không thể tìm thấy thuộc tính hoặc đường dẫn trong đối tượng đích.
+`propOr` và `pathOr` tương tự như `prop` và `path` kết hợp với `defaultTo`. Chúng cho phép bạn cung cấp giá trị mặc định để sử dụng nếu không thể tìm thấy thuộc tính hoặc đường dẫn trong đối tượng đích.
 
-Ví dụ: chúng ta có thể cung cấp một placeholder khi chúng ta không biết tên của một người: propOr\('&lt;Unnamed&gt;', 'name', person\). Lưu ý rằng không giống như prop, propOr sẽ không gây ra một lỗi nếu person là null hoặc undefined; nó sẽ trả về giá trị mặc định.
+Ví dụ: chúng ta có thể cung cấp một placeholder khi chúng ta không biết tên của một người: `propOr('<Unnamed>', 'name', person)`. Lưu ý rằng không giống như `prop`, `propOr` sẽ không gây ra một lỗi nếu `person` là `null` hoặc `undefined`; nó sẽ trả về giá trị mặc định.
 
 ### keys / values
 
@@ -127,7 +127,7 @@ Một lần nữa, Ramda cung cấp rất nhiều sự giúp đỡ cho chúng ta
 
 Khi lập trình theo cách imperative, chúng ta có thể thiết lập hoặc thay đổi tên của một người với toán tử gán: `person.name = 'New name'`.
 
-Trong thế giới functional, bất biến của chúng ta, chúng ta sử dụng `assoc`: `const updatedPerson = assoc('name', 'New name', person)`.
+Trong thế giới functional và bất biến, chúng ta sử dụng `assoc`: `const updatedPerson = assoc('name', 'New name', person)`.
 
 `assoc` trả về một đối tượng mới với giá trị thuộc tính được cập nhật, để đối tượng ban đầu không thay đổi.
 
@@ -143,7 +143,7 @@ Cũng có `omit`, có thể loại bỏ một số thuộc tính cùng một lú
 
 Lưu ý rằng `pick` và `omit` là khá tương tự và bổ sung cho nhau. Chúng rất tiện dụng cho white-listing \(chỉ giữ lại các thuộc tính này bằng `pick`\) hoặc black-listing \(loại bỏ các thuộc tính này bằng `omit`\).
 
-### Chuyển đổi các thuộc tính
+## CHUYỂN ĐỔI CÁC THUỘC TÍNH
 
 Bây giờ chúng ta đã biết đủ để làm việc với các đối tượng theo một cách declarative và bất biến. Hãy viết một hàm, `celebrateBirthday`, cập nhật tuổi của một người vào sinh nhật của họ.
 
@@ -174,7 +174,7 @@ Tôi đã phát hiện ra rằng `evolve` đã nhanh chóng trở thành một w
 
 ## HỢP NHẤT CÁC ĐỐI TƯỢNG
 
-Đôi khi, bạn sẽ muốn hợp nhất hai đối tượng lại với nhau. Một trường hợp phổ biến là khi bạn có một hàm mà có các tùy chọn và bạn muốn kết hợp các tùy chọn này với một bộ các tùy chọn mặc định. Ramda cung cấp `merge` cho mục đích này.
+Đôi khi, bạn sẽ muốn hợp nhất hai đối tượng lại với nhau. Một trường hợp phổ biến là khi bạn có một hàm có các tùy chọn \(options\) và bạn muốn kết hợp các tùy chọn này với một bộ các tùy chọn mặc định. Ramda cung cấp `merge` cho mục đích này.
 
 ```
 function f(a, b, options = {}) {
